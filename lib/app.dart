@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:hai_portfolio/ui/screens/home/home_screen.dart';
-import 'package:hai_portfolio/ui/theme/theme.dart';
+import 'package:hai_portfolio/ui/theme/app_theme.dart';
 
 
 
@@ -17,7 +17,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     ScreenUtil.init(context);
     return GetMaterialApp(
-      theme: AppTheme.of(context).lightTheme,
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.of(context).darkTheme,
       darkTheme: AppTheme.of(context).darkTheme,
       home: const HomeScreen(),
     );
