@@ -1,23 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:hai_portfolio/ui/screens/home/home_screen.dart';
-import 'package:hai_portfolio/ui/theme/theme.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hai_portfolio/app.dart';
 
-void main() {
+void main() async {
+  await ScreenUtil.ensureScreenSize();
+   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MyApp());
 }
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return GetMaterialApp(
-      theme: lightTheme,
-      darkTheme: darkTheme,
-      home: const HomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
