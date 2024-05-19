@@ -16,13 +16,15 @@ class HomeWeb extends StatefulWidget {
 class _HomeWebState extends State<HomeWeb> {
   @override
   Widget build(BuildContext context) {
+    final contentPadding = 200.w;
+    final sectionSpace = 140.h;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(height: 80.h),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 200.w),
+              padding: EdgeInsets.symmetric(horizontal: contentPadding),
               child: const Column(
                 children: [
                   Row(
@@ -41,7 +43,7 @@ class _HomeWebState extends State<HomeWeb> {
             ),
             SizedBox(height: 80.h),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 200.w),
+              padding: EdgeInsets.symmetric(horizontal: contentPadding),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -59,15 +61,16 @@ class _HomeWebState extends State<HomeWeb> {
                               style: TextStyle(
                                 fontSize: 60,
                                 fontWeight: FontWeight.w900,
+                                height: 1.3,
                               ),
                             ).gradient(),
-                            SizedBox(height: 20.h),
+                            SizedBox(height: 40.h),
                             const Text(
                               'I like to craft solid and scalable frontend products \nwith great user experiences.',
                               style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w300,
-                              ),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w300,
+                                  height: 1.8),
                             ),
                             SizedBox(height: 100.h),
                             Row(
@@ -78,6 +81,7 @@ class _HomeWebState extends State<HomeWeb> {
                                     style: TextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.w200,
+                                      height: 1.8,
                                     ),
                                   ).gradient(),
                                 ),
@@ -88,6 +92,7 @@ class _HomeWebState extends State<HomeWeb> {
                                     style: TextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.w200,
+                                      height: 1.8,
                                     ),
                                   ).gradient(),
                                 )
@@ -124,8 +129,9 @@ class _HomeWebState extends State<HomeWeb> {
                 ],
               ),
             ),
+            SizedBox(height: sectionSpace),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 200.w),
+              padding: EdgeInsets.symmetric(horizontal: contentPadding),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -145,9 +151,9 @@ class _HomeWebState extends State<HomeWeb> {
                         const Text(
                           "I design, even though I'm probably not the typical designer sitting in front of an Illustrator artboard tweaking pixels. You can always find me buried in stylesheets, fiddling with font sizes and thinking about layouts (~_^). Creating fluid user experiences is something I'm committed to doing while looking chic.",
                           style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w300,
-                          ),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w300,
+                              height: 1.8),
                         ),
                       ],
                     ),
@@ -169,9 +175,9 @@ class _HomeWebState extends State<HomeWeb> {
                         const Text(
                           "I have the ideal tools for developing JavaScript applications, and I can definitely work without them to produce quick, durable solutions that are designed for growth – performance and scalability are top objectives on my radar.",
                           style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w300,
-                          ),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w300,
+                              height: 1.8),
                         ),
                       ],
                     ),
@@ -179,7 +185,7 @@ class _HomeWebState extends State<HomeWeb> {
                 ],
               ),
             ),
-            SizedBox(height: 100.h),
+            SizedBox(height: 400.h),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 120.w),
               child: Row(
@@ -194,8 +200,8 @@ class _HomeWebState extends State<HomeWeb> {
                         ),
                       ),
                       padding: EdgeInsets.only(
-                        top: 100.h,
-                        bottom: 100.h,
+                        top: 140.h,
+                        bottom: 140.h,
                         left: 120.w,
                       ),
                       child: Column(
@@ -204,22 +210,23 @@ class _HomeWebState extends State<HomeWeb> {
                           const Text(
                             'I build &\ndesign stuff',
                             style: TextStyle(
-                              fontSize: 50,
-                              fontWeight: FontWeight.w900,
-                            ),
+                                fontSize: 50,
+                                fontWeight: FontWeight.w900,
+                                height: 1.3),
                           ).gradient(),
                           SizedBox(height: 20.h),
                           const Text(
                             "Open source\nprojects, web apps\nand experimentals.",
                             style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w300,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(height: 40.h),
+                          SizedBox(height: 80.h),
                           SizedBox(
-                            width: 500.w,
-                            child: PrimaryButton(label: "Read My Article", onTap: () {}),
+                            width: 400.w,
+                            child: PrimaryButton(
+                                label: "Read My Article", onTap: () {}),
                           ),
                         ],
                       ),
@@ -228,32 +235,35 @@ class _HomeWebState extends State<HomeWeb> {
                   Expanded(
                     child: Container(
                       padding: EdgeInsets.only(
-                        top: 80.h,
+                        top: 140.h,
+                        bottom: 140.h,
                         left: 120.w,
                       ),
-                      decoration: const BoxDecoration(color: AppColors.richBlack),
+                      decoration:
+                          const BoxDecoration(color: AppColors.richBlack),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
                             'I write,\nsometimes',
                             style: TextStyle(
-                              fontSize: 50,
-                              fontWeight: FontWeight.w900,
-                            ),
+                                fontSize: 50,
+                                fontWeight: FontWeight.w900,
+                                height: 1.3),
                           ).gradient(),
                           SizedBox(height: 20.h),
                           const Text(
                             "Open source\nprojects, web apps\nand experimentals.",
                             style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w300,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(height: 40.h),
+                          SizedBox(height: 80.h),
                           SizedBox(
-                            width: 500.w,
-                            child: PrimaryButton(label: "Read My Article", onTap: () {}),
+                            width: 400.w,
+                            child: PrimaryButton(
+                                label: "Read My Article", onTap: () {}),
                           ),
                         ],
                       ),
@@ -262,6 +272,46 @@ class _HomeWebState extends State<HomeWeb> {
                 ],
               ),
             ),
+            SizedBox(height: sectionSpace),
+            Container(
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                color: AppColors.richBlack,
+              ),
+              padding: EdgeInsets.symmetric(vertical: 160.h),
+              child: Column(
+                children: [
+                  const Text(
+                    'Over the years,',
+                    style: TextStyle(
+                      fontSize: 56,
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ).gradient(),
+                  Text(
+                    "\n(~_^)\n",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        height: 1.8,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  const SizedBox(
+                    width: 700,
+                    child: Text(
+                      "I've built products for companies and individuals around africa ranging from marketing websites to complex solutions and enterprise apps with focus on fast, elegant and accessible user experiences. Currently, I work at Diool as a frontend engineer in the growth team.\n\n  Before now, I worked as the Founding Frontend Engineer at Klas, crafting thoughtful and inclusive experiences that adhere to web standards. Prior to Klas, I was a front engineer contractor with Regnify and Haxell, building digital products that users love",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        height: 1.8,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),

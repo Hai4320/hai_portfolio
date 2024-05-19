@@ -36,13 +36,21 @@ class _PrimaryButtonState extends State<PrimaryButton> {
           });
         },
         child: Container(
-          height: 60.h,
+          height: 80.h,
           width: double.infinity,
           decoration: BoxDecoration(
             color: hovering ? Colors.grey : Colors.transparent,
             border: Border.all(color: AppColors.lightPeriwinkle),
           ),
-          child: Center(child: Text(widget.label)),
+          child: Center(
+              child: Text(
+            widget.label,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+              color: AppColors.lightPeriwinkle,
+            ),
+          )),
         ),
       ),
     );
