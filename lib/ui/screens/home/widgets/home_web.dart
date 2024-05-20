@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hai_portfolio/data/model/project.dart';
 import 'package:hai_portfolio/ui/common/primary_button.dart';
+import 'package:hai_portfolio/ui/common/project_bloc.dart';
 import 'package:hai_portfolio/ui/theme/app_colors.dart';
 import 'package:hai_portfolio/utils/gradient_text.dart';
 
@@ -288,19 +290,19 @@ class _HomeWebState extends State<HomeWeb> {
                       fontWeight: FontWeight.w900,
                     ),
                   ).gradient(),
-                  Text(
+                  const Text(
                     "\n(~_^)\n",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        height: 1.8,
-                      ),
-                      textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      height: 1.8,
                     ),
+                    textAlign: TextAlign.center,
+                  ),
                   const SizedBox(
                     width: 700,
                     child: Text(
-                      "I've built products for companies and individuals around africa ranging from marketing websites to complex solutions and enterprise apps with focus on fast, elegant and accessible user experiences. Currently, I work at Diool as a frontend engineer in the growth team.\n\n  Before now, I worked as the Founding Frontend Engineer at Klas, crafting thoughtful and inclusive experiences that adhere to web standards. Prior to Klas, I was a front engineer contractor with Regnify and Haxell, building digital products that users love",
+                      "I've built products for companies and individuals around africa ranging from marketing websites to complex solutions and enterprise apps with focus on fast, elegant and accessible user experiences. Currently, I work at Diool as a frontend engineer in the growth team.\n\n    Before now, I worked as the Founding Frontend Engineer at Klas, crafting thoughtful and inclusive experiences that adhere to web standards. Prior to Klas, I was a front engineer contractor with Regnify and Haxell, building digital products that users love",
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
@@ -310,6 +312,14 @@ class _HomeWebState extends State<HomeWeb> {
                     ),
                   ),
                 ],
+              ),
+            ),
+            ProjectBloc(
+              project: Project(
+                name: "Maurice.Design",
+                tech: ["Android", "Firebase"],
+                description: 'App food',
+                link: 'http://google.com',
               ),
             )
           ],
