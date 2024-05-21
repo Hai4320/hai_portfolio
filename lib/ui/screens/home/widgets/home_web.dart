@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hai_portfolio/data/model/project.dart';
+import 'package:hai_portfolio/ui/common/image_link.dart';
 import 'package:hai_portfolio/ui/common/primary_button.dart';
 import 'package:hai_portfolio/ui/common/project_bloc.dart';
 import 'package:hai_portfolio/ui/theme/app_colors.dart';
@@ -366,10 +367,10 @@ class _HomeWebState extends State<HomeWeb> {
                     color: AppColors.lightPeriwinkle,
                   ),
                   SizedBox(height: 30.h),
-                  Row(
+                  const Row(
                     children: [
-                      const Text(
-                        "© HAI 2024",
+                      Text(
+                        "© HAI 2024.",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 18,
@@ -378,17 +379,15 @@ class _HomeWebState extends State<HomeWeb> {
                           color: Colors.white,
                         ),
                       ),
-                      const Expanded(child: SizedBox()),
-                      SvgPicture.asset(
-                        "assets/images/github.svg",
-                        height: 25,
-                        colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                      Expanded(child: SizedBox()),
+                      ImageLink(
+                        imageSvg: "assets/images/github.svg",
+                        link: "https://github.com/Hai4320",
                       ),
-                      const SizedBox(width: 30),
-                      SvgPicture.asset(
-                        "assets/images/linkedin.svg",
-                        height: 25,
-                        colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                      SizedBox(width: 20),
+                      ImageLink(
+                        imageSvg: "assets/images/linkedin.svg",
+                        link: "https://github.com/Hai4320",
                       ),
                     ],
                   ),
