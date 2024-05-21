@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hai_portfolio/data/model/project.dart';
 import 'package:hai_portfolio/ui/common/primary_button.dart';
 import 'package:hai_portfolio/ui/common/project_bloc.dart';
@@ -69,10 +70,7 @@ class _HomeWebState extends State<HomeWeb> {
                             SizedBox(height: 40.h),
                             const Text(
                               'I like to craft solid and scalable frontend products \nwith great user experiences.',
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w300,
-                                  height: 1.8),
+                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300, height: 1.8),
                             ),
                             SizedBox(height: 100.h),
                             Row(
@@ -153,9 +151,10 @@ class _HomeWebState extends State<HomeWeb> {
                         const Text(
                           "I design, even though I'm probably not the typical designer sitting in front of an Illustrator artboard tweaking pixels. You can always find me buried in stylesheets, fiddling with font sizes and thinking about layouts (~_^). Creating fluid user experiences is something I'm committed to doing while looking chic.",
                           style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w300,
-                              height: 1.8),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w300,
+                            height: 1.8,
+                          ),
                         ),
                       ],
                     ),
@@ -177,9 +176,10 @@ class _HomeWebState extends State<HomeWeb> {
                         const Text(
                           "I have the ideal tools for developing JavaScript applications, and I can definitely work without them to produce quick, durable solutions that are designed for growth – performance and scalability are top objectives on my radar.",
                           style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w300,
-                              height: 1.8),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w300,
+                            height: 1.8,
+                          ),
                         ),
                       ],
                     ),
@@ -212,9 +212,10 @@ class _HomeWebState extends State<HomeWeb> {
                           const Text(
                             'I build &\ndesign stuff',
                             style: TextStyle(
-                                fontSize: 50,
-                                fontWeight: FontWeight.w900,
-                                height: 1.3),
+                              fontSize: 50,
+                              fontWeight: FontWeight.w900,
+                              height: 1.3,
+                            ),
                           ).gradient(),
                           SizedBox(height: 20.h),
                           const Text(
@@ -227,8 +228,7 @@ class _HomeWebState extends State<HomeWeb> {
                           SizedBox(height: 80.h),
                           SizedBox(
                             width: 400.w,
-                            child: PrimaryButton(
-                                label: "Read My Article", onTap: () {}),
+                            child: PrimaryButton(label: "Read My Article", onTap: () {}),
                           ),
                         ],
                       ),
@@ -241,17 +241,13 @@ class _HomeWebState extends State<HomeWeb> {
                         bottom: 140.h,
                         left: 120.w,
                       ),
-                      decoration:
-                          const BoxDecoration(color: AppColors.richBlack),
+                      decoration: const BoxDecoration(color: AppColors.richBlack),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
                             'I write,\nsometimes',
-                            style: TextStyle(
-                                fontSize: 50,
-                                fontWeight: FontWeight.w900,
-                                height: 1.3),
+                            style: TextStyle(fontSize: 50, fontWeight: FontWeight.w900, height: 1.3),
                           ).gradient(),
                           SizedBox(height: 20.h),
                           const Text(
@@ -264,8 +260,7 @@ class _HomeWebState extends State<HomeWeb> {
                           SizedBox(height: 80.h),
                           SizedBox(
                             width: 400.w,
-                            child: PrimaryButton(
-                                label: "Read My Article", onTap: () {}),
+                            child: PrimaryButton(label: "Read My Article", onTap: () {}),
                           ),
                         ],
                       ),
@@ -314,14 +309,93 @@ class _HomeWebState extends State<HomeWeb> {
                 ],
               ),
             ),
-            ProjectBloc(
-              project: Project(
-                name: "Maurice.Design",
-                tech: ["Android", "Firebase"],
-                description: 'App food',
-                link: 'http://google.com',
+            SizedBox(height: sectionSpace),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 200.w),
+              child: Wrap(
+                spacing: 50.w,
+                runSpacing: 60.h,
+                children: [
+                  ...List.generate(
+                    6,
+                    (index) => ProjectBloc(
+                      project: Project(
+                        name: "Maurice.Design",
+                        tech: ["Android", "Firebase"],
+                        description: 'App food',
+                        link: 'https://www.google.com/',
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            )
+            ),
+            SizedBox(height: sectionSpace),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 200.w),
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: 500.w,
+                    child: const Text(
+                      "Creating Mobile Solutions That Not Only Meet But Exceed Your Expectations",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        height: 1.6,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 50.h),
+                  const Text(
+                    'Thank for your watching!',
+                    style: TextStyle(fontSize: 60, fontWeight: FontWeight.w900, height: 1.3),
+                  ).gradient(),
+                ],
+              ),
+            ),
+            SizedBox(height: sectionSpace),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: contentPadding),
+              child: Column(
+                children: [
+                  Container(
+                    height: 1,
+                    width: double.infinity,
+                    color: AppColors.lightPeriwinkle,
+                  ),
+                  SizedBox(height: 30.h),
+                  Row(
+                    children: [
+                      const Text(
+                        "© HAI 2024",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          height: 1.6,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const Expanded(child: SizedBox()),
+                      SvgPicture.asset(
+                        "assets/images/github.svg",
+                        height: 25,
+                        colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                      ),
+                      const SizedBox(width: 30),
+                      SvgPicture.asset(
+                        "assets/images/linkedin.svg",
+                        height: 25,
+                        colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: sectionSpace),
           ],
         ),
       ),
