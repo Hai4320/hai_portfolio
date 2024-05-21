@@ -39,7 +39,32 @@ class _PrimaryButtonState extends State<PrimaryButton> {
           height: 80.h,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: hovering ? Colors.grey : Colors.transparent,
+            color: hovering ? Colors.grey.withOpacity(0.3) : Colors.transparent,
+            gradient: hovering
+                ? const LinearGradient(colors: [
+                    Color(0xFFFDE1FF),
+                    Color(0xFFE0E7FF),
+                    Color(0xFFE0F9FF),
+                    Color(0xFFFFFAE9),
+                    Color(0xFFE8EAFF),
+                    Color(0xFFFFE3F7),
+                    Color(0xFFDAF1FF),
+                    Color(0xFFFDE1FF),
+                    Color(0xFFE0E7FF),
+                    Color(0xFFE0F9FF),
+                    Color(0xFFFFFAE9),
+                    Color(0xFFE8EAFF),
+                    Color(0xFFFFE3F7),
+                    Color(0xFFDAF1FF),
+                    Color(0xFFFDE1FF),
+                    Color(0xFFE0E7FF),
+                    Color(0xFFE0F9FF),
+                    Color(0xFFFFFAE9),
+                    Color(0xFFE8EAFF),
+                    Color(0xFFFFE3F7),
+                    Color(0xFFDAF1FF),
+                  ])
+                : null,
             border: Border.all(color: AppColors.lightPeriwinkle),
           ),
           child: Center(

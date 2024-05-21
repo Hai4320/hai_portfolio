@@ -1,37 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 class ResponsiveLayout extends GetResponsiveView<ResponsiveController> {
   ResponsiveLayout({
     super.key,
-    required this.phoneUI,
     required this.webUI,
+    this.phoneUI,
+    this.tabletUI,
   }) : super(
           alwaysUseBuilder: false,
-          settings: const ResponsiveScreenSettings(desktopChangePoint: 1000),
+          settings: appScreenSetting,
         );
 
-  final Widget phoneUI;
+  final Widget? phoneUI;
   final Widget webUI;
+  final Widget? tabletUI;
 
   @override
   Widget build(BuildContext context) {
-
     return super.build(context);
   }
 
   @override
   Widget? phone() {
-    ScreenUtil.init(screen.context, designSize: const Size(360, 800));
     return phoneUI;
   }
 
   @override
+  Widget? tablet() {
+    return tabletUI;
+  }
+
+  @override
   Widget? desktop() {
-    ScreenUtil.init(screen.context, designSize: const Size(1920, 1080));
     return webUI;
   }
 }
+
+const appScreenSetting = ResponsiveScreenSettings(desktopChangePoint: 1000);
 
 class ResponsiveController extends GetxController {}
