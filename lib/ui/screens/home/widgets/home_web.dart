@@ -1,12 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hai_portfolio/data/model/project.dart';
 import 'package:hai_portfolio/ui/common/image_link.dart';
 import 'package:hai_portfolio/ui/common/primary_button.dart';
 import 'package:hai_portfolio/ui/common/project_bloc.dart';
+import 'package:hai_portfolio/ui/common/text_link.dart';
 import 'package:hai_portfolio/ui/theme/app_colors.dart';
 import 'package:hai_portfolio/utils/gradient_text.dart';
 
@@ -70,8 +68,11 @@ class _HomeWebState extends State<HomeWeb> {
                             ).gradient(),
                             SizedBox(height: 40.h),
                             const Text(
-                              'I like to craft solid and scalable frontend products \nwith great user experiences.',
-                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300, height: 1.8),
+                              'I like to craft innovative and scalable mobile products\nwith great user experiences.',
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w300,
+                                  height: 1.8),
                             ),
                             SizedBox(height: 100.h),
                             Row(
@@ -89,7 +90,7 @@ class _HomeWebState extends State<HomeWeb> {
                                 SizedBox(width: 120.w),
                                 Expanded(
                                   child: const Text(
-                                    'Over a two years of experience building products for clients across africa.',
+                                    'Over a two years of experience building products for clients across japan.',
                                     style: TextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.w200,
@@ -229,7 +230,8 @@ class _HomeWebState extends State<HomeWeb> {
                           SizedBox(height: 80.h),
                           SizedBox(
                             width: 400.w,
-                            child: PrimaryButton(label: "Read My Article", onTap: () {}),
+                            child: PrimaryButton(
+                                label: "Read My Article", onTap: () {}),
                           ),
                         ],
                       ),
@@ -242,13 +244,17 @@ class _HomeWebState extends State<HomeWeb> {
                         bottom: 140.h,
                         left: 120.w,
                       ),
-                      decoration: const BoxDecoration(color: AppColors.richBlack),
+                      decoration:
+                          const BoxDecoration(color: AppColors.richBlack),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
                             'I write,\nsometimes',
-                            style: TextStyle(fontSize: 50, fontWeight: FontWeight.w900, height: 1.3),
+                            style: TextStyle(
+                                fontSize: 50,
+                                fontWeight: FontWeight.w900,
+                                height: 1.3),
                           ).gradient(),
                           SizedBox(height: 20.h),
                           const Text(
@@ -261,7 +267,8 @@ class _HomeWebState extends State<HomeWeb> {
                           SizedBox(height: 80.h),
                           SizedBox(
                             width: 400.w,
-                            child: PrimaryButton(label: "Read My Article", onTap: () {}),
+                            child: PrimaryButton(
+                                label: "Read My Article", onTap: () {}),
                           ),
                         ],
                       ),
@@ -337,9 +344,9 @@ class _HomeWebState extends State<HomeWeb> {
               child: Column(
                 children: [
                   SizedBox(
-                    width: 500.w,
+                    width: 600.w,
                     child: const Text(
-                      "Creating Mobile Solutions That Not Only Meet But Exceed Your Expectations",
+                      "Creating Mobile Solutions That Not Only Meet But Exceed Your Expectations.",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 18,
@@ -351,12 +358,65 @@ class _HomeWebState extends State<HomeWeb> {
                   SizedBox(height: 50.h),
                   const Text(
                     'Thank for your watching!',
-                    style: TextStyle(fontSize: 60, fontWeight: FontWeight.w900, height: 1.3),
+                    style: TextStyle(
+                        fontSize: 60, fontWeight: FontWeight.w900, height: 1.3),
                   ).gradient(),
                 ],
               ),
             ),
             SizedBox(height: sectionSpace),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: contentPadding),
+              child: const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "CONNECT ME",
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: AppColors.lightPeriwinkle,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 25),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: contentPadding),
+              child: const Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Column(
+                    children: [
+                      TextLink(
+                        text: "duchai4320@gmai.com",
+                        link: "mailto:duchai4320@gmai.com",
+                      ),
+                      SizedBox(height: 20),
+                    ],
+                  ),
+                  SizedBox(width: 150),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TextLink(
+                        text: "My Works",
+                        link: "mailto:duchai4320@gmai.com",
+                      ),
+                      SizedBox(height: 20),
+                      TextLink(
+                        text: "My Shelf",
+                        link: "https://github.com/Hai4320",
+                      ),
+                      SizedBox(height: 20),
+                      TextLink(
+                        text: "My Résumé",
+                        link: "https://github.com/Hai4320",
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 120.h),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: contentPadding),
               child: Column(
