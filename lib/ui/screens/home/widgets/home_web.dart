@@ -69,10 +69,7 @@ class _HomeWebState extends State<HomeWeb> {
                             SizedBox(height: 40.h),
                             const Text(
                               'I like to craft innovative and scalable mobile products\nwith great user experiences.',
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w300,
-                                  height: 1.8),
+                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300, height: 1.8),
                             ),
                             SizedBox(height: 100.h),
                             Row(
@@ -90,7 +87,7 @@ class _HomeWebState extends State<HomeWeb> {
                                 SizedBox(width: 120.w),
                                 Expanded(
                                   child: const Text(
-                                    'Over a two years of experience building products for clients across japan.',
+                                    'Over a two years of experience building products for clients across Japan and Vietnam.',
                                     style: TextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.w200,
@@ -143,7 +140,7 @@ class _HomeWebState extends State<HomeWeb> {
                       children: [
                         SizedBox(height: 100.h),
                         const Text(
-                          'Design',
+                          'Engineering',
                           style: TextStyle(
                             fontSize: 60,
                             fontWeight: FontWeight.w900,
@@ -151,7 +148,7 @@ class _HomeWebState extends State<HomeWeb> {
                         ).gradient(),
                         SizedBox(height: 20.h),
                         const Text(
-                          "I design, even though I'm probably not the typical designer sitting in front of an Illustrator artboard tweaking pixels. You can always find me buried in stylesheets, fiddling with font sizes and thinking about layouts (~_^). Creating fluid user experiences is something I'm committed to doing while looking chic.",
+                          "I have the ideal tools for developing JavaScript applications, and I can definitely work without them to produce quick, durable solutions that are designed for growth – performance and scalability are top objectives on my radar.",
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w300,
@@ -168,7 +165,7 @@ class _HomeWebState extends State<HomeWeb> {
                       children: [
                         SizedBox(height: 100.h),
                         const Text(
-                          'Engineering',
+                          'Design',
                           style: TextStyle(
                             fontSize: 60,
                             fontWeight: FontWeight.w900,
@@ -176,7 +173,7 @@ class _HomeWebState extends State<HomeWeb> {
                         ).gradient(),
                         SizedBox(height: 20.h),
                         const Text(
-                          "I have the ideal tools for developing JavaScript applications, and I can definitely work without them to produce quick, durable solutions that are designed for growth – performance and scalability are top objectives on my radar.",
+                          "I design, even though I'm probably not the typical designer sitting in front of an Illustrator artboard tweaking pixels. You can always find me buried in stylesheets, fiddling with font sizes and thinking about layouts (~_^). Creating fluid user experiences is something I'm committed to doing while looking chic.",
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w300,
@@ -230,8 +227,7 @@ class _HomeWebState extends State<HomeWeb> {
                           SizedBox(height: 80.h),
                           SizedBox(
                             width: 400.w,
-                            child: PrimaryButton(
-                                label: "Read My Article", onTap: () {}),
+                            child: PrimaryButton(label: "Read My Article", onTap: () {}),
                           ),
                         ],
                       ),
@@ -244,17 +240,13 @@ class _HomeWebState extends State<HomeWeb> {
                         bottom: 140.h,
                         left: 120.w,
                       ),
-                      decoration:
-                          const BoxDecoration(color: AppColors.richBlack),
+                      decoration: const BoxDecoration(color: AppColors.richBlack),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
                             'I write,\nsometimes',
-                            style: TextStyle(
-                                fontSize: 50,
-                                fontWeight: FontWeight.w900,
-                                height: 1.3),
+                            style: TextStyle(fontSize: 50, fontWeight: FontWeight.w900, height: 1.3),
                           ).gradient(),
                           SizedBox(height: 20.h),
                           const Text(
@@ -267,8 +259,7 @@ class _HomeWebState extends State<HomeWeb> {
                           SizedBox(height: 80.h),
                           SizedBox(
                             width: 400.w,
-                            child: PrimaryButton(
-                                label: "Read My Article", onTap: () {}),
+                            child: PrimaryButton(label: "Read My Article", onTap: () {}),
                           ),
                         ],
                       ),
@@ -358,8 +349,7 @@ class _HomeWebState extends State<HomeWeb> {
                   SizedBox(height: 50.h),
                   const Text(
                     'Thank for your watching!',
-                    style: TextStyle(
-                        fontSize: 60, fontWeight: FontWeight.w900, height: 1.3),
+                    style: TextStyle(fontSize: 60, fontWeight: FontWeight.w900, height: 1.3),
                   ).gradient(),
                 ],
               ),

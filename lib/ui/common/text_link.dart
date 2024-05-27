@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hai_portfolio/ui/theme/app_colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -43,7 +41,7 @@ class _TextLinkState extends State<TextLink> {
         child: Stack(
           children: [
             AnimatedScale(
-              scale: hovering ? 0.95 : 1,
+              scale: hovering ? 0.98 : 1,
               duration: const Duration(milliseconds: 200),
               child: Text(
                 widget.text,
@@ -53,18 +51,18 @@ class _TextLinkState extends State<TextLink> {
                 ),
               ),
             ),
-           Positioned(
-                left: 0,
-                bottom: 0,
-                child: AnimatedContainer(
-                  height: 10,
-                  width: hovering ? 50 : 0,
-                  decoration: BoxDecoration(
-                    color: AppColors.lightPeriwinkle.withOpacity(0.5),
-                  ),
-                  duration: const Duration(milliseconds: 200),
+            Positioned(
+              left: 0,
+              bottom: 0,
+              child: AnimatedContainer(
+                height: 10,
+                width: hovering ? 50 : 0,
+                decoration: BoxDecoration(
+                  color: AppColors.lightPeriwinkle.withOpacity(0.5),
                 ),
-              )
+                duration: const Duration(milliseconds: 200),
+              ),
+            )
           ],
         ),
       ),
