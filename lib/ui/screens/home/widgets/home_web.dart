@@ -140,7 +140,7 @@ class _HomeWebState extends State<HomeWeb> {
                       children: [
                         SizedBox(height: 100.h),
                         const Text(
-                          'Engineering',
+                          'Mobile',
                           style: TextStyle(
                             fontSize: 60,
                             fontWeight: FontWeight.w900,
@@ -148,7 +148,7 @@ class _HomeWebState extends State<HomeWeb> {
                         ).gradient(),
                         SizedBox(height: 20.h),
                         const Text(
-                          "I have the ideal tools for developing JavaScript applications, and I can definitely work without them to produce quick, durable solutions that are designed for growth – performance and scalability are top objectives on my radar.",
+                          "I have the ideal tools for developing mobile applications, and I can definitely work without them to produce quick, durable solutions that are designed for growth – performance and scalability are top objectives on my radar.",
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w300,
@@ -165,7 +165,7 @@ class _HomeWebState extends State<HomeWeb> {
                       children: [
                         SizedBox(height: 100.h),
                         const Text(
-                          'Design',
+                          'Engineering',
                           style: TextStyle(
                             fontSize: 60,
                             fontWeight: FontWeight.w900,
@@ -173,7 +173,7 @@ class _HomeWebState extends State<HomeWeb> {
                         ).gradient(),
                         SizedBox(height: 20.h),
                         const Text(
-                          "I design, even though I'm probably not the typical designer sitting in front of an Illustrator artboard tweaking pixels. You can always find me buried in stylesheets, fiddling with font sizes and thinking about layouts (~_^). Creating fluid user experiences is something I'm committed to doing while looking chic.",
+                          "Besides mobile development, I also enjoy working on web projects, sometimes as a Frontend developer and occasionally as a Backend developer. Although I'm not an expert in this field, I am very passionate about it.",
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w300,
@@ -218,7 +218,7 @@ class _HomeWebState extends State<HomeWeb> {
                           ).gradient(),
                           SizedBox(height: 20.h),
                           const Text(
-                            "Open source\nprojects, web apps\nand experimentals.",
+                            "Open source\nprojects, mobile apps\nand experimentals.",
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w500,
@@ -227,7 +227,7 @@ class _HomeWebState extends State<HomeWeb> {
                           SizedBox(height: 80.h),
                           SizedBox(
                             width: 400.w,
-                            child: PrimaryButton(label: "Read My Article", onTap: () {}),
+                            child: PrimaryButton(label: "See my apps", onTap: () {}),
                           ),
                         ],
                       ),
@@ -245,12 +245,12 @@ class _HomeWebState extends State<HomeWeb> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
-                            'I write,\nsometimes',
+                            'I support,\nsometimes',
                             style: TextStyle(fontSize: 50, fontWeight: FontWeight.w900, height: 1.3),
                           ).gradient(),
                           SizedBox(height: 20.h),
                           const Text(
-                            "Open source\nprojects, web apps\nand experimentals.",
+                            "Report\nissue & bug\nopen source",
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w500,
@@ -296,7 +296,7 @@ class _HomeWebState extends State<HomeWeb> {
                   const SizedBox(
                     width: 700,
                     child: Text(
-                      "I've built products for companies and individuals around africa ranging from marketing websites to complex solutions and enterprise apps with focus on fast, elegant and accessible user experiences. Currently, I work at Diool as a frontend engineer in the growth team.\n\n    Before now, I worked as the Founding Frontend Engineer at Klas, crafting thoughtful and inclusive experiences that adhere to web standards. Prior to Klas, I was a front engineer contractor with Regnify and Haxell, building digital products that users love",
+                      "I build applications for both companies and personal projects, ranging from travel and food apps with a focus on user interface to AI applications for fitness and health with complex effects and logic, serving people all over Japan. Currently, I work at Sun* as a mobile engineer in the growth team.",
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
