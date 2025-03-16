@@ -6,6 +6,7 @@ import 'package:hai_portfolio/ui/common/primary_button.dart';
 import 'package:hai_portfolio/ui/common/project_bloc.dart';
 import 'package:hai_portfolio/ui/common/text_link.dart';
 import 'package:hai_portfolio/ui/theme/app_colors.dart';
+import 'package:hai_portfolio/utils/constants.dart';
 import 'package:hai_portfolio/utils/gradient_text.dart';
 
 class HomeWeb extends StatefulWidget {
@@ -367,24 +368,33 @@ class _HomeWebState extends State<HomeWeb> {
             SizedBox(height: sectionSpace),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: contentPadding),
-              child: const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "CONNECT ME",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: AppColors.lightPeriwinkle,
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "CONNECT ME",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: AppColors.lightPeriwinkle,
+                    ),
                   ),
-                ),
+                  Text(
+                    "TECH STACK",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: AppColors.lightPeriwinkle,
+                    ),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 25),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: contentPadding),
-              child: const Row(
+              child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Column(
+                  const Column(
                     children: [
                       TextLink(
                         text: "duchai4320@gmai.com",
@@ -394,7 +404,7 @@ class _HomeWebState extends State<HomeWeb> {
                     ],
                   ),
                   SizedBox(width: 150),
-                  Column(
+                  const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TextLink(
@@ -413,6 +423,36 @@ class _HomeWebState extends State<HomeWeb> {
                       ),
                     ],
                   ),
+                  const Spacer(),
+                  SizedBox(
+                    width: 240,
+                    height: 240,
+                    child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        crossAxisSpacing: 8,
+                        mainAxisSpacing: 8,
+                        childAspectRatio: 1,
+                      ),
+                      itemCount: Constants.techstacks.length,
+                      itemBuilder: (context, index) {
+                        return Card(
+                          color: AppColors.richBlack,
+                          elevation: 4,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Image.network(
+                              Constants.techstacks[index],
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  )
                 ],
               ),
             ),
@@ -447,7 +487,7 @@ class _HomeWebState extends State<HomeWeb> {
                       SizedBox(width: 20),
                       ImageLink(
                         imageSvg: "assets/images/linkedin.svg",
-                        link: "https://www.linkedin.com/in/duc-hai-362004265/",
+                        link: "https://github.com/Hai4320",
                       ),
                     ],
                   ),
