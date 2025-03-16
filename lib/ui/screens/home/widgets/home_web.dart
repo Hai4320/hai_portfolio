@@ -487,7 +487,7 @@ class _HomeWebState extends State<HomeWeb> {
                       SizedBox(width: 20),
                       ImageLink(
                         imageSvg: "assets/images/linkedin.svg",
-                        link: "https://github.com/Hai4320",
+                        link: "https://www.linkedin.com/in/duc-hai-362004265/",
                       ),
                     ],
                   ),
