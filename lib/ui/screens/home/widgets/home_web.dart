@@ -69,7 +69,10 @@ class _HomeWebState extends State<HomeWeb> {
                             SizedBox(height: 40.h),
                             const Text(
                               'I like to craft innovative and scalable mobile products\nwith great user experiences.',
-                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300, height: 1.8),
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w300,
+                                  height: 1.8),
                             ),
                             SizedBox(height: 100.h),
                             Row(
@@ -227,7 +230,8 @@ class _HomeWebState extends State<HomeWeb> {
                           SizedBox(height: 80.h),
                           SizedBox(
                             width: 400.w,
-                            child: PrimaryButton(label: "See my apps", onTap: () {}),
+                            child: PrimaryButton(
+                                label: "See my apps", onTap: () {}),
                           ),
                         ],
                       ),
@@ -240,13 +244,17 @@ class _HomeWebState extends State<HomeWeb> {
                         bottom: 140.h,
                         left: 120.w,
                       ),
-                      decoration: const BoxDecoration(color: AppColors.richBlack),
+                      decoration:
+                          const BoxDecoration(color: AppColors.richBlack),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
                             'I support,\nsometimes',
-                            style: TextStyle(fontSize: 50, fontWeight: FontWeight.w900, height: 1.3),
+                            style: TextStyle(
+                                fontSize: 50,
+                                fontWeight: FontWeight.w900,
+                                height: 1.3),
                           ).gradient(),
                           SizedBox(height: 20.h),
                           const Text(
@@ -259,7 +267,8 @@ class _HomeWebState extends State<HomeWeb> {
                           SizedBox(height: 80.h),
                           SizedBox(
                             width: 400.w,
-                            child: PrimaryButton(label: "Read My Article", onTap: () {}),
+                            child: PrimaryButton(
+                                label: "Read My Article", onTap: () {}),
                           ),
                         ],
                       ),
@@ -349,7 +358,8 @@ class _HomeWebState extends State<HomeWeb> {
                   SizedBox(height: 50.h),
                   const Text(
                     'Thank for your watching!',
-                    style: TextStyle(fontSize: 60, fontWeight: FontWeight.w900, height: 1.3),
+                    style: TextStyle(
+                        fontSize: 60, fontWeight: FontWeight.w900, height: 1.3),
                   ).gradient(),
                 ],
               ),
@@ -437,7 +447,7 @@ class _HomeWebState extends State<HomeWeb> {
                       SizedBox(width: 20),
                       ImageLink(
                         imageSvg: "assets/images/linkedin.svg",
-                        link: "https://github.com/Hai4320",
+                        link: "https://www.linkedin.com/in/duc-hai-362004265/",
                       ),
                     ],
                   ),
