@@ -1,0 +1,57 @@
+{
+  "app": {
+    "name": "Hai."
+  },
+  "home": {
+    "title": "Mobile\nDeveloper",
+    "subtitle": "I like to craft innovative and scalable mobile products with great user experiences.",
+    "skill1": "Highly skilled at progressive enhancement, design systems & UI Engineering.",
+    "skill2": "Over a two years of experience building products for clients across Japan and Vietnam.",
+    "mobile": {
+      "title": "Mobile",
+      "description": "I have the ideal tools for developing mobile applications, and I can definitely work without them to produce quick, durable solutions that are designed for growth – performance and scalability are top objectives on my radar."
+    },
+    "engineering": {
+      "title": "Engineering",
+      "description": "Besides mobile development, I also enjoy working on web projects, sometimes as a Frontend developer and occasionally as a Backend developer. Although I'm not an expert in this field, I am very passionate about it."
+    },
+    "skills": {
+      "title": "My Skills"
+    },
+    "build": {
+      "title": "I build &\ndesign stuff",
+      "description": "Open source projects, mobile apps and experimentals.",
+      "button": "See my apps"
+    },
+    "support": {
+      "title": "I support,\nsometimes",
+      "description": "Report issue & bug open source",
+      "button": "Read My Article"
+    },
+    "experience": {
+      "title": "Over the years,",
+      "emoji": "\n(~_^)\n",
+      "description": "I build applications for both companies and personal projects, ranging from travel and food apps with a focus on user interface to AI applications for fitness and health with complex effects and logic, serving people all over Japan. Currently, I work at Sun* as a mobile engineer in the growth team."
+    },
+    "thankYou": {
+      "message": "Creating Mobile Solutions That Not Only Meet But Exceed Your Expectations.",
+      "title": "Thank for your watching!"
+    }
+  },
+  "contact": {
+    "title": "CONNECT ME",
+    "email": "duchai4320@gmail.com",
+    "works": "My Works",
+    "shelf": "My Shelf",
+    "resume": "My Résumé"
+  },
+  "footer": {
+    "copyright": "© HAI 2026."
+  },
+  "links": {
+    "email": "mailto:duchai4320@gmail.com",
+    "github": "https://github.com/Hai4320",
+    "linkedin": "https://www.linkedin.com/in/hai4320"
+  }
+}
+

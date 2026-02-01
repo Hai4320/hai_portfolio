@@ -35,7 +35,36 @@ The portfolio website is built using Flutter, a powerful open-source UI software
 
 - [google_fonts](https://pub.dev/packages/google_fonts): Incorporates visually appealing and readable fonts from the Google Fonts library into the website.
 - [flutter_svg](https://pub.dev/packages/flutter_svg): Enables the seamless integration and rendering of SVG images, ensuring high-quality graphics across all devices.
-- [get](https://pub.dev/packages/get): .
+- [get](https://pub.dev/packages/get): A powerful state management and navigation solution for Flutter applications.
+
+## Setup Instructions
+
+This project uses [FVM (Flutter Version Management)](https://fvm.app/) to manage the Flutter SDK version.
+
+### Prerequisites
+
+1. Install FVM:
+   ```bash
+   dart pub global activate fvm
+   ```
+
+### Getting Started
+
+1. Clone the repository
+2. Install the specific Flutter version:
+   ```bash
+   fvm install
+   ```
+3. Get dependencies:
+   ```bash
+   fvm flutter pub get
+   ```
+4. Run the app:
+   ```bash
+   fvm flutter run -d chrome
+   ```
+
+**Note:** This project uses Flutter 3.35.6. All Flutter commands should be prefixed with `fvm` to use the correct version.
 
 ## Contact Me
 
