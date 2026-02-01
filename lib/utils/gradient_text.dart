@@ -62,12 +62,10 @@ class _GradientAnimationTextState extends State<GradientAnimationText> with Sing
   late List<Color> colors;
   late int n;
   late double diff;
-  late Text text;
 
   @override
   void initState() {
     super.initState();
-    text = widget.text;
     // animation controller
     _animationController = AnimationController(
       vsync: this,
@@ -118,6 +116,7 @@ class _GradientAnimationTextState extends State<GradientAnimationText> with Sing
 
   @override
   Widget build(BuildContext context) {
+    final text = widget.text;
     return ShaderMask(
       child: Text(
         text.data!,

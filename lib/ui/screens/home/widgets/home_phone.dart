@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hai_portfolio/data/model/project.dart';
+import 'package:hai_portfolio/i18n/strings.g.dart';
 import 'package:hai_portfolio/ui/common/image_link.dart';
+import 'package:hai_portfolio/ui/common/language_switcher.dart';
 import 'package:hai_portfolio/ui/common/primary_button.dart';
 import 'package:hai_portfolio/ui/common/project_bloc.dart';
 import 'package:hai_portfolio/ui/common/text_link.dart';
 import 'package:hai_portfolio/ui/theme/app_colors.dart';
 import 'package:hai_portfolio/utils/gradient_text.dart';
+import 'package:hai_portfolio/utils/locale_controller.dart';
 
 class HomePhone extends StatefulWidget {
   const HomePhone({super.key});
@@ -17,37 +21,44 @@ class HomePhone extends StatefulWidget {
 class _HomePhoneState extends State<HomePhone> {
   @override
   Widget build(BuildContext context) {
+    final localeController = Get.find<LocaleController>();
     const contentPadding = 24.0;
     const sectionSpace = 60.0;
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 40),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: contentPadding),
-              child: Row(
+
+    return Obx(() {
+      // Access currentLocale to trigger rebuild on change
+      final _ = localeController.currentLocale;
+      return Scaffold(
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 40),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: contentPadding),
+                child: Row(
                 children: [
                   Text(
-                    'Hai.',
-                    style: TextStyle(
+                    t.strings.app.name,
+                    style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.w400,
                     ),
-                  )
+                  ),
+                  const Spacer(),
+                  const LanguageSwitcherCompact(),
                 ],
               ),
             ),
             const SizedBox(height: 40),
             // Hero Section
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: contentPadding),
+              padding: const EdgeInsets.symmetric(horizontal: contentPadding),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(
                     child: Image.asset(
-                      'assets/images/avatar.jpg',
+                      t.images.avatar,
                       width: MediaQuery.of(context).size.width * 0.7,
                     ),
                   ),
@@ -68,36 +79,36 @@ class _HomePhoneState extends State<HomePhone> {
                     ),
                   ),
                   const SizedBox(height: 40),
-                  const Text(
-                    'Mobile\nDeveloper',
-                    style: TextStyle(
+                  Text(
+                    t.strings.home.title,
+                    style: const TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.w900,
                       height: 1.3,
                     ),
                   ).gradient(),
                   const SizedBox(height: 20),
-                  const Text(
-                    'I like to craft innovative and scalable mobile products with great user experiences.',
-                    style: TextStyle(
+                  Text(
+                    t.strings.home.subtitle,
+                    style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w300,
                       height: 1.8,
                     ),
                   ),
                   const SizedBox(height: 40),
-                  const Text(
-                    'Highly skilled at progressive enhancement, design systems & UI Engineering.',
-                    style: TextStyle(
+                  Text(
+                    t.strings.home.skill1,
+                    style: const TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w200,
                       height: 1.8,
                     ),
                   ).gradient(),
                   const SizedBox(height: 20),
-                  const Text(
-                    'Over a two years of experience building products for clients across Japan and Vietnam.',
-                    style: TextStyle(
+                  Text(
+                    t.strings.home.skill2,
+                    style: const TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w200,
                       height: 1.8,
@@ -106,41 +117,41 @@ class _HomePhoneState extends State<HomePhone> {
                 ],
               ),
             ),
-            SizedBox(height: sectionSpace),
+            const SizedBox(height: sectionSpace),
             // Skills Section
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: contentPadding),
+              padding: const EdgeInsets.symmetric(horizontal: contentPadding),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Mobile',
-                    style: TextStyle(
+                  Text(
+                    t.strings.home.mobile.title,
+                    style: const TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.w900,
                     ),
                   ).gradient(),
                   const SizedBox(height: 16),
-                  const Text(
-                    "I have the ideal tools for developing mobile applications, and I can definitely work without them to produce quick, durable solutions that are designed for growth – performance and scalability are top objectives on my radar.",
-                    style: TextStyle(
+                  Text(
+                    t.strings.home.mobile.description,
+                    style: const TextStyle(
                       fontSize: 13,
                       fontWeight: FontWeight.w300,
                       height: 1.8,
                     ),
                   ),
                   const SizedBox(height: 40),
-                  const Text(
-                    'Engineering',
-                    style: TextStyle(
+                  Text(
+                    t.strings.home.engineering.title,
+                    style: const TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.w900,
                     ),
                   ).gradient(),
                   const SizedBox(height: 16),
-                  const Text(
-                    "Besides mobile development, I also enjoy working on web projects, sometimes as a Frontend developer and occasionally as a Backend developer. Although I'm not an expert in this field, I am very passionate about it.",
-                    style: TextStyle(
+                  Text(
+                    t.strings.home.engineering.description,
+                    style: const TextStyle(
                       fontSize: 13,
                       fontWeight: FontWeight.w300,
                       height: 1.8,
@@ -149,7 +160,7 @@ class _HomePhoneState extends State<HomePhone> {
                 ],
               ),
             ),
-            SizedBox(height: sectionSpace),
+            const SizedBox(height: sectionSpace),
             // Build & Support Section
             Container(
               decoration: const BoxDecoration(
@@ -159,7 +170,7 @@ class _HomePhoneState extends State<HomePhone> {
                 children: [
                   Container(
                     width: double.infinity,
-                    padding: EdgeInsets.all(contentPadding),
+                    padding: const EdgeInsets.all(contentPadding),
                     decoration: const BoxDecoration(
                       border: Border(
                         bottom: BorderSide(color: AppColors.lightPeriwinkle),
@@ -168,18 +179,18 @@ class _HomePhoneState extends State<HomePhone> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          'I build &\ndesign stuff',
-                          style: TextStyle(
+                        Text(
+                          t.strings.home.build.title,
+                          style: const TextStyle(
                             fontSize: 32,
                             fontWeight: FontWeight.w900,
                             height: 1.3,
                           ),
                         ).gradient(),
                         const SizedBox(height: 16),
-                        const Text(
-                          "Open source projects, mobile apps and experimentals.",
-                          style: TextStyle(
+                        Text(
+                          t.strings.home.build.description,
+                          style: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                           ),
@@ -187,7 +198,7 @@ class _HomePhoneState extends State<HomePhone> {
                         const SizedBox(height: 30),
                         SizedBox(
                           width: double.infinity,
-                          child: PrimaryButton(label: "See my apps", onTap: () {}),
+                          child: PrimaryButton(label: t.strings.home.build.button, onTap: () {}),
                         ),
                         const SizedBox(height: 20),
                       ],
@@ -195,23 +206,23 @@ class _HomePhoneState extends State<HomePhone> {
                   ),
                   Container(
                     width: double.infinity,
-                    padding: EdgeInsets.all(contentPadding),
+                    padding: const EdgeInsets.all(contentPadding),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const SizedBox(height: 20),
-                        const Text(
-                          'I support,\nsometimes',
-                          style: TextStyle(
+                        Text(
+                          t.strings.home.support.title,
+                          style: const TextStyle(
                             fontSize: 32,
                             fontWeight: FontWeight.w900,
                             height: 1.3,
                           ),
                         ).gradient(),
                         const SizedBox(height: 16),
-                        const Text(
-                          "Report issue & bug open source",
-                          style: TextStyle(
+                        Text(
+                          t.strings.home.support.description,
+                          style: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                           ),
@@ -219,7 +230,7 @@ class _HomePhoneState extends State<HomePhone> {
                         const SizedBox(height: 30),
                         SizedBox(
                           width: double.infinity,
-                          child: PrimaryButton(label: "Read My Article", onTap: () {}),
+                          child: PrimaryButton(label: t.strings.home.support.button, onTap: () {}),
                         ),
                       ],
                     ),
@@ -227,38 +238,38 @@ class _HomePhoneState extends State<HomePhone> {
                 ],
               ),
             ),
-            SizedBox(height: sectionSpace),
+            const SizedBox(height: sectionSpace),
             // Over the years section
             Container(
               width: double.infinity,
               decoration: const BoxDecoration(
                 color: AppColors.richBlack,
               ),
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 vertical: 60,
                 horizontal: contentPadding,
               ),
               child: Column(
                 children: [
-                  const Text(
-                    'Over the years,',
-                    style: TextStyle(
+                  Text(
+                    t.strings.home.experience.title,
+                    style: const TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.w900,
                     ),
                   ).gradient(),
-                  const Text(
-                    "\n(~_^)\n",
-                    style: TextStyle(
+                  Text(
+                    t.strings.home.experience.emoji,
+                    style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                       height: 1.8,
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const Text(
-                    "I build applications for both companies and personal projects, ranging from travel and food apps with a focus on user interface to AI applications for fitness and health with complex effects and logic, serving people all over Japan. Currently, I work at Sun* as a mobile engineer in the growth team.",
-                    style: TextStyle(
+                  Text(
+                    t.strings.home.experience.description,
+                    style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
                       height: 1.8,
@@ -268,10 +279,10 @@ class _HomePhoneState extends State<HomePhone> {
                 ],
               ),
             ),
-            SizedBox(height: sectionSpace),
+            const SizedBox(height: sectionSpace),
             // Projects Section
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: contentPadding),
+              padding: const EdgeInsets.symmetric(horizontal: contentPadding),
               child: Column(
                 children: [
                   ...List.generate(
@@ -291,26 +302,26 @@ class _HomePhoneState extends State<HomePhone> {
                 ],
               ),
             ),
-            SizedBox(height: sectionSpace),
+            const SizedBox(height: sectionSpace),
             // Thank you section
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: contentPadding),
+              padding: const EdgeInsets.symmetric(horizontal: contentPadding),
               child: Column(
                 children: [
-                  const Text(
-                    "Creating Mobile Solutions That Not Only Meet But Exceed Your Expectations.",
+                  Text(
+                    t.strings.home.thankYou.message,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
                       height: 1.6,
                     ),
                   ),
                   const SizedBox(height: 30),
-                  const Text(
-                    'Thank for your watching!',
+                  Text(
+                    t.strings.home.thankYou.title,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.w900,
                       height: 1.3,
@@ -321,37 +332,37 @@ class _HomePhoneState extends State<HomePhone> {
             ),
             const SizedBox(height: sectionSpace),
             // Connect section
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: contentPadding),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: contentPadding),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "CONNECT ME",
-                    style: TextStyle(
+                    t.strings.contact.title,
+                    style: const TextStyle(
                       fontSize: 16,
                       color: AppColors.lightPeriwinkle,
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   TextLink(
-                    text: "duchai4320@gmai.com",
-                    link: "mailto:duchai4320@gmai.com",
+                    text: t.strings.contact.email,
+                    link: t.strings.links.email,
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   TextLink(
-                    text: "My Works",
-                    link: "mailto:duchai4320@gmai.com",
+                    text: t.strings.contact.works,
+                    link: t.strings.links.email,
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   TextLink(
-                    text: "My Shelf",
-                    link: "https://github.com/Hai4320",
+                    text: t.strings.contact.shelf,
+                    link: t.strings.links.github,
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   TextLink(
-                    text: "My Résumé",
-                    link: "https://github.com/Hai4320",
+                    text: t.strings.contact.resume,
+                    link: t.strings.links.github,
                   ),
                 ],
               ),
@@ -359,7 +370,7 @@ class _HomePhoneState extends State<HomePhone> {
             const SizedBox(height: 60),
             // Footer
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: contentPadding),
+              padding: const EdgeInsets.symmetric(horizontal: contentPadding),
               child: Column(
                 children: [
                   Container(
@@ -368,27 +379,27 @@ class _HomePhoneState extends State<HomePhone> {
                     color: AppColors.lightPeriwinkle,
                   ),
                   const SizedBox(height: 20),
-                  const Row(
+                  Row(
                     children: [
                       Text(
-                        "© HAI 2024.",
+                        t.strings.footer.copyright,
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                           height: 1.6,
                           color: Colors.white,
                         ),
                       ),
-                      Expanded(child: SizedBox()),
+                      const Expanded(child: SizedBox()),
                       ImageLink(
-                        imageSvg: "assets/images/github.svg",
-                        link: "https://github.com/Hai4320",
+                        imageSvg: t.images.github,
+                        link: t.strings.links.github,
                       ),
-                      SizedBox(width: 16),
+                      const SizedBox(width: 16),
                       ImageLink(
-                        imageSvg: "assets/images/linkedin.svg",
-                        link: "https://github.com/Hai4320",
+                        imageSvg: t.images.linkedin,
+                        link: t.strings.links.linkedin,
                       ),
                     ],
                   ),
@@ -400,5 +411,6 @@ class _HomePhoneState extends State<HomePhone> {
         ),
       ),
     );
+    }); // Close Obx
   }
 }

@@ -1,0 +1,54 @@
+{
+  "app": {
+    "name": "Hai."
+  },
+  "home": {
+    "title": "Lập Trình Viên\nMobile",
+    "subtitle": "Tôi thích tạo ra các sản phẩm mobile sáng tạo, có khả năng mở rộng với trải nghiệm người dùng tuyệt vời.",
+    "skill1": "Có kỹ năng cao trong progressive enhancement, design systems & UI Engineering.",
+    "skill2": "Hơn hai năm kinh nghiệm xây dựng sản phẩm cho khách hàng tại Nhật Bản và Việt Nam.",
+    "mobile": {
+      "title": "Mobile",
+      "description": "Tôi có những công cụ lý tưởng để phát triển ứng dụng mobile, và tôi hoàn toàn có thể làm việc mà không cần chúng để tạo ra các giải pháp nhanh chóng, bền vững được thiết kế cho sự phát triển – hiệu suất và khả năng mở rộng là mục tiêu hàng đầu trong radar của tôi."
+    },
+    "engineering": {
+      "title": "Engineering",
+      "description": "Ngoài phát triển mobile, tôi cũng thích làm việc với các dự án web, đôi khi với vai trò Frontend developer và thỉnh thoảng là Backend developer. Mặc dù tôi không phải chuyên gia trong lĩnh vực này, nhưng tôi rất đam mê."
+    },
+    "build": {
+      "title": "Tôi xây dựng &\nthiết kế",
+      "description": "Các dự án open source, ứng dụng mobile và thử nghiệm.",
+      "button": "Xem ứng dụng của tôi"
+    },
+    "support": {
+      "title": "Tôi hỗ trợ,\nthỉnh thoảng",
+      "description": "Báo cáo issue & bug open source",
+      "button": "Đọc bài viết của tôi"
+    },
+    "experience": {
+      "title": "Qua nhiều năm,",
+      "emoji": "\n(~_^)\n",
+      "description": "Tôi xây dựng ứng dụng cho cả công ty và dự án cá nhân, từ ứng dụng du lịch và ẩm thực tập trung vào giao diện người dùng đến các ứng dụng AI cho fitness và sức khỏe với các hiệu ứng và logic phức tạp, phục vụ người dùng khắp Nhật Bản. Hiện tại, tôi làm việc tại Sun* với vai trò mobile engineer trong growth team."
+    },
+    "thankYou": {
+      "message": "Tạo ra các giải pháp Mobile không chỉ đáp ứng mà còn vượt xa kỳ vọng của bạn.",
+      "title": "Cảm ơn bạn đã xem!"
+    }
+  },
+  "contact": {
+    "title": "LIÊN HỆ",
+    "email": "duchai4320@gmail.com",
+    "works": "Dự án của tôi",
+    "shelf": "Kệ sách của tôi",
+    "resume": "CV của tôi"
+  },
+  "footer": {
+    "copyright": "© HAI 2026."
+  },
+  "links": {
+    "email": "mailto:duchai4320@gmail.com",
+    "github": "https://github.com/Hai4320",
+    "linkedin": "https://www.linkedin.com/in/hai4320"
+  }
+}
+

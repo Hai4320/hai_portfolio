@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:hai_portfolio/data/model/project.dart';
+import 'package:hai_portfolio/i18n/strings.g.dart';
 import 'package:hai_portfolio/ui/common/image_link.dart';
+import 'package:hai_portfolio/ui/common/language_switcher.dart';
 import 'package:hai_portfolio/ui/common/primary_button.dart';
 import 'package:hai_portfolio/ui/common/project_bloc.dart';
 import 'package:hai_portfolio/ui/common/text_link.dart';
 import 'package:hai_portfolio/ui/theme/app_colors.dart';
 import 'package:hai_portfolio/utils/gradient_text.dart';
+import 'package:hai_portfolio/utils/locale_controller.dart';
 
 class HomeWeb extends StatefulWidget {
   const HomeWeb({super.key});
@@ -18,26 +22,33 @@ class HomeWeb extends StatefulWidget {
 class _HomeWebState extends State<HomeWeb> {
   @override
   Widget build(BuildContext context) {
+    final localeController = Get.find<LocaleController>();
     final contentPadding = 200.w;
     final sectionSpace = 140.h;
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(height: 80.h),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: contentPadding),
-              child: const Column(
+
+    return Obx(() {
+      // Access currentLocale to trigger rebuild on change
+      final _ = localeController.currentLocale;
+      return Scaffold(
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 80.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: contentPadding),
+              child: Column(
                 children: [
                   Row(
                     children: [
                       Text(
-                        'Hai.',
-                        style: TextStyle(
+                        t.strings.app.name,
+                        style: const TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.w400,
                         ),
-                      )
+                      ),
+                      const Spacer(),
+                      const LanguageSwitcherCompact(),
                     ],
                   )
                 ],
@@ -58,26 +69,26 @@ class _HomeWebState extends State<HomeWeb> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(height: 100.h),
-                            const Text(
-                              'Mobile\nDeveloper',
-                              style: TextStyle(
+                            Text(
+                              t.strings.home.title,
+                              style: const TextStyle(
                                 fontSize: 60,
                                 fontWeight: FontWeight.w900,
                                 height: 1.3,
                               ),
                             ).gradient(),
                             SizedBox(height: 40.h),
-                            const Text(
-                              'I like to craft innovative and scalable mobile products\nwith great user experiences.',
-                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300, height: 1.8),
+                            Text(
+                              t.strings.home.subtitle,
+                              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w300, height: 1.8),
                             ),
                             SizedBox(height: 100.h),
                             Row(
                               children: [
                                 Expanded(
-                                  child: const Text(
-                                    'Highly skilled at progressive enhancement, design systems & UI Engineering.',
-                                    style: TextStyle(
+                                  child: Text(
+                                    t.strings.home.skill1,
+                                    style: const TextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.w200,
                                       height: 1.8,
@@ -86,9 +97,9 @@ class _HomeWebState extends State<HomeWeb> {
                                 ),
                                 SizedBox(width: 120.w),
                                 Expanded(
-                                  child: const Text(
-                                    'Over a two years of experience building products for clients across Japan and Vietnam.',
-                                    style: TextStyle(
+                                  child: Text(
+                                    t.strings.home.skill2,
+                                    style: const TextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.w200,
                                       height: 1.8,
@@ -104,7 +115,7 @@ class _HomeWebState extends State<HomeWeb> {
                       Column(
                         children: [
                           Image.asset(
-                            'assets/images/avatar.jpg',
+                            t.images.avatar,
                             width: 450.w,
                           ),
                           Container(
@@ -139,17 +150,17 @@ class _HomeWebState extends State<HomeWeb> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(height: 100.h),
-                        const Text(
-                          'Mobile',
-                          style: TextStyle(
+                        Text(
+                          t.strings.home.mobile.title,
+                          style: const TextStyle(
                             fontSize: 60,
                             fontWeight: FontWeight.w900,
                           ),
                         ).gradient(),
                         SizedBox(height: 20.h),
-                        const Text(
-                          "I have the ideal tools for developing mobile applications, and I can definitely work without them to produce quick, durable solutions that are designed for growth – performance and scalability are top objectives on my radar.",
-                          style: TextStyle(
+                        Text(
+                          t.strings.home.mobile.description,
+                          style: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w300,
                             height: 1.8,
@@ -164,17 +175,17 @@ class _HomeWebState extends State<HomeWeb> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(height: 100.h),
-                        const Text(
-                          'Engineering',
-                          style: TextStyle(
+                        Text(
+                          t.strings.home.engineering.title,
+                          style: const TextStyle(
                             fontSize: 60,
                             fontWeight: FontWeight.w900,
                           ),
                         ).gradient(),
                         SizedBox(height: 20.h),
-                        const Text(
-                          "Besides mobile development, I also enjoy working on web projects, sometimes as a Frontend developer and occasionally as a Backend developer. Although I'm not an expert in this field, I am very passionate about it.",
-                          style: TextStyle(
+                        Text(
+                          t.strings.home.engineering.description,
+                          style: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w300,
                             height: 1.8,
@@ -208,18 +219,18 @@ class _HomeWebState extends State<HomeWeb> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                            'I build &\ndesign stuff',
-                            style: TextStyle(
+                          Text(
+                            t.strings.home.build.title,
+                            style: const TextStyle(
                               fontSize: 50,
                               fontWeight: FontWeight.w900,
                               height: 1.3,
                             ),
                           ).gradient(),
                           SizedBox(height: 20.h),
-                          const Text(
-                            "Open source\nprojects, mobile apps\nand experimentals.",
-                            style: TextStyle(
+                          Text(
+                            t.strings.home.build.description,
+                            style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w500,
                             ),
@@ -227,7 +238,7 @@ class _HomeWebState extends State<HomeWeb> {
                           SizedBox(height: 80.h),
                           SizedBox(
                             width: 400.w,
-                            child: PrimaryButton(label: "See my apps", onTap: () {}),
+                            child: PrimaryButton(label: t.strings.home.build.button, onTap: () {}),
                           ),
                         ],
                       ),
@@ -244,14 +255,14 @@ class _HomeWebState extends State<HomeWeb> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                            'I support,\nsometimes',
-                            style: TextStyle(fontSize: 50, fontWeight: FontWeight.w900, height: 1.3),
+                          Text(
+                            t.strings.home.support.title,
+                            style: const TextStyle(fontSize: 50, fontWeight: FontWeight.w900, height: 1.3),
                           ).gradient(),
                           SizedBox(height: 20.h),
-                          const Text(
-                            "Report\nissue & bug\nopen source",
-                            style: TextStyle(
+                          Text(
+                            t.strings.home.support.description,
+                            style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w500,
                             ),
@@ -259,7 +270,7 @@ class _HomeWebState extends State<HomeWeb> {
                           SizedBox(height: 80.h),
                           SizedBox(
                             width: 400.w,
-                            child: PrimaryButton(label: "Read My Article", onTap: () {}),
+                            child: PrimaryButton(label: t.strings.home.support.button, onTap: () {}),
                           ),
                         ],
                       ),
@@ -277,27 +288,27 @@ class _HomeWebState extends State<HomeWeb> {
               padding: EdgeInsets.symmetric(vertical: 160.h),
               child: Column(
                 children: [
-                  const Text(
-                    'Over the years,',
-                    style: TextStyle(
+                  Text(
+                    t.strings.home.experience.title,
+                    style: const TextStyle(
                       fontSize: 56,
                       fontWeight: FontWeight.w900,
                     ),
                   ).gradient(),
-                  const Text(
-                    "\n(~_^)\n",
-                    style: TextStyle(
+                  Text(
+                    t.strings.home.experience.emoji,
+                    style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                       height: 1.8,
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(
+                  SizedBox(
                     width: 700,
                     child: Text(
-                      "I build applications for both companies and personal projects, ranging from travel and food apps with a focus on user interface to AI applications for fitness and health with complex effects and logic, serving people all over Japan. Currently, I work at Sun* as a mobile engineer in the growth team.",
-                      style: TextStyle(
+                      t.strings.home.experience.description,
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
                         height: 1.8,
@@ -336,10 +347,10 @@ class _HomeWebState extends State<HomeWeb> {
                 children: [
                   SizedBox(
                     width: 600.w,
-                    child: const Text(
-                      "Creating Mobile Solutions That Not Only Meet But Exceed Your Expectations.",
+                    child: Text(
+                      t.strings.home.thankYou.message,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
                         height: 1.6,
@@ -347,9 +358,9 @@ class _HomeWebState extends State<HomeWeb> {
                     ),
                   ),
                   SizedBox(height: 50.h),
-                  const Text(
-                    'Thank for your watching!',
-                    style: TextStyle(fontSize: 60, fontWeight: FontWeight.w900, height: 1.3),
+                  Text(
+                    t.strings.home.thankYou.title,
+                    style: const TextStyle(fontSize: 60, fontWeight: FontWeight.w900, height: 1.3),
                   ).gradient(),
                 ],
               ),
@@ -357,11 +368,11 @@ class _HomeWebState extends State<HomeWeb> {
             SizedBox(height: sectionSpace),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: contentPadding),
-              child: const Align(
+              child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "CONNECT ME",
-                  style: TextStyle(
+                  t.strings.contact.title,
+                  style: const TextStyle(
                     fontSize: 18,
                     color: AppColors.lightPeriwinkle,
                   ),
@@ -371,35 +382,35 @@ class _HomeWebState extends State<HomeWeb> {
             const SizedBox(height: 25),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: contentPadding),
-              child: const Row(
+              child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Column(
                     children: [
                       TextLink(
-                        text: "duchai4320@gmai.com",
-                        link: "mailto:duchai4320@gmai.com",
+                        text: t.strings.contact.email,
+                        link: t.strings.links.email,
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                     ],
                   ),
-                  SizedBox(width: 150),
+                  const SizedBox(width: 150),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TextLink(
-                        text: "My Works",
-                        link: "mailto:duchai4320@gmai.com",
+                        text: t.strings.contact.works,
+                        link: t.strings.links.email,
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       TextLink(
-                        text: "My Shelf",
-                        link: "https://github.com/Hai4320",
+                        text: t.strings.contact.shelf,
+                        link: t.strings.links.github,
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       TextLink(
-                        text: "My Résumé",
-                        link: "https://github.com/Hai4320",
+                        text: t.strings.contact.resume,
+                        link: t.strings.links.github,
                       ),
                     ],
                   ),
@@ -417,27 +428,27 @@ class _HomeWebState extends State<HomeWeb> {
                     color: AppColors.lightPeriwinkle,
                   ),
                   SizedBox(height: 30.h),
-                  const Row(
+                  Row(
                     children: [
                       Text(
-                        "© HAI 2024.",
+                        t.strings.footer.copyright,
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                           height: 1.6,
                           color: Colors.white,
                         ),
                       ),
-                      Expanded(child: SizedBox()),
+                      const Expanded(child: SizedBox()),
                       ImageLink(
-                        imageSvg: "assets/images/github.svg",
-                        link: "https://github.com/Hai4320",
+                        imageSvg: t.images.github,
+                        link: t.strings.links.github,
                       ),
-                      SizedBox(width: 20),
+                      const SizedBox(width: 20),
                       ImageLink(
-                        imageSvg: "assets/images/linkedin.svg",
-                        link: "https://github.com/Hai4320",
+                        imageSvg: t.images.linkedin,
+                        link: t.strings.links.linkedin,
                       ),
                     ],
                   ),
@@ -449,5 +460,6 @@ class _HomeWebState extends State<HomeWeb> {
         ),
       ),
     );
+    }); // Close Obx
   }
 }
