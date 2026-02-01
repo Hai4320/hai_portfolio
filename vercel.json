@@ -1,9 +1,15 @@
 {
-  "buildCommand": "flutter/bin/flutter build web --release",
-  "installCommand": "git clone https://github.com/flutter/flutter.git -b stable --depth 1 && flutter/bin/flutter doctor",
-  "outputDirectory": "build/web",
-  "framework": null,
+  "version": 2,
+  "builds": [
+    {
+      "src": "**",
+      "use": "@vercel/static"
+    }
+  ],
   "routes": [
+    {
+      "handle": "filesystem"
+    },
     {
       "src": "/(.*)",
       "dest": "/index.html"
