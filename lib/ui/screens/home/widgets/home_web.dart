@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:hai_portfolio/data/model/project.dart';
+import 'package:hai_portfolio/data/repository/project_data.dart';
 import 'package:hai_portfolio/i18n/strings.g.dart';
 import 'package:hai_portfolio/ui/common/image_link.dart';
 import 'package:hai_portfolio/ui/common/language_switcher.dart';
@@ -274,19 +274,9 @@ class _HomeWebState extends State<HomeWeb> {
                 child: Wrap(
                   spacing: 50.w,
                   runSpacing: 60.h,
-                  children: [
-                    ...List.generate(
-                      6,
-                      (index) => ProjectBloc(
-                        project: Project(
-                          name: "Maurice.Design",
-                          tech: ["Android", "Firebase"],
-                          description: 'App food',
-                          link: t.strings.links.github,
-                        ),
-                      ),
-                    ),
-                  ],
+                  children: ProjectData.projects
+                      .map((project) => ProjectBloc(project: project))
+                      .toList(),
                 ),
               ),
               SizedBox(height: sectionSpace),

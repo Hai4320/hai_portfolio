@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hai_portfolio/data/model/project.dart';
+import 'package:hai_portfolio/data/repository/project_data.dart';
 import 'package:hai_portfolio/i18n/strings.g.dart';
 import 'package:hai_portfolio/ui/common/image_link.dart';
 import 'package:hai_portfolio/ui/common/language_switcher.dart';
@@ -218,22 +218,12 @@ class _HomePhoneState extends State<HomePhone> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: contentPadding),
                 child: Column(
-                  children: [
-                    ...List.generate(
-                      6,
-                      (index) => Padding(
-                        padding: const EdgeInsets.only(bottom: 24),
-                        child: ProjectBloc(
-                          project: Project(
-                            name: "Maurice.Design",
-                            tech: ["Android", "Firebase"],
-                            description: 'App food',
-                            link: 'https://www.google.com/',
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                  children: ProjectData.projects
+                      .map((project) => Padding(
+                            padding: const EdgeInsets.only(bottom: 24),
+                            child: ProjectBloc(project: project),
+                          ))
+                      .toList(),
                 ),
               ),
               const SizedBox(height: sectionSpace),
