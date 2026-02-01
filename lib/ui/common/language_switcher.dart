@@ -29,18 +29,11 @@ class LanguageSwitcherCompact extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                localeController.getLanguageFlag(currentLocale),
-                style: const TextStyle(fontSize: 16),
-              ),
+              Text(localeController.getLanguageFlag(currentLocale), style: const TextStyle(fontSize: 16)),
               const SizedBox(width: 6),
               Text(
                 localeController.getLanguageCode(currentLocale),
-                style: const TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.white,
-                ),
+                style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: Colors.white),
               ),
               const Icon(Icons.arrow_drop_down, color: Colors.white, size: 18),
             ],
@@ -52,10 +45,7 @@ class LanguageSwitcherCompact extends StatelessWidget {
             value: locale,
             child: Row(
               children: [
-                Text(
-                  localeController.getLanguageFlag(locale),
-                  style: const TextStyle(fontSize: 16),
-                ),
+                Text(localeController.getLanguageFlag(locale), style: const TextStyle(fontSize: 16)),
                 const SizedBox(width: 10),
                 Text(
                   localeController.getLanguageCode(locale),

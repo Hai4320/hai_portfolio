@@ -12,34 +12,28 @@ class AppTheme {
   }
 
   ThemeData get darkTheme => ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blue,
-          background: AppColors.black1,
-          error: Colors.red,
-          onTertiary: Colors.orange,
-        ),
-        useMaterial3: true,
-        scaffoldBackgroundColor: AppColors.black1,
-        textTheme:
-            GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme).apply(
-          bodyColor: AppColors.lightPeriwinkle,
-        ).copyWith(
-
-        ),
-      );
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: Colors.blue,
+      surface: AppColors.black1,
+      error: Colors.red,
+      onTertiary: Colors.orange,
+    ),
+    useMaterial3: true,
+    scaffoldBackgroundColor: AppColors.black1,
+    textTheme: GoogleFonts.poppinsTextTheme(
+      Theme.of(context).textTheme,
+    ).apply(bodyColor: AppColors.lightPeriwinkle).copyWith(),
+  );
 
   ThemeData get lightTheme => ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.purple,
-          background: AppColors.white,
-          error: Colors.red,
-          onTertiary: Colors.orange,
-        ),
-        scaffoldBackgroundColor: AppColors.black1,
-        useMaterial3: true,
-        textTheme:
-            GoogleFonts.openSansTextTheme(Theme.of(context).textTheme).apply(
-          bodyColor: Colors.black,
-        ),
-      );
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: Colors.purple,
+      surface: AppColors.white,
+      error: Colors.red,
+      onTertiary: Colors.orange,
+    ),
+    scaffoldBackgroundColor: AppColors.black1,
+    useMaterial3: true,
+    textTheme: GoogleFonts.openSansTextTheme(Theme.of(context).textTheme).apply(bodyColor: Colors.black),
+  );
 }

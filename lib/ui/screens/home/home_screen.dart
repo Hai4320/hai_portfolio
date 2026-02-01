@@ -8,9 +8,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveLayout(
-      webUI: const HomeWeb(),
-      phoneUI: const HomePhone(),
-    );
+    return ResponsiveLayout(webUI: const HomeWeb(), phoneUI: const HomePhone());
   }
 }

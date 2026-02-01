@@ -3,11 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ImageLink extends StatefulWidget {
-  const ImageLink({
-    super.key,
-    required this.imageSvg,
-    required this.link,
-  });
+  const ImageLink({super.key, required this.imageSvg, required this.link});
 
   final String imageSvg;
   final String link;

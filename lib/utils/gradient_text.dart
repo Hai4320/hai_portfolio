@@ -67,10 +67,7 @@ class _GradientAnimationTextState extends State<GradientAnimationText> with Sing
   void initState() {
     super.initState();
     // animation controller
-    _animationController = AnimationController(
-      vsync: this,
-      duration: widget.duration,
-    );
+    _animationController = AnimationController(vsync: this, duration: widget.duration);
 
     // repeating animation
     _animationController.repeat(reverse: widget.reverse ?? false);

@@ -38,18 +38,13 @@ class _ProjectBlocState extends State<ProjectBloc> {
                 width: 350,
                 height: 250,
                 padding: const EdgeInsets.all(40),
-                decoration: const BoxDecoration(
-                  color: AppColors.richBlack,
-                ),
+                decoration: const BoxDecoration(color: AppColors.richBlack),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       widget.project.name,
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                      ),
+                      style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                     ).gradient(),
                     const SizedBox(height: 15),
                     Text(
@@ -80,11 +75,7 @@ class _ProjectBlocState extends State<ProjectBloc> {
                         child: const Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Icon(
-                              Icons.call_made,
-                              color: AppColors.lightPeriwinkle,
-                              size: 12,
-                            ),
+                            Icon(Icons.call_made, color: AppColors.lightPeriwinkle, size: 12),
                             SizedBox(width: 8),
                             Text(
                               "View",
@@ -106,12 +97,10 @@ class _ProjectBlocState extends State<ProjectBloc> {
                 child: AnimatedContainer(
                   height: 2,
                   width: hovering ? 350 : 0,
-                  decoration: const BoxDecoration(
-                    color: AppColors.lightPeriwinkle,
-                  ),
+                  decoration: const BoxDecoration(color: AppColors.lightPeriwinkle),
                   duration: const Duration(milliseconds: 300),
                 ),
-              )
+              ),
             ],
           ),
         ),

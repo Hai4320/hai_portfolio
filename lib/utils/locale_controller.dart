@@ -20,10 +20,7 @@ class LocaleController extends GetxController {
     final savedLocale = prefs.getString(_localeKey);
 
     if (savedLocale != null) {
-      final locale = AppLocale.values.firstWhere(
-        (l) => l.languageCode == savedLocale,
-        orElse: () => AppLocale.en,
-      );
+      final locale = AppLocale.values.firstWhere((l) => l.languageCode == savedLocale, orElse: () => AppLocale.en);
       await setLocale(locale);
     } else {
       // Use device locale if no saved preference
@@ -63,4 +60,3 @@ class LocaleController extends GetxController {
     }
   }
 }
-

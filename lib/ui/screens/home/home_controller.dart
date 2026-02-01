@@ -5,8 +5,6 @@ class HomeController extends GetxController {
   Rx<ThemeMode> currentTheme = ThemeMode.system.obs;
 
   void switchTheme() {
-    currentTheme.value = currentTheme.value == ThemeMode.light
-        ? ThemeMode.dark
-        : ThemeMode.light;
+    currentTheme.value = currentTheme.value == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
   }
 }

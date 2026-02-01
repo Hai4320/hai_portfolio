@@ -2,15 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 class ResponsiveLayout extends GetResponsiveView<ResponsiveController> {
-  ResponsiveLayout({
-    super.key,
-    required this.webUI,
-    this.phoneUI,
-    this.tabletUI,
-  }) : super(
-          alwaysUseBuilder: false,
-          settings: appScreenSetting,
-        );
+  ResponsiveLayout({super.key, required this.webUI, this.phoneUI, this.tabletUI})
+    : super(alwaysUseBuilder: false, settings: appScreenSetting);
 
   final Widget? phoneUI;
   final Widget webUI;
