@@ -7,6 +7,7 @@ import 'package:hai_portfolio/ui/common/image_link.dart';
 import 'package:hai_portfolio/ui/common/language_switcher.dart';
 import 'package:hai_portfolio/ui/common/primary_button.dart';
 import 'package:hai_portfolio/ui/common/project_bloc.dart';
+import 'package:hai_portfolio/ui/common/skill_badge.dart';
 import 'package:hai_portfolio/ui/common/text_link.dart';
 import 'package:hai_portfolio/ui/theme/app_colors.dart';
 import 'package:hai_portfolio/utils/gradient_text.dart';
@@ -162,6 +163,22 @@ class _HomeWebState extends State<HomeWeb> {
                   ],
                 ),
               ),
+              SizedBox(height: sectionSpace),
+              // Skills Section
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: contentPadding),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      t.strings.home.skills.title,
+                      style: const TextStyle(fontSize: 60, fontWeight: FontWeight.w900),
+                    ).gradient(),
+                    SizedBox(height: 40.h),
+                    const SkillsSection(),
+                  ],
+                ),
+              ),
               SizedBox(height: 400.h),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 120.w),
@@ -265,7 +282,7 @@ class _HomeWebState extends State<HomeWeb> {
                           name: "Maurice.Design",
                           tech: ["Android", "Firebase"],
                           description: 'App food',
-                          link: 'https://www.google.com/',
+                          link: t.strings.links.github,
                         ),
                       ),
                     ),

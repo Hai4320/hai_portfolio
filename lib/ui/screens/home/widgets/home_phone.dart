@@ -6,6 +6,7 @@ import 'package:hai_portfolio/ui/common/image_link.dart';
 import 'package:hai_portfolio/ui/common/language_switcher.dart';
 import 'package:hai_portfolio/ui/common/primary_button.dart';
 import 'package:hai_portfolio/ui/common/project_bloc.dart';
+import 'package:hai_portfolio/ui/common/skill_badge.dart';
 import 'package:hai_portfolio/ui/common/text_link.dart';
 import 'package:hai_portfolio/ui/theme/app_colors.dart';
 import 'package:hai_portfolio/utils/gradient_text.dart';
@@ -116,6 +117,14 @@ class _HomePhoneState extends State<HomePhone> {
                       t.strings.home.engineering.description,
                       style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w300, height: 1.8),
                     ),
+                    const SizedBox(height: 40),
+                    // Skills Section
+                    Text(
+                      t.strings.home.skills.title,
+                      style: const TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
+                    ).gradient(),
+                    const SizedBox(height: 20),
+                    const SkillsSection(isCompact: true),
                   ],
                 ),
               ),

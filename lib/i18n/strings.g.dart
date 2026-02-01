@@ -4,7 +4,7 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 3
-/// Strings: 99 (33 per locale)
+/// Strings: 102 (34 per locale)
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -194,6 +194,7 @@ class _StringsStringsHomeEn {
 	String get skill2 => 'Over a two years of experience building products for clients across Japan and Vietnam.';
 	late final _StringsStringsHomeMobileEn mobile = _StringsStringsHomeMobileEn._(_root);
 	late final _StringsStringsHomeEngineeringEn engineering = _StringsStringsHomeEngineeringEn._(_root);
+	late final _StringsStringsHomeSkillsEn skills = _StringsStringsHomeSkillsEn._(_root);
 	late final _StringsStringsHomeBuildEn build = _StringsStringsHomeBuildEn._(_root);
 	late final _StringsStringsHomeSupportEn support = _StringsStringsHomeSupportEn._(_root);
 	late final _StringsStringsHomeExperienceEn experience = _StringsStringsHomeExperienceEn._(_root);
@@ -256,6 +257,16 @@ class _StringsStringsHomeEngineeringEn {
 	// Translations
 	String get title => 'Engineering';
 	String get description => 'Besides mobile development, I also enjoy working on web projects, sometimes as a Frontend developer and occasionally as a Backend developer. Although I\'m not an expert in this field, I am very passionate about it.';
+}
+
+// Path: strings.home.skills
+class _StringsStringsHomeSkillsEn {
+	_StringsStringsHomeSkillsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'My Skills';
 }
 
 // Path: strings.home.build
@@ -379,6 +390,7 @@ class _StringsStringsHomeJa extends _StringsStringsHomeEn {
 	@override String get skill2 => '日本とベトナムのクライアント向けに製品を構築してきた2年以上の経験があります。';
 	@override late final _StringsStringsHomeMobileJa mobile = _StringsStringsHomeMobileJa._(_root);
 	@override late final _StringsStringsHomeEngineeringJa engineering = _StringsStringsHomeEngineeringJa._(_root);
+	@override late final _StringsStringsHomeSkillsJa skills = _StringsStringsHomeSkillsJa._(_root);
 	@override late final _StringsStringsHomeBuildJa build = _StringsStringsHomeBuildJa._(_root);
 	@override late final _StringsStringsHomeSupportJa support = _StringsStringsHomeSupportJa._(_root);
 	@override late final _StringsStringsHomeExperienceJa experience = _StringsStringsHomeExperienceJa._(_root);
@@ -441,6 +453,16 @@ class _StringsStringsHomeEngineeringJa extends _StringsStringsHomeEngineeringEn 
 	// Translations
 	@override String get title => 'エンジニアリング';
 	@override String get description => 'モバイル開発以外にも、Webプロジェクトに取り組むことも楽しんでいます。フロントエンド開発者として、時にはバックエンド開発者として。この分野の専門家ではありませんが、非常に情熱を持っています。';
+}
+
+// Path: strings.home.skills
+class _StringsStringsHomeSkillsJa extends _StringsStringsHomeSkillsEn {
+	_StringsStringsHomeSkillsJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'スキル';
 }
 
 // Path: strings.home.build
@@ -564,6 +586,7 @@ class _StringsStringsHomeVi extends _StringsStringsHomeEn {
 	@override String get skill2 => 'Hơn hai năm kinh nghiệm xây dựng sản phẩm cho khách hàng tại Nhật Bản và Việt Nam.';
 	@override late final _StringsStringsHomeMobileVi mobile = _StringsStringsHomeMobileVi._(_root);
 	@override late final _StringsStringsHomeEngineeringVi engineering = _StringsStringsHomeEngineeringVi._(_root);
+	@override late final _StringsStringsHomeSkillsVi skills = _StringsStringsHomeSkillsVi._(_root);
 	@override late final _StringsStringsHomeBuildVi build = _StringsStringsHomeBuildVi._(_root);
 	@override late final _StringsStringsHomeSupportVi support = _StringsStringsHomeSupportVi._(_root);
 	@override late final _StringsStringsHomeExperienceVi experience = _StringsStringsHomeExperienceVi._(_root);
@@ -626,6 +649,16 @@ class _StringsStringsHomeEngineeringVi extends _StringsStringsHomeEngineeringEn 
 	// Translations
 	@override String get title => 'Engineering';
 	@override String get description => 'Ngoài phát triển mobile, tôi cũng thích làm việc với các dự án web, đôi khi với vai trò Frontend developer và thỉnh thoảng là Backend developer. Mặc dù tôi không phải chuyên gia trong lĩnh vực này, nhưng tôi rất đam mê.';
+}
+
+// Path: strings.home.skills
+class _StringsStringsHomeSkillsVi extends _StringsStringsHomeSkillsEn {
+	_StringsStringsHomeSkillsVi._(_StringsVi root) : this._root = root, super._(root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Kỹ Năng';
 }
 
 // Path: strings.home.build

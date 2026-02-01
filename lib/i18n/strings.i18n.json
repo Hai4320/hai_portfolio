@@ -15,6 +15,9 @@
       "title": "Engineering",
       "description": "Besides mobile development, I also enjoy working on web projects, sometimes as a Frontend developer and occasionally as a Backend developer. Although I'm not an expert in this field, I am very passionate about it."
     },
+    "skills": {
+      "title": "My Skills"
+    },
     "build": {
       "title": "I build &\ndesign stuff",
       "description": "Open source projects, mobile apps and experimentals.",

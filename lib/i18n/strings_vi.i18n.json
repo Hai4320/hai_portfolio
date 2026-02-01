@@ -15,6 +15,9 @@
       "title": "Engineering",
       "description": "Ngoài phát triển mobile, tôi cũng thích làm việc với các dự án web, đôi khi với vai trò Frontend developer và thỉnh thoảng là Backend developer. Mặc dù tôi không phải chuyên gia trong lĩnh vực này, nhưng tôi rất đam mê."
     },
+    "skills": {
+      "title": "Kỹ Năng"
+    },
     "build": {
       "title": "Tôi xây dựng &\nthiết kế",
       "description": "Các dự án open source, ứng dụng mobile và thử nghiệm.",
