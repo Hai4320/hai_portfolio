@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:hai_portfolio/data/repository/link_analytics_repository.dart';
 import 'package:hai_portfolio/data/repository/project_data.dart';
 import 'package:hai_portfolio/i18n/strings.g.dart';
+import 'package:hai_portfolio/ui/common/floating_nav.dart';
 import 'package:hai_portfolio/ui/common/image_link.dart';
 import 'package:hai_portfolio/ui/common/language_switcher.dart';
 import 'package:hai_portfolio/ui/common/primary_button.dart';
@@ -23,6 +24,14 @@ class HomeWeb extends StatefulWidget {
 }
 
 class _HomeWebState extends State<HomeWeb> {
+  // GlobalKeys for sections
+  final _homeKey = GlobalKey();
+  final _skillsKey = GlobalKey();
+  final _servicesKey = GlobalKey();
+  final _experienceKey = GlobalKey();
+  final _projectsKey = GlobalKey();
+  final _contactKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     final localeController = Get.find<LocaleController>();
@@ -33,18 +42,24 @@ class _HomeWebState extends State<HomeWeb> {
       // Access currentLocale to trigger rebuild on change
       final _ = localeController.currentLocale;
       return Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height: 80.h),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: contentPadding),
-                child: Column(
-                  children: [
-                    Row(
+        body: Stack(
+          children: [
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  // Home Section
+                  Container(
+                    key: _homeKey,
+                    child: SizedBox(height: 80.h),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: contentPadding),
+                    child: Column(
                       children: [
-                        Text(t.strings.app.name, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w400)),
-                        const Spacer(),
+                        Row(
+                          children: [
+                            Text(t.strings.app.name, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w400)),
+                            const Spacer(),
                         const LanguageSwitcherCompact(),
                       ],
                     ),
@@ -167,7 +182,8 @@ class _HomeWebState extends State<HomeWeb> {
               ),
               SizedBox(height: sectionSpace),
               // Skills Section
-              Padding(
+              Container(
+                key: _skillsKey,
                 padding: EdgeInsets.symmetric(horizontal: contentPadding),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -245,6 +261,7 @@ class _HomeWebState extends State<HomeWeb> {
               ),
               SizedBox(height: sectionSpace),
               Container(
+                key: _experienceKey,
                 width: double.infinity,
                 decoration: const BoxDecoration(color: AppColors.richBlack),
                 padding: EdgeInsets.symmetric(vertical: 160.h),
@@ -271,7 +288,9 @@ class _HomeWebState extends State<HomeWeb> {
                 ),
               ),
               SizedBox(height: sectionSpace),
-              Padding(
+              // Projects Section
+              Container(
+                key: _projectsKey,
                 padding: EdgeInsets.symmetric(horizontal: 200.w),
                 child: Wrap(
                   spacing: 50.w,
@@ -301,7 +320,9 @@ class _HomeWebState extends State<HomeWeb> {
                 ),
               ),
               SizedBox(height: sectionSpace),
-              Padding(
+              // Contact Section
+              Container(
+                key: _contactKey,
                 padding: EdgeInsets.symmetric(horizontal: contentPadding),
                 child: Align(
                   alignment: Alignment.centerLeft,
@@ -385,7 +406,19 @@ class _HomeWebState extends State<HomeWeb> {
             ],
           ),
         ),
-      );
-    }); // Close Obx
+        // Floating Navigation
+        FloatingNav(
+          sections: [
+            SectionItem(label: 'Home', icon: Icons.home_rounded, key: _homeKey),
+            SectionItem(label: 'Skills', icon: Icons.code_rounded, key: _skillsKey),
+            SectionItem(label: 'Experience', icon: Icons.work_rounded, key: _experienceKey),
+            SectionItem(label: 'Projects', icon: Icons.apps_rounded, key: _projectsKey),
+            SectionItem(label: 'Contact', icon: Icons.mail_rounded, key: _contactKey),
+          ],
+        ),
+      ],
+    ),
+  );
+}); // Close Obx
   }
 }
