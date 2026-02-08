@@ -19,9 +19,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: AppLocaleUtils.supportedLocales,
       theme: AppTheme.of(context).darkTheme,
       darkTheme: AppTheme.of(context).darkTheme,
-      home: const FireworkClickEffect(
-        child: HomeScreen(),
-      ),
+      home: const FireworkClickEffect(child: HomeScreen()),
     );
   }
 }

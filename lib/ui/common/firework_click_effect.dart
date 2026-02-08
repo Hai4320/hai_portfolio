@@ -16,10 +16,7 @@ class _FireworkClickEffectState extends State<FireworkClickEffect> {
   final List<FireworkData> _fireworks = [];
 
   void _addFirework(Offset position) {
-    final firework = FireworkData(
-      position: position,
-      key: UniqueKey(),
-    );
+    final firework = FireworkData(position: position, key: UniqueKey());
     setState(() {
       _fireworks.add(firework);
     });
@@ -41,11 +38,13 @@ class _FireworkClickEffectState extends State<FireworkClickEffect> {
       child: Stack(
         children: [
           widget.child,
-          ..._fireworks.map((firework) => FireworkWidget(
-                key: firework.key,
-                position: firework.position,
-                onComplete: () => _removeFirework(firework.key),
-              )),
+          ..._fireworks.map(
+            (firework) => FireworkWidget(
+              key: firework.key,
+              position: firework.position,
+              onComplete: () => _removeFirework(firework.key),
+            ),
+          ),
         ],
       ),
     );
@@ -60,11 +59,7 @@ class FireworkData {
 }
 
 class FireworkWidget extends StatefulWidget {
-  const FireworkWidget({
-    super.key,
-    required this.position,
-    required this.onComplete,
-  });
+  const FireworkWidget({super.key, required this.position, required this.onComplete});
 
   final Offset position;
   final VoidCallback onComplete;
@@ -73,8 +68,7 @@ class FireworkWidget extends StatefulWidget {
   State<FireworkWidget> createState() => _FireworkWidgetState();
 }
 
-class _FireworkWidgetState extends State<FireworkWidget>
-    with TickerProviderStateMixin {
+class _FireworkWidgetState extends State<FireworkWidget> with TickerProviderStateMixin {
   late AnimationController _controller;
   late List<Particle> _particles;
   final Random _random = Random();
@@ -94,10 +88,8 @@ class _FireworkWidgetState extends State<FireworkWidget>
   void initState() {
     super.initState();
     _initParticles();
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 600),
-    )..addStatusListener((status) {
+    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 600))
+      ..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
           widget.onComplete();
         }
@@ -115,13 +107,7 @@ class _FireworkWidgetState extends State<FireworkWidget>
       final color = _colors[_random.nextInt(_colors.length)];
       final gravity = 60 + _random.nextDouble() * 30; // Gravity effect
 
-      return Particle(
-        angle: angle,
-        velocity: velocity,
-        size: size,
-        color: color,
-        gravity: gravity,
-      );
+      return Particle(angle: angle, velocity: velocity, size: size, color: color, gravity: gravity);
     });
   }
 
@@ -137,11 +123,7 @@ class _FireworkWidgetState extends State<FireworkWidget>
       animation: _controller,
       builder: (context, child) {
         return CustomPaint(
-          painter: FireworkPainter(
-            particles: _particles,
-            progress: _controller.value,
-            center: widget.position,
-          ),
+          painter: FireworkPainter(particles: _particles, progress: _controller.value, center: widget.position),
           size: Size.infinite,
         );
       },
@@ -170,11 +152,7 @@ class FireworkPainter extends CustomPainter {
   final double progress;
   final Offset center;
 
-  FireworkPainter({
-    required this.particles,
-    required this.progress,
-    required this.center,
-  });
+  FireworkPainter({required this.particles, required this.progress, required this.center});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -200,11 +178,7 @@ class FireworkPainter extends CustomPainter {
           ..style = PaintingStyle.fill;
 
         // Draw simple dot
-        canvas.drawCircle(
-          particlePos,
-          currentSize,
-          paint,
-        );
+        canvas.drawCircle(particlePos, currentSize, paint);
       }
     }
   }
@@ -214,4 +188,3 @@ class FireworkPainter extends CustomPainter {
     return oldDelegate.progress != progress;
   }
 }
-
