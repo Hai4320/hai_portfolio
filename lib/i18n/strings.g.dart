@@ -191,7 +191,7 @@ class _StringsStringsHomeEn {
 	String get title => 'Mobile\nDeveloper';
 	String get subtitle => 'I like to craft innovative and scalable mobile products with great user experiences.';
 	String get skill1 => 'Highly skilled at progressive enhancement, design systems & UI Engineering.';
-	String get skill2 => 'Over a two years of experience building products for clients across Japan and Vietnam.';
+	String get skill2 => 'Over a three years of experience building products for clients across Japan and Vietnam.';
 	late final _StringsStringsHomeMobileEn mobile = _StringsStringsHomeMobileEn._(_root);
 	late final _StringsStringsHomeEngineeringEn engineering = _StringsStringsHomeEngineeringEn._(_root);
 	late final _StringsStringsHomeSkillsEn skills = _StringsStringsHomeSkillsEn._(_root);
@@ -387,7 +387,7 @@ class _StringsStringsHomeJa extends _StringsStringsHomeEn {
 	@override String get title => 'モバイル\n開発者';
 	@override String get subtitle => '優れたユーザー体験を持つ革新的でスケーラブルなモバイル製品を作ることが好きです。';
 	@override String get skill1 => 'プログレッシブエンハンスメント、デザインシステム、UIエンジニアリングに長けています。';
-	@override String get skill2 => '日本とベトナムのクライアント向けに製品を構築してきた2年以上の経験があります。';
+	@override String get skill2 => '日本とベトナムのクライアント向けに製品を構築してきた3年以上の経験があります。';
 	@override late final _StringsStringsHomeMobileJa mobile = _StringsStringsHomeMobileJa._(_root);
 	@override late final _StringsStringsHomeEngineeringJa engineering = _StringsStringsHomeEngineeringJa._(_root);
 	@override late final _StringsStringsHomeSkillsJa skills = _StringsStringsHomeSkillsJa._(_root);
@@ -583,7 +583,7 @@ class _StringsStringsHomeVi extends _StringsStringsHomeEn {
 	@override String get title => 'Lập Trình Viên\nMobile';
 	@override String get subtitle => 'Tôi thích tạo ra các sản phẩm mobile sáng tạo, có khả năng mở rộng với trải nghiệm người dùng tuyệt vời.';
 	@override String get skill1 => 'Có kỹ năng cao trong progressive enhancement, design systems & UI Engineering.';
-	@override String get skill2 => 'Hơn hai năm kinh nghiệm xây dựng sản phẩm cho khách hàng tại Nhật Bản và Việt Nam.';
+	@override String get skill2 => 'Hơn ba năm kinh nghiệm xây dựng sản phẩm cho khách hàng tại Nhật Bản và Việt Nam.';
 	@override late final _StringsStringsHomeMobileVi mobile = _StringsStringsHomeMobileVi._(_root);
 	@override late final _StringsStringsHomeEngineeringVi engineering = _StringsStringsHomeEngineeringVi._(_root);
 	@override late final _StringsStringsHomeSkillsVi skills = _StringsStringsHomeSkillsVi._(_root);
