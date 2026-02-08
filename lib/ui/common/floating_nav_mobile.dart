@@ -105,7 +105,29 @@ class _FloatingNavMobileState extends State<FloatingNavMobile> with SingleTicker
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // Viewer counter icon
+                  // Section icons
+                  ...widget.sections.map((section) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 4),
+                      child: Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap: () => _scrollToSection(section.key),
+                          borderRadius: BorderRadius.circular(20),
+                          child: Container(
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                            child: Icon(section.icon, size: 20, color: AppColors.lightPeriwinkle),
+                          ),
+                        ),
+                      ),
+                    );
+                  }),
+                  const SizedBox(height: 4),
+                  Container(height: 1, width: 24, color: AppColors.lightPeriwinkle.withValues(alpha: 0.2)),
+                  const SizedBox(height: 4),
+                  // Viewer counter icon at bottom
                   GestureDetector(
                     onTap: () {},
                     child: Container(
@@ -133,28 +155,6 @@ class _FloatingNavMobileState extends State<FloatingNavMobile> with SingleTicker
                       ),
                     ),
                   ),
-                  const SizedBox(height: 4),
-                  Container(height: 1, width: 24, color: AppColors.lightPeriwinkle.withValues(alpha: 0.2)),
-                  const SizedBox(height: 4),
-                  // Section icons
-                  ...widget.sections.map((section) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 4),
-                      child: Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap: () => _scrollToSection(section.key),
-                          borderRadius: BorderRadius.circular(20),
-                          child: Container(
-                            width: 40,
-                            height: 40,
-                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                            child: Icon(section.icon, size: 20, color: AppColors.lightPeriwinkle),
-                          ),
-                        ),
-                      ),
-                    );
-                  }),
                 ],
               ),
             ),

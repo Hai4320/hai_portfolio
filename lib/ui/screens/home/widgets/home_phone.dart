@@ -329,8 +329,6 @@ class _HomePhoneState extends State<HomePhone> {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 12),
-                        const Center(child: ViewerCounterWidget(fontSize: 12)),
                       ],
                     ),
                   ),
