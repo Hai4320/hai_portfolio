@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hai_portfolio/app.dart';
+import 'package:hai_portfolio/data/service/link_analytics_service.dart';
 import 'package:hai_portfolio/firebase_options.dart';
 import 'package:hai_portfolio/i18n/strings.g.dart';
 import 'package:hai_portfolio/ui/screens/home/viewer_controller.dart';
@@ -17,9 +18,10 @@ void main() async {
 
   await ScreenUtil.ensureScreenSize();
 
-  // Initialize Controllers
+  // Initialize Controllers & Services
   Get.put(LocaleController());
   Get.put(ViewerController());
+  Get.put(LinkAnalyticsService());
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(TranslationProvider(child: const MyApp()));

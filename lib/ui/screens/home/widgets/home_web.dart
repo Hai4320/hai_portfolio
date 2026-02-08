@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hai_portfolio/data/repository/link_analytics_repository.dart';
 import 'package:hai_portfolio/data/repository/project_data.dart';
 import 'package:hai_portfolio/i18n/strings.g.dart';
 import 'package:hai_portfolio/ui/common/image_link.dart';
@@ -318,7 +319,7 @@ class _HomeWebState extends State<HomeWeb> {
                   children: [
                     Column(
                       children: [
-                        TextLink(text: t.strings.contact.email, link: t.strings.links.email),
+                        TextLink(text: t.strings.contact.email, link: t.strings.links.email, linkType: LinkType.email),
                         const SizedBox(height: 20),
                       ],
                     ),
@@ -326,11 +327,15 @@ class _HomeWebState extends State<HomeWeb> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        TextLink(text: t.strings.contact.works, link: t.strings.links.email),
+                        TextLink(text: t.strings.contact.works, link: t.strings.links.email, linkType: LinkType.works),
                         const SizedBox(height: 20),
-                        TextLink(text: t.strings.contact.shelf, link: t.strings.links.github),
+                        TextLink(text: t.strings.contact.shelf, link: t.strings.links.github, linkType: LinkType.shelf),
                         const SizedBox(height: 20),
-                        TextLink(text: t.strings.contact.resume, link: t.strings.links.github),
+                        TextLink(
+                          text: t.strings.contact.resume,
+                          link: t.strings.links.github,
+                          linkType: LinkType.resume,
+                        ),
                       ],
                     ),
                   ],
@@ -358,9 +363,19 @@ class _HomeWebState extends State<HomeWeb> {
                         const Expanded(child: SizedBox()),
                         const ViewerCounterWidget(fontSize: 14),
                         const SizedBox(width: 30),
-                        ImageLink(imageSvg: t.images.github, link: t.strings.links.github),
+                        ImageLink(
+                          imageSvg: t.images.github,
+                          link: t.strings.links.github,
+                          linkType: LinkType.github,
+                          linkName: 'GitHub',
+                        ),
                         const SizedBox(width: 20),
-                        ImageLink(imageSvg: t.images.linkedin, link: t.strings.links.linkedin),
+                        ImageLink(
+                          imageSvg: t.images.linkedin,
+                          link: t.strings.links.linkedin,
+                          linkType: LinkType.linkedin,
+                          linkName: 'LinkedIn',
+                        ),
                       ],
                     ),
                   ],

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hai_portfolio/data/model/project.dart';
+import 'package:hai_portfolio/data/repository/link_analytics_repository.dart';
+import 'package:hai_portfolio/data/service/link_analytics_service.dart';
 import 'package:hai_portfolio/ui/theme/app_colors.dart';
 import 'package:hai_portfolio/utils/gradient_text.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ProjectBloc extends StatefulWidget {
   const ProjectBloc({super.key, required this.project});
@@ -67,7 +69,12 @@ class _ProjectBlocState extends State<ProjectBloc> {
                     const Expanded(child: SizedBox()),
                     InkWell(
                       onTap: () {
-                        launchUrl(Uri.parse(widget.project.link), webOnlyWindowName: '_blank');
+                        Get.find<LinkAnalyticsService>().openLink(
+                          url: widget.project.link,
+                          linkType: LinkType.project,
+                          linkText: widget.project.name,
+                          additionalInfo: widget.project.tech.join(', '),
+                        );
                       },
                       child: AnimatedScale(
                         scale: hovering ? 1.2 : 1.0,
