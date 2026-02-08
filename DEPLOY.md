@@ -20,7 +20,7 @@ Deploy Flutter Portfolio to Vercel.
 ### 1. Build
 
 ```bash
-fvm flutter build web --web-renderer canvaskit --release
+fvm flutter build web --release
 ```
 
 ### 2. Deploy
@@ -35,7 +35,7 @@ vercel --prod
 1. Go to [vercel.com](https://vercel.com)
 2. Import repository
 3. Configure:
-   - **Build Command:** `flutter/bin/flutter build web --web-renderer canvaskit --release`
+   - **Build Command:** `flutter/bin/flutter build web --release`
    - **Output Directory:** `build/web`
    - **Install Command:** `git clone https://github.com/flutter/flutter.git -b stable && flutter/bin/flutter doctor`
 
@@ -45,7 +45,6 @@ vercel --prod
 |---------|----------|
 | Blank page | Check `<base href="/">` in `web/index.html` |
 | Assets not loading | Run `fvm flutter clean` and rebuild |
-| CanvasKit fails | Use `--web-renderer html` instead |
 
 ## Production URL
 
