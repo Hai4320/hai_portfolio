@@ -12,7 +12,7 @@ echo "📦 Getting dependencies..."
 fvm flutter pub get
 
 echo "🏗️ Building web..."
-fvm flutter build web --web-renderer canvaskit --release
+fvm flutter build web --release
 
 echo "🚀 Deploying to Vercel..."
 cd build/web
