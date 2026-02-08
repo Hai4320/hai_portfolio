@@ -8,6 +8,7 @@ import 'package:hai_portfolio/ui/common/primary_button.dart';
 import 'package:hai_portfolio/ui/common/project_bloc.dart';
 import 'package:hai_portfolio/ui/common/skill_badge.dart';
 import 'package:hai_portfolio/ui/common/text_link.dart';
+import 'package:hai_portfolio/ui/screens/home/widgets/viewer_counter_widget.dart';
 import 'package:hai_portfolio/ui/theme/app_colors.dart';
 import 'package:hai_portfolio/utils/gradient_text.dart';
 import 'package:hai_portfolio/utils/locale_controller.dart';
@@ -219,10 +220,12 @@ class _HomePhoneState extends State<HomePhone> {
                 padding: const EdgeInsets.symmetric(horizontal: contentPadding),
                 child: Column(
                   children: ProjectData.projects
-                      .map((project) => Padding(
-                            padding: const EdgeInsets.only(bottom: 24),
-                            child: ProjectBloc(project: project),
-                          ))
+                      .map(
+                        (project) => Padding(
+                          padding: const EdgeInsets.only(bottom: 24),
+                          child: ProjectBloc(project: project),
+                        ),
+                      )
                       .toList(),
                 ),
               ),
@@ -294,6 +297,8 @@ class _HomePhoneState extends State<HomePhone> {
                         ImageLink(imageSvg: t.images.linkedin, link: t.strings.links.linkedin),
                       ],
                     ),
+                    const SizedBox(height: 12),
+                    const Center(child: ViewerCounterWidget(fontSize: 12)),
                   ],
                 ),
               ),

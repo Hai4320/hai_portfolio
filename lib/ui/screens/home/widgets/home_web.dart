@@ -9,6 +9,7 @@ import 'package:hai_portfolio/ui/common/primary_button.dart';
 import 'package:hai_portfolio/ui/common/project_bloc.dart';
 import 'package:hai_portfolio/ui/common/skill_badge.dart';
 import 'package:hai_portfolio/ui/common/text_link.dart';
+import 'package:hai_portfolio/ui/screens/home/widgets/viewer_counter_widget.dart';
 import 'package:hai_portfolio/ui/theme/app_colors.dart';
 import 'package:hai_portfolio/utils/gradient_text.dart';
 import 'package:hai_portfolio/utils/locale_controller.dart';
@@ -274,9 +275,7 @@ class _HomeWebState extends State<HomeWeb> {
                 child: Wrap(
                   spacing: 50.w,
                   runSpacing: 60.h,
-                  children: ProjectData.projects
-                      .map((project) => ProjectBloc(project: project))
-                      .toList(),
+                  children: ProjectData.projects.map((project) => ProjectBloc(project: project)).toList(),
                 ),
               ),
               SizedBox(height: sectionSpace),
@@ -357,6 +356,8 @@ class _HomeWebState extends State<HomeWeb> {
                           ),
                         ),
                         const Expanded(child: SizedBox()),
+                        const ViewerCounterWidget(fontSize: 14),
+                        const SizedBox(width: 30),
                         ImageLink(imageSvg: t.images.github, link: t.strings.links.github),
                         const SizedBox(width: 20),
                         ImageLink(imageSvg: t.images.linkedin, link: t.strings.links.linkedin),
