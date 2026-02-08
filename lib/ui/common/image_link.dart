@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:get/get.dart';
+import 'package:hai_portfolio/data/repository/link_analytics_repository.dart';
+import 'package:hai_portfolio/data/service/link_analytics_service.dart';
 
 class ImageLink extends StatefulWidget {
-  const ImageLink({super.key, required this.imageSvg, required this.link});
+  const ImageLink({
+    super.key,
+    required this.imageSvg,
+    required this.link,
+    this.linkType = LinkType.other,
+    this.linkName,
+  });
 
   final String imageSvg;
   final String link;
+  final LinkType linkType;
+  final String? linkName;
 
   @override
   State<ImageLink> createState() => _ImageLinkState();
@@ -19,7 +29,11 @@ class _ImageLinkState extends State<ImageLink> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        launchUrl(Uri.parse(widget.link), webOnlyWindowName: '_blank');
+        Get.find<LinkAnalyticsService>().openLink(
+          url: widget.link,
+          linkType: widget.linkType,
+          linkText: widget.linkName,
+        );
       },
       child: MouseRegion(
         onEnter: (event) {

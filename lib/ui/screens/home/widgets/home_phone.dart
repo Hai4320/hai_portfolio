@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hai_portfolio/data/repository/link_analytics_repository.dart';
 import 'package:hai_portfolio/data/repository/project_data.dart';
 import 'package:hai_portfolio/i18n/strings.g.dart';
 import 'package:hai_portfolio/ui/common/image_link.dart';
@@ -8,6 +9,7 @@ import 'package:hai_portfolio/ui/common/primary_button.dart';
 import 'package:hai_portfolio/ui/common/project_bloc.dart';
 import 'package:hai_portfolio/ui/common/skill_badge.dart';
 import 'package:hai_portfolio/ui/common/text_link.dart';
+import 'package:hai_portfolio/ui/screens/home/widgets/viewer_counter_widget.dart';
 import 'package:hai_portfolio/ui/theme/app_colors.dart';
 import 'package:hai_portfolio/utils/gradient_text.dart';
 import 'package:hai_portfolio/utils/locale_controller.dart';
@@ -219,10 +221,12 @@ class _HomePhoneState extends State<HomePhone> {
                 padding: const EdgeInsets.symmetric(horizontal: contentPadding),
                 child: Column(
                   children: ProjectData.projects
-                      .map((project) => Padding(
-                            padding: const EdgeInsets.only(bottom: 24),
-                            child: ProjectBloc(project: project),
-                          ))
+                      .map(
+                        (project) => Padding(
+                          padding: const EdgeInsets.only(bottom: 24),
+                          child: ProjectBloc(project: project),
+                        ),
+                      )
                       .toList(),
                 ),
               ),
@@ -258,13 +262,13 @@ class _HomePhoneState extends State<HomePhone> {
                       style: const TextStyle(fontSize: 16, color: AppColors.lightPeriwinkle),
                     ),
                     const SizedBox(height: 20),
-                    TextLink(text: t.strings.contact.email, link: t.strings.links.email),
+                    TextLink(text: t.strings.contact.email, link: t.strings.links.email, linkType: LinkType.email),
                     const SizedBox(height: 30),
-                    TextLink(text: t.strings.contact.works, link: t.strings.links.email),
+                    TextLink(text: t.strings.contact.works, link: t.strings.links.email, linkType: LinkType.works),
                     const SizedBox(height: 16),
-                    TextLink(text: t.strings.contact.shelf, link: t.strings.links.github),
+                    TextLink(text: t.strings.contact.shelf, link: t.strings.links.github, linkType: LinkType.shelf),
                     const SizedBox(height: 16),
-                    TextLink(text: t.strings.contact.resume, link: t.strings.links.github),
+                    TextLink(text: t.strings.contact.resume, link: t.strings.links.github, linkType: LinkType.resume),
                   ],
                 ),
               ),
@@ -289,11 +293,23 @@ class _HomePhoneState extends State<HomePhone> {
                           ),
                         ),
                         const Expanded(child: SizedBox()),
-                        ImageLink(imageSvg: t.images.github, link: t.strings.links.github),
+                        ImageLink(
+                          imageSvg: t.images.github,
+                          link: t.strings.links.github,
+                          linkType: LinkType.github,
+                          linkName: 'GitHub',
+                        ),
                         const SizedBox(width: 16),
-                        ImageLink(imageSvg: t.images.linkedin, link: t.strings.links.linkedin),
+                        ImageLink(
+                          imageSvg: t.images.linkedin,
+                          link: t.strings.links.linkedin,
+                          linkType: LinkType.linkedin,
+                          linkName: 'LinkedIn',
+                        ),
                       ],
                     ),
+                    const SizedBox(height: 12),
+                    const Center(child: ViewerCounterWidget(fontSize: 12)),
                   ],
                 ),
               ),

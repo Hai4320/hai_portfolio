@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hai_portfolio/data/repository/link_analytics_repository.dart';
+import 'package:hai_portfolio/data/service/link_analytics_service.dart';
 import 'package:hai_portfolio/ui/theme/app_colors.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class TextLink extends StatefulWidget {
-  const TextLink({super.key, required this.text, required this.link, this.style});
+  const TextLink({super.key, required this.text, required this.link, this.style, this.linkType = LinkType.other});
 
   final String text;
   final String link;
   final TextStyle? style;
+  final LinkType linkType;
 
   @override
   State<TextLink> createState() => _TextLinkState();
@@ -20,7 +23,7 @@ class _TextLinkState extends State<TextLink> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        launchUrl(Uri.parse(widget.link), webOnlyWindowName: '_blank');
+        Get.find<LinkAnalyticsService>().openLink(url: widget.link, linkType: widget.linkType, linkText: widget.text);
       },
       child: MouseRegion(
         onEnter: (event) {
