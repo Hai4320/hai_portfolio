@@ -27,7 +27,6 @@ class _HomeWebState extends State<HomeWeb> {
   // GlobalKeys for sections
   final _homeKey = GlobalKey();
   final _skillsKey = GlobalKey();
-  final _servicesKey = GlobalKey();
   final _experienceKey = GlobalKey();
   final _projectsKey = GlobalKey();
   final _contactKey = GlobalKey();

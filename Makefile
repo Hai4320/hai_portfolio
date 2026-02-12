@@ -97,3 +97,8 @@ all: format lint build
 pre-commit: format lint
 	@echo "✅ Pre-commit checks passed!"
 
+deploy:
+	@echo "🚢 Deploying the app..."
+	bash scripts/deploy.sh
+	@echo "✅ Deployment complete!"
+
