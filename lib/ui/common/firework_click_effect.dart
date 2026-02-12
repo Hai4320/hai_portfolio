@@ -30,9 +30,9 @@ class _FireworkClickEffectState extends State<FireworkClickEffect> {
 
   @override
   Widget build(BuildContext context) {
-    return Listener(
-      onPointerDown: (event) {
-        _addFirework(event.position);
+    return GestureDetector(
+      onTapDown: (details) {
+        _addFirework(details.globalPosition);
       },
       behavior: HitTestBehavior.translucent,
       child: Stack(
