@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -32,6 +32,264 @@
   <title>hai_portfolio</title>
   <link rel="manifest" href="manifest.json">
 
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #111111;
+      overflow: hidden;
+    }
+
+    .loading-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(ellipse at bottom, #1B2838 0%, #090A0F 100%);
+      z-index: 9999;
+      transition: opacity 0.8s ease-out;
+      overflow: hidden;
+    }
+
+    .loading-container.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Stars Background */
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 2s ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    /* The Little Prince Scene */
+    .scene {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Planet */
+    .planet {
+      position: absolute;
+      bottom: 40px;
+      width: 140px;
+      height: 140px;
+      background: linear-gradient(145deg, #4a6741 0%, #2d4a2d 50%, #1a2f1a 100%);
+      border-radius: 50%;
+      box-shadow:
+        inset -20px -20px 40px rgba(0,0,0,0.5),
+        inset 10px 10px 20px rgba(255,255,255,0.1),
+        0 0 60px rgba(74, 103, 65, 0.3);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Rose on the planet */
+    .rose {
+      position: absolute;
+      bottom: 155px;
+      left: 120px;
+      width: 20px;
+      height: 30px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .rose-stem {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 20px;
+      background: linear-gradient(to top, #2d5a2d, #4a8a4a);
+      border-radius: 2px;
+    }
+
+    .rose-flower {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 14px;
+      background: radial-gradient(circle, #ff6b8a 0%, #d4456a 50%, #a83257 100%);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      animation: bloom 2s ease-in-out infinite;
+    }
+
+    @keyframes bloom {
+      0%, 100% { transform: translateX(-50%) scale(1); }
+      50% { transform: translateX(-50%) scale(1.1); }
+    }
+
+    /* Glass dome over rose */
+    .glass-dome {
+      position: absolute;
+      bottom: 148px;
+      left: 113px;
+      width: 32px;
+      height: 40px;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 50% 50% 5% 5% / 70% 70% 5% 5%;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    /* Little Prince */
+    .prince {
+      position: absolute;
+      bottom: 155px;
+      left: 155px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    /* Prince body */
+    .prince-body {
+      position: relative;
+      width: 30px;
+      height: 45px;
+    }
+
+    .prince-head {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 16px;
+      height: 16px;
+      background: #ffd9b3;
+      border-radius: 50%;
+    }
+
+    .prince-hair {
+      position: absolute;
+      top: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 12px;
+      background: #ffd700;
+      border-radius: 50% 50% 30% 30%;
+    }
+
+    .prince-coat {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 22px;
+      background: linear-gradient(180deg, #4169e1 0%, #2848a8 100%);
+      border-radius: 5px 5px 0 0;
+    }
+
+    .prince-scarf {
+      position: absolute;
+      top: 13px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 24px;
+      height: 6px;
+      background: #ffd700;
+      border-radius: 3px;
+    }
+
+    .prince-scarf-tail {
+      position: absolute;
+      top: 16px;
+      right: 2px;
+      width: 6px;
+      height: 18px;
+      background: #ffd700;
+      border-radius: 3px;
+      transform: rotate(15deg);
+      animation: scarfWave 2s ease-in-out infinite;
+    }
+
+    @keyframes scarfWave {
+      0%, 100% { transform: rotate(15deg); }
+      50% { transform: rotate(25deg); }
+    }
+
+    .prince-legs {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 10px;
+      background: #2a2a2a;
+      border-radius: 0 0 3px 3px;
+    }
+
+    /* Loading text */
+    .loading-text {
+      margin-top: 60px;
+      font-family: 'Georgia', serif;
+      font-size: 18px;
+      color: #cbc9e2;
+      letter-spacing: 3px;
+      animation: fadeText 2s ease-in-out infinite;
+      font-style: italic;
+    }
+
+    @keyframes fadeText {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    .loading-quote {
+      margin-top: 16px;
+      font-family: 'Georgia', serif;
+      font-size: 14px;
+      color: rgba(203, 201, 226, 0.6);
+      font-style: italic;
+      max-width: 300px;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* Small decorative stars around the scene */
+    .deco-star {
+      position: absolute;
+      font-size: 12px;
+      color: #ffd700;
+      animation: sparkle 1.5s ease-in-out infinite;
+    }
+
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1.3) rotate(180deg); }
+    }
+  </style>
+
   <script>
     // The value below is injected by flutter build, do not touch.
     const serviceWorkerVersion = null;
@@ -40,7 +298,67 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
+  <!-- Loading Screen - Le Petit Prince Theme -->
+  <div id="loading" class="loading-container">
+    <!-- Stars background -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Main Scene -->
+    <div class="scene">
+      <!-- Decorative stars around scene -->
+      <span class="deco-star" style="top: 20px; left: 30px; animation-delay: 0s;">✦</span>
+      <span class="deco-star" style="top: 50px; right: 40px; animation-delay: 0.3s;">✧</span>
+      <span class="deco-star" style="top: 100px; left: 10px; animation-delay: 0.6s;">✦</span>
+      <span class="deco-star" style="bottom: 180px; right: 20px; animation-delay: 0.9s;">✧</span>
+      <span class="deco-star" style="top: 30px; right: 100px; animation-delay: 1.2s;">✦</span>
+
+      <!-- Planet -->
+      <div class="planet"></div>
+
+      <!-- Rose with glass dome -->
+      <div class="rose">
+        <div class="rose-stem"></div>
+        <div class="rose-flower"></div>
+      </div>
+      <div class="glass-dome"></div>
+
+      <!-- Little Prince -->
+      <div class="prince">
+        <div class="prince-body">
+          <div class="prince-hair"></div>
+          <div class="prince-head"></div>
+          <div class="prince-scarf"></div>
+          <div class="prince-scarf-tail"></div>
+          <div class="prince-coat"></div>
+          <div class="prince-legs"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="loading-text">Loading...</div>
+    <div class="loading-quote">"On ne voit bien qu'avec le cœur"</div>
+  </div>
+
   <script>
+    // Generate random stars
+    function createStars() {
+      const starsContainer = document.getElementById('stars');
+      const numStars = 100;
+
+      for (let i = 0; i < numStars; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.width = Math.random() * 3 + 1 + 'px';
+        star.style.height = star.style.width;
+        star.style.animationDelay = Math.random() * 2 + 's';
+        star.style.animationDuration = (Math.random() * 2 + 1) + 's';
+        starsContainer.appendChild(star);
+      }
+    }
+    createStars();
+
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
@@ -54,6 +372,17 @@
         }
       });
     });
+
+    // Remove loading screen when Flutter app is ready
+    window.removeLoadingScreen = function() {
+      const loadingElement = document.getElementById('loading');
+      if (loadingElement) {
+        loadingElement.classList.add('fade-out');
+        setTimeout(function() {
+          loadingElement.remove();
+        }, 800);
+      }
+    };
   </script>
 </body>
 </html>
