@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hai_portfolio/i18n/strings.g.dart';
 import 'package:hai_portfolio/ui/common/app_card.dart';
+import 'package:hai_portfolio/ui/common/back_navigation_button.dart';
 import 'package:hai_portfolio/ui/screens/apps/apps_controller.dart';
 import 'package:hai_portfolio/ui/theme/app_colors.dart';
 import 'package:hai_portfolio/utils/gradient_text.dart';
@@ -19,28 +20,7 @@ class AppsPhone extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Back to Home button
-          GestureDetector(
-            onTap: () => Get.offAllNamed('/'),
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
-              decoration: BoxDecoration(
-                color: AppColors.richBlack,
-                borderRadius: BorderRadius.circular(8.r),
-                border: Border.all(color: AppColors.lightPeriwinkle.withAlpha(51)),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.arrow_back_rounded, color: AppColors.lightPeriwinkle, size: 16.r),
-                  SizedBox(width: 6.w),
-                  const Text(
-                    'Home',
-                    style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: AppColors.lightPeriwinkle),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          BackNavigationButton(label: 'Home', onTap: () => Get.offAllNamed('/'), compact: true),
           SizedBox(height: 24.h),
           // Header
           Text(

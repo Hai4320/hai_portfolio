@@ -1,8 +1,10 @@
+enum AppPlatform { playstore, appstore, web }
+
 class AppLink {
-  final String platform; // 'playstore', 'appstore', 'web'
+  final AppPlatform platform;
   final String url;
 
-  AppLink({required this.platform, required this.url});
+  const AppLink({required this.platform, required this.url});
 }
 
 class AppMetadata {
@@ -12,7 +14,7 @@ class AppMetadata {
   final int downloads; // number of downloads
   final DateTime releaseDate;
 
-  AppMetadata({
+  const AppMetadata({
     required this.version,
     required this.size,
     required this.rating,
@@ -31,10 +33,10 @@ class App {
   final List<String> features;
   final List<AppLink> links;
   final AppMetadata metadata;
-  final String termsOfUseKey; // i18n key for terms of use
+  final String termsOfUse;
   final bool isFeatured; // whether to show on home screen
 
-  App({
+  const App({
     required this.id,
     required this.name,
     required this.shortDescription,
@@ -44,7 +46,7 @@ class App {
     required this.features,
     required this.links,
     required this.metadata,
-    required this.termsOfUseKey,
+    required this.termsOfUse,
     this.isFeatured = false,
   });
 
@@ -58,7 +60,7 @@ class App {
     List<String>? features,
     List<AppLink>? links,
     AppMetadata? metadata,
-    String? termsOfUseKey,
+    String? termsOfUse,
     bool? isFeatured,
   }) {
     return App(
@@ -71,7 +73,7 @@ class App {
       features: features ?? this.features,
       links: links ?? this.links,
       metadata: metadata ?? this.metadata,
-      termsOfUseKey: termsOfUseKey ?? this.termsOfUseKey,
+      termsOfUse: termsOfUse ?? this.termsOfUse,
       isFeatured: isFeatured ?? this.isFeatured,
     );
   }

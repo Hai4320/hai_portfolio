@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hai_portfolio/i18n/strings.g.dart';
+import 'package:hai_portfolio/ui/common/back_navigation_button.dart';
 import 'package:hai_portfolio/ui/common/download_button.dart';
 import 'package:hai_portfolio/ui/common/feature_badge.dart';
+import 'package:hai_portfolio/ui/common/featured_badge.dart';
+import 'package:hai_portfolio/ui/common/metadata_chip.dart';
 import 'package:hai_portfolio/ui/common/screenshot_carousel.dart';
 import 'package:hai_portfolio/ui/screens/app_detail/app_detail_controller.dart';
 import 'package:hai_portfolio/ui/theme/app_colors.dart';
@@ -23,28 +26,7 @@ class AppDetailPhone extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Back button
-          GestureDetector(
-            onTap: () => Get.back(),
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
-              decoration: BoxDecoration(
-                color: AppColors.richBlack,
-                borderRadius: BorderRadius.circular(8.r),
-                border: Border.all(color: AppColors.lightPeriwinkle.withAlpha(51)),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.arrow_back_rounded, color: AppColors.lightPeriwinkle, size: 16.r),
-                  SizedBox(width: 6.w),
-                  const Text(
-                    'Back',
-                    style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: AppColors.lightPeriwinkle),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          BackNavigationButton(label: 'Back', onTap: () => Get.back(), compact: true),
           SizedBox(height: 24.h),
           // Hero section with gradient background
           Container(
@@ -95,24 +77,7 @@ class AppDetailPhone extends StatelessWidget {
                 ).gradient(),
                 if (app.isFeatured) ...[
                   SizedBox(height: 10.h),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(colors: [Color(0xff7F7FD5), Color(0xff86A8E7)]),
-                      borderRadius: BorderRadius.circular(6.r),
-                    ),
-                    child: const Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(Icons.star_rounded, color: Colors.white, size: 12),
-                        SizedBox(width: 4),
-                        Text(
-                          'Featured',
-                          style: TextStyle(fontSize: 11, fontWeight: FontWeight.w600, color: Colors.white),
-                        ),
-                      ],
-                    ),
-                  ),
+                  const FeaturedBadge(compact: true),
                 ],
                 SizedBox(height: 16.h),
                 // Metadata chips
@@ -121,13 +86,14 @@ class AppDetailPhone extends StatelessWidget {
                   spacing: 8.w,
                   runSpacing: 8.h,
                   children: [
-                    _MetadataChipMobile(
+                    MetadataChip(
                       icon: Icons.star_rounded,
                       iconColor: Colors.amber,
                       text: '${app.metadata.rating}',
+                      compact: true,
                     ),
-                    _MetadataChipMobile(icon: Icons.update_rounded, text: 'v${app.metadata.version}'),
-                    _MetadataChipMobile(icon: Icons.sd_storage_rounded, text: app.metadata.size),
+                    MetadataChip(icon: Icons.update_rounded, text: 'v${app.metadata.version}', compact: true),
+                    MetadataChip(icon: Icons.sd_storage_rounded, text: app.metadata.size, compact: true),
                   ],
                 ),
                 SizedBox(height: 20.h),
@@ -202,87 +168,72 @@ class AppDetailPhone extends StatelessWidget {
             ),
             SizedBox(height: 28.h),
           ],
-          // Terms of use section
-          Container(
-            padding: EdgeInsets.all(16.r),
-            decoration: BoxDecoration(
-              color: AppColors.richBlack,
-              borderRadius: BorderRadius.circular(12.r),
-              border: Border.all(color: AppColors.lightPeriwinkle.withAlpha(26)),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Icon(Icons.description_outlined, color: AppColors.lightPeriwinkle, size: 16.r),
-                    SizedBox(width: 8.w),
-                    Text(
-                      t.strings.apps.termsOfUse,
-                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Colors.white),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 12.h),
-                Text(
-                  _getTermsOfUse(app.termsOfUseKey),
-                  style: TextStyle(fontSize: 12, color: AppColors.lightPeriwinkle.withAlpha(179), height: 1.8),
-                ),
-              ],
-            ),
-          ),
+          // Terms of use section — collapsible
+          if (app.termsOfUse.isNotEmpty)
+            _CollapsibleTermsOfUsePhone(termsOfUse: app.termsOfUse),
           SizedBox(height: 32.h),
         ],
       ),
     );
   }
-
-  String _getTermsOfUse(String key) {
-    if (key == 'apps.health_tracker.terms_of_use') {
-      return t.strings.apps.healthTracker.termsOfUse;
-    } else if (key == 'apps.food_delivery.terms_of_use') {
-      return t.strings.apps.foodDelivery.termsOfUse;
-    } else if (key == 'apps.drama_stream.terms_of_use') {
-      return t.strings.apps.dramaStream.termsOfUse;
-    } else if (key == 'apps.sleep_analytics.terms_of_use') {
-      return t.strings.apps.sleepAnalytics.termsOfUse;
-    } else if (key == 'apps.pachinko_master.terms_of_use') {
-      return t.strings.apps.pachinkoMaster.termsOfUse;
-    } else if (key == 'apps.retail_navigator.terms_of_use') {
-      return t.strings.apps.retailNavigator.termsOfUse;
-    }
-    return '';
-  }
 }
 
-class _MetadataChipMobile extends StatelessWidget {
-  final IconData icon;
-  final String text;
-  final Color? iconColor;
+class _CollapsibleTermsOfUsePhone extends StatefulWidget {
+  final String termsOfUse;
+  const _CollapsibleTermsOfUsePhone({required this.termsOfUse});
 
-  const _MetadataChipMobile({required this.icon, required this.text, this.iconColor});
+  @override
+  State<_CollapsibleTermsOfUsePhone> createState() => _CollapsibleTermsOfUsePhoneState();
+}
+
+class _CollapsibleTermsOfUsePhoneState extends State<_CollapsibleTermsOfUsePhone> {
+  bool _isExpanded = false;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
       decoration: BoxDecoration(
-        color: AppColors.black1,
-        borderRadius: BorderRadius.circular(6.r),
+        color: AppColors.richBlack,
+        borderRadius: BorderRadius.circular(12.r),
         border: Border.all(color: AppColors.lightPeriwinkle.withAlpha(26)),
       ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
+      child: Column(
         children: [
-          Icon(icon, color: iconColor ?? AppColors.lightPeriwinkle, size: 14.r),
-          SizedBox(width: 4.w),
-          Text(
-            text,
-            style: TextStyle(
-              fontSize: 12,
-              color: AppColors.lightPeriwinkle.withAlpha(179),
-              fontWeight: FontWeight.w500,
+          // Header — always visible, clickable
+          GestureDetector(
+            onTap: () => setState(() => _isExpanded = !_isExpanded),
+            child: Padding(
+              padding: EdgeInsets.all(16.r),
+              child: Row(
+                children: [
+                  Icon(Icons.description_outlined, color: AppColors.lightPeriwinkle, size: 16.r),
+                  SizedBox(width: 8.w),
+                  Text(
+                    t.strings.apps.termsOfUse,
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Colors.white),
+                  ),
+                  const Spacer(),
+                  AnimatedRotation(
+                    turns: _isExpanded ? 0.5 : 0,
+                    duration: const Duration(milliseconds: 300),
+                    child: Icon(Icons.expand_more_rounded, color: AppColors.lightPeriwinkle, size: 20.r),
+                  ),
+                ],
+              ),
             ),
+          ),
+          // Content — animated expand/collapse
+          AnimatedCrossFade(
+            firstChild: const SizedBox.shrink(),
+            secondChild: Padding(
+              padding: EdgeInsets.fromLTRB(16.r, 0, 16.r, 16.r),
+              child: Text(
+                widget.termsOfUse,
+                style: TextStyle(fontSize: 12, color: AppColors.lightPeriwinkle.withAlpha(179), height: 1.8),
+              ),
+            ),
+            crossFadeState: _isExpanded ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+            duration: const Duration(milliseconds: 300),
           ),
         ],
       ),

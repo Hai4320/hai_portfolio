@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hai_portfolio/i18n/strings.g.dart';
 import 'package:hai_portfolio/ui/common/app_card.dart';
+import 'package:hai_portfolio/ui/common/back_navigation_button.dart';
 import 'package:hai_portfolio/ui/screens/apps/apps_controller.dart';
 import 'package:hai_portfolio/ui/theme/app_colors.dart';
 import 'package:hai_portfolio/utils/gradient_text.dart';
@@ -19,7 +20,7 @@ class AppsWeb extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Back to Home button
-          _BackButton(onTap: () => Get.offAllNamed('/')),
+          BackNavigationButton(label: 'Home', onTap: () => Get.offAllNamed('/')),
           SizedBox(height: 40.h),
           // Header with gradient title and stats
           Row(
@@ -104,8 +105,8 @@ class AppsWeb extends StatelessWidget {
             () => GridView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
+              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 350.w,
                 crossAxisSpacing: 24.w,
                 mainAxisSpacing: 24.h,
                 childAspectRatio: 0.9,
@@ -124,52 +125,6 @@ class AppsWeb extends StatelessWidget {
   }
 }
 
-class _BackButton extends StatefulWidget {
-  final VoidCallback onTap;
-  const _BackButton({required this.onTap});
-
-  @override
-  State<_BackButton> createState() => __BackButtonState();
-}
-
-class __BackButtonState extends State<_BackButton> {
-  bool _isHovering = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (_) => setState(() => _isHovering = true),
-      onExit: (_) => setState(() => _isHovering = false),
-      child: GestureDetector(
-        onTap: widget.onTap,
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
-          decoration: BoxDecoration(
-            color: _isHovering ? AppColors.richBlack : Colors.transparent,
-            borderRadius: BorderRadius.circular(8.r),
-            border: Border.all(color: _isHovering ? AppColors.lightPeriwinkle.withAlpha(77) : Colors.transparent),
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(Icons.arrow_back_rounded, color: AppColors.lightPeriwinkle, size: 18.r),
-              SizedBox(width: 8.w),
-              Text(
-                'Home',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  color: _isHovering ? Colors.white : AppColors.lightPeriwinkle,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
 
 class _StatBadge extends StatelessWidget {
   final IconData icon;

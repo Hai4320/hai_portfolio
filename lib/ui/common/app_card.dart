@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hai_portfolio/data/model/app.dart';
 import 'package:hai_portfolio/ui/theme/app_colors.dart';
+import 'package:hai_portfolio/utils/format.dart';
 
 class AppCard extends StatefulWidget {
   final App app;
@@ -106,7 +107,7 @@ class _AppCardState extends State<AppCard> {
                           SizedBox(width: 12.w),
                           // Downloads
                           Text(
-                            '${_formatDownloads(widget.app.metadata.downloads)} dl',
+                            '${formatDownloads(widget.app.metadata.downloads)} dl',
                             style: TextStyle(fontSize: 12.sp, color: AppColors.lightPeriwinkle.withAlpha(179)),
                           ),
                         ],
@@ -137,14 +138,5 @@ class _AppCardState extends State<AppCard> {
         ),
       ),
     );
-  }
-
-  String _formatDownloads(int count) {
-    if (count >= 1000000) {
-      return '${(count / 1000000).toStringAsFixed(1)}M';
-    } else if (count >= 1000) {
-      return '${(count / 1000).toStringAsFixed(1)}K';
-    }
-    return count.toString();
   }
 }

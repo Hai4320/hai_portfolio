@@ -49,29 +49,19 @@ class _DownloadButtonState extends State<DownloadButton> {
   }
 
   IconData _getIconForPlatform() {
-    switch (widget.link.platform) {
-      case 'playstore':
-        return Icons.play_arrow_rounded;
-      case 'appstore':
-        return Icons.apple;
-      case 'web':
-        return Icons.language_rounded;
-      default:
-        return Icons.download_rounded;
-    }
+    return switch (widget.link.platform) {
+      AppPlatform.playstore => Icons.play_arrow_rounded,
+      AppPlatform.appstore => Icons.apple,
+      AppPlatform.web => Icons.language_rounded,
+    };
   }
 
   String _getLabelForPlatform() {
-    switch (widget.link.platform) {
-      case 'playstore':
-        return 'Play Store';
-      case 'appstore':
-        return 'App Store';
-      case 'web':
-        return 'Open Web';
-      default:
-        return 'Download';
-    }
+    return switch (widget.link.platform) {
+      AppPlatform.playstore => 'Play Store',
+      AppPlatform.appstore => 'App Store',
+      AppPlatform.web => 'Open Web',
+    };
   }
 
   void _handleDownloadClick() {
@@ -79,19 +69,8 @@ class _DownloadButtonState extends State<DownloadButton> {
 
     analyticsService.openLink(
       url: widget.link.url,
-      linkType: _getLinkTypeForPlatform(),
+      linkType:  LinkType.other,
       linkText: '${widget.appName} - ${_getLabelForPlatform()}',
     );
-  }
-
-  LinkType _getLinkTypeForPlatform() {
-    switch (widget.link.platform) {
-      case 'appstore':
-        return LinkType.email;
-      case 'web':
-        return LinkType.github;
-      default:
-        return LinkType.other;
-    }
   }
 }
