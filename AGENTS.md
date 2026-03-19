@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Flutter portfolio website (web-first) with responsive design, i18n support (EN/JA/VI), and Firebase analytics. Uses **FVM** for Flutter version management (3.35.6).
+Flutter portfolio website (web-first) with responsive design, i18n support (EN/JA/VI), and Firebase analytics. Uses **FVM** for Flutter version management.
 
 ## Architecture
 
@@ -41,7 +41,7 @@ Desktop breakpoint: 1000px (see `response_layout.dart`)
 - JSON files in `lib/i18n/`: `strings.i18n.json`, `strings_ja.i18n.json`, `strings_vi.i18n.json`
 - Access via `t.strings.home.title` (auto-generated `strings.g.dart`)
 - Regenerate: `make gen-l10n` or `dart run slang`
-- Images also localized: `images.i18n.json` → `t.images.avatar`
+- Image paths managed via code generation: `images.i18n.json` → `t.images.avatar`
 
 ### Analytics Integration
 All external links go through `LinkAnalyticsService.openLink()`:
@@ -66,7 +66,7 @@ make pre-commit      # format + lint
 
 # Build & Deploy
 fvm flutter build web --release
-./scripts/deploy.sh  # deploys to Vercel
+make deploy  # deploys to Vercel
 ```
 
 ## Code Style
