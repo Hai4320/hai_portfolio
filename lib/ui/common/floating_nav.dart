@@ -13,8 +13,9 @@ class SectionItem {
 
 class FloatingNav extends StatefulWidget {
   final List<SectionItem> sections;
+  final VoidCallback? onAppsPressed;
 
-  const FloatingNav({super.key, required this.sections});
+  const FloatingNav({super.key, required this.sections, this.onAppsPressed});
 
   @override
   State<FloatingNav> createState() => _FloatingNavState();
@@ -23,6 +24,7 @@ class FloatingNav extends StatefulWidget {
 class _FloatingNavState extends State<FloatingNav> {
   int? _hoveredIndex;
   bool _isViewerHovered = false;
+  bool _isAppsHovered = false;
 
   void _scrollToSection(GlobalKey key) {
     final context = key.currentContext;
@@ -128,6 +130,80 @@ class _FloatingNavState extends State<FloatingNav> {
                   }),
                 ),
               ),
+              SizedBox(height: 16.h),
+              // Apps Button
+              if (widget.onAppsPressed != null)
+                MouseRegion(
+                  onEnter: (_) => setState(() => _isAppsHovered = true),
+                  onExit: (_) => setState(() => _isAppsHovered = false),
+                  child: GestureDetector(
+                    onTap: widget.onAppsPressed,
+                    child: Stack(
+                      alignment: Alignment.centerRight,
+                      clipBehavior: Clip.none,
+                      children: [
+                        AnimatedContainer(
+                          duration: const Duration(milliseconds: 200),
+                          width: 44,
+                          height: 44,
+                          decoration: BoxDecoration(
+                            gradient: _isAppsHovered
+                                ? const LinearGradient(
+                                    colors: [Color(0xff7F7FD5), Color(0xff86A8E7), Color(0xff91EAE4)],
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                  )
+                                : null,
+                            color: _isAppsHovered ? null : AppColors.richBlack.withValues(alpha: 0.9),
+                            borderRadius: BorderRadius.circular(22),
+                            border: Border.all(
+                              color: _isAppsHovered
+                                  ? Colors.transparent
+                                  : AppColors.lightPeriwinkle.withValues(alpha: 0.2),
+                              width: 1,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: _isAppsHovered
+                                    ? const Color(0xff7F7FD5).withValues(alpha: 0.4)
+                                    : Colors.black.withValues(alpha: 0.3),
+                                blurRadius: 12,
+                                offset: const Offset(-2, 0),
+                              ),
+                            ],
+                          ),
+                          child: Icon(
+                            Icons.apps_rounded,
+                            color: _isAppsHovered ? Colors.white : AppColors.lightPeriwinkle.withValues(alpha: 0.7),
+                            size: 22,
+                          ),
+                        ),
+                        Positioned(
+                          right: 52,
+                          child: AnimatedOpacity(
+                            duration: const Duration(milliseconds: 200),
+                            opacity: _isAppsHovered ? 1.0 : 0.0,
+                            child: AnimatedSlide(
+                              duration: const Duration(milliseconds: 200),
+                              offset: _isAppsHovered ? Offset.zero : const Offset(0.5, 0),
+                              child: Container(
+                                padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+                                decoration: BoxDecoration(
+                                  gradient: const LinearGradient(colors: [Color(0xff7F7FD5), Color(0xff86A8E7)]),
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: const Text(
+                                  'Apps',
+                                  style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w600),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               SizedBox(height: 16.h),
               // Viewer Counter - separate floating box below menu
               MouseRegion(

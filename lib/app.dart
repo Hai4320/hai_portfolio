@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:hai_portfolio/i18n/strings.g.dart';
 import 'package:hai_portfolio/ui/common/firework_click_effect.dart';
+import 'package:hai_portfolio/ui/screens/app_detail/app_detail_screen.dart';
+import 'package:hai_portfolio/ui/screens/apps/apps_screen.dart';
 import 'package:hai_portfolio/ui/screens/home/home_screen.dart';
 import 'package:hai_portfolio/ui/theme/app_theme.dart';
 
@@ -19,7 +22,15 @@ class MyApp extends StatelessWidget {
       supportedLocales: AppLocaleUtils.supportedLocales,
       theme: AppTheme.of(context).darkTheme,
       darkTheme: AppTheme.of(context).darkTheme,
-      home: const FireworkClickEffect(child: HomeScreen()),
+      home: const HomeScreen(),
+      getPages: [
+        GetPage(name: '/', page: () => const HomeScreen()),
+        GetPage(name: '/apps', page: () => const AppsScreen()),
+        GetPage(name: '/apps/:appId', page: () => const AppDetailScreen()),
+      ],
+      builder: (context, child) {
+        return FireworkClickEffect(child: Material(child: child!));
+      },
     );
   }
 }

@@ -52,6 +52,57 @@
     "email": "mailto:duchai4320@gmail.com",
     "github": "https://github.com/Hai4320",
     "linkedin": "https://www.linkedin.com/in/hai4320"
+  },
+  "apps": {
+    "title": "Ứng Dụng Của Tôi",
+    "subtitle": "Khám phá các ứng dụng mà tôi đã phát triển và xuất bản trên các cửa hàng ứng dụng chính.",
+    "allApps": "Tất cả ứng dụng",
+    "featuredApps": "Ứng dụng nổi bật",
+    "seeMore": "Xem tất cả ứng dụng",
+    "downloadButton": "Tải xuống",
+    "termsOfUse": "Điều khoản sử dụng",
+    "features": "Tính năng",
+    "screenshots": "Ảnh chụp màn hình",
+    "appMetadata": {
+      "version": "Phiên bản",
+      "size": "Kích thước",
+      "rating": "Đánh giá",
+      "downloads": "Lượt tải",
+      "releaseDate": "Ngày phát hành"
+    },
+    "filters": {
+      "all": "Tất cả",
+      "featured": "Nổi bật"
+    },
+    "platforms": {
+      "playstore": "Play Store",
+      "appstore": "App Store",
+      "web": "Phiên bản web"
+    },
+    "health_tracker": {
+      "name": "Trình theo dõi sức khỏe",
+      "terms_of_use": "Điều khoản sử dụng và chính sách bảo mật của Trình theo dõi sức khỏe\n\n1. Dữ liệu sức khỏe\nỨng dụng này thu thập dữ liệu sức khỏe cho mục đích theo dõi. Dữ liệu của bạn được lưu trữ cục bộ trên thiết bị của bạn trừ khi bạn chọn đồng bộ hóa với các dịch vụ đám mây.\n\n2. Thỏa thuận người dùng\nBằng cách sử dụng ứng dụng này, bạn đồng ý sử dụng nó chỉ cho mục đích theo dõi sức khỏe cá nhân.\n\n3. Giới hạn trách nhiệm\nỨng dụng cung cấp thông tin sức khỏe chỉ cho mục đích thông tin và không nên được coi là lời khuyên y tế."
+    },
+    "food_delivery": {
+      "name": "Giao thức ăn Pro",
+      "terms_of_use": "Điều khoản dịch vụ của Giao thức ăn Pro\n\n1. Mô tả dịch vụ\nGiao thức ăn Pro kết nối khách hàng với các nhà hàng địa phương để giao dịch vụ giao hàng.\n\n2. Trách nhiệm người dùng\nNguời dùng đồng ý cung cấp thông tin chính xác và sử dụng dịch vụ một cách hợp pháp và có trách nhiệm.\n\n3. Giới hạn trách nhiệm\nChúng tôi không chịu trách nhiệm về chất lượng thực phẩm hoặc sự chậm trễ giao hàng do bên thứ ba gây ra."
+    },
+    "drama_stream": {
+      "name": "Phát trực tiếp Phim ngắn",
+      "terms_of_use": "Điều khoản sử dụng Phát trực tiếp Phim ngắn\n\n1. Giấy phép nội dung\nTất cả nội dung trong Phát trực tiếp Phim ngắn được cấp phép chỉ cho mục đích sử dụng cá nhân, không thương mại.\n\n2. Hạn chế\nBạn không được phép sao chép, phân phối hoặc truyền tải bất kỳ nội dung nào mà không có sự cho phép.\n\n3. Chấm dứt tài khoản\nChúng tôi bảo lưu quyền chấm dứt các tài khoản vi phạm các điều khoản này."
+    },
+    "sleep_analytics": {
+      "name": "Phân tích giấc ngủ",
+      "terms_of_use": "Chính sách bảo mật và điều khoản của Phân tích giấc ngủ\n\n1. Bảo mật dữ liệu\nDữ liệu giấc ngủ được lưu trữ an toàn và không bao giờ được chia sẻ với các bên thứ ba mà không có sự đồng ý của bạn.\n\n2. Thông tin sức khỏe\nỨng dụng này không phải là một thiết bị y tế và không nên thay thế lời khuyên y tế chuyên nghiệp.\n\n3. Sự đồng ý của người dùng\nBằng cách sử dụng ứng dụng này, bạn đồng ý với việc thu thập dữ liệu để cải thiện dịch vụ."
+    },
+    "pachinko_master": {
+      "name": "Pachinko Thạo thủ",
+      "terms_of_use": "Điều khoản dịch vụ của Pachinko Thạo thủ\n\n1. Giấy phép trò chơi\nTrò chơi này được cung cấp chỉ cho mục đích giải trí.\n\n2. Mua hàng trong ứng dụng\nTất cả các giao dịch mua hàng là cuối cùng và không được hoàn lại ngoài trường hợp luật yêu cầu.\n\n3. Chơi công bằng\nCác tính năng multiplayer phải được sử dụng một cách công bằng. Gian lận hoặc khai thác lỗi bị cấm."
+    },
+    "retail_navigator": {
+      "name": "Điều hướng bán lẻ",
+      "terms_of_use": "Điều khoản và chính sách bảo mật của Điều hướng bán lẻ\n\n1. Dữ liệu vị trí\nỨng dụng này sử dụng công nghệ Bluetooth beacon để xác định vị trí của bạn trong các cửa hàng. Dữ liệu vị trí được xử lý cục bộ và không được lưu trữ vĩnh viễn.\n\n2. Quan hệ đối tác cửa hàng\nĐiều hướng bán lẻ hoạt động với các cửa hàng đối tác. Các điều khoản khác nhau tùy theo cửa hàng.\n\n3. Tuyên bố từ chối trách nhiệm về độ chính xác\nĐộ chính xác của vị trí phụ thuộc vào tính khả dụng của beacon và các yếu tố môi trường."
+    }
   }
 }
 
