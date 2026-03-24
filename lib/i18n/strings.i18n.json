@@ -52,6 +52,57 @@
     "email": "mailto:duchai4320@gmail.com",
     "github": "https://github.com/Hai4320",
     "linkedin": "https://www.linkedin.com/in/hai4320"
+  },
+  "apps": {
+    "title": "My Apps",
+    "subtitle": "Explore the applications I've built and published on major app stores.",
+    "allApps": "All Apps",
+    "featuredApps": "Featured Apps",
+    "seeMore": "See All Apps",
+    "downloadButton": "Download",
+    "termsOfUse": "Terms of Use",
+    "features": "Features",
+    "screenshots": "Screenshots",
+    "appMetadata": {
+      "version": "Version",
+      "size": "Size",
+      "rating": "Rating",
+      "downloads": "Downloads",
+      "releaseDate": "Released"
+    },
+    "filters": {
+      "all": "All",
+      "featured": "Featured"
+    },
+    "platforms": {
+      "playstore": "Play Store",
+      "appstore": "App Store",
+      "web": "Web Version"
+    },
+    "health_tracker": {
+      "name": "Health Tracker",
+      "terms_of_use": "Health Tracker Terms of Use and Privacy Policy\n\n1. Health Data\nThis app collects health data for tracking purposes. Your data is stored locally on your device unless you choose to sync with cloud services.\n\n2. User Agreement\nBy using this app, you agree to use it only for personal health tracking purposes.\n\n3. Liability\nThe app provides health insights for informational purposes only and should not be considered as medical advice."
+    },
+    "food_delivery": {
+      "name": "Food Delivery Pro",
+      "terms_of_use": "Food Delivery Pro Terms of Service\n\n1. Service Description\nFood Delivery Pro connects customers with local food stores for delivery services.\n\n2. User Responsibilities\nUsers agree to provide accurate information and use the service legally and responsibly.\n\n3. Limitation of Liability\nWe are not responsible for food quality or delivery delays caused by third parties."
+    },
+    "drama_stream": {
+      "name": "Drama Stream",
+      "terms_of_use": "Drama Stream Terms of Use\n\n1. Content License\nAll content in Drama Stream is licensed for personal, non-commercial use only.\n\n2. Restrictions\nYou may not reproduce, distribute, or transmit any content without permission.\n\n3. Account Termination\nWe reserve the right to terminate accounts violating these terms."
+    },
+    "sleep_analytics": {
+      "name": "Sleep Analytics",
+      "terms_of_use": "Sleep Analytics Privacy Policy and Terms\n\n1. Data Privacy\nSleep data is stored securely and never shared with third parties without your consent.\n\n2. Health Information\nThis app is not a medical device and should not replace professional medical advice.\n\n3. User Consent\nBy using this app, you consent to data collection for improving the service."
+    },
+    "pachinko_master": {
+      "name": "Pachinko Master",
+      "terms_of_use": "Pachinko Master Terms of Service\n\n1. Game License\nThis game is provided for entertainment purposes only.\n\n2. In-App Purchases\nAll purchases are final and non-refundable except as required by law.\n\n3. Fair Play\nMultiplayer features must be used fairly. Cheating or exploiting bugs is prohibited."
+    },
+    "retail_navigator": {
+      "name": "Retail Navigator",
+      "terms_of_use": "Retail Navigator Terms and Privacy Policy\n\n1. Location Data\nThis app uses Bluetooth beacon technology to determine your location within stores. Location data is processed locally and not stored permanently.\n\n2. Store Partnership\nRetail Navigator works with partner stores. Terms vary by store.\n\n3. Accuracy Disclaimer\nLocation accuracy depends on beacon availability and environmental factors."
+    }
   }
 }
 

@@ -10,7 +10,6 @@ import 'package:hai_portfolio/ui/common/primary_button.dart';
 import 'package:hai_portfolio/ui/common/project_bloc.dart';
 import 'package:hai_portfolio/ui/common/skill_badge.dart';
 import 'package:hai_portfolio/ui/common/text_link.dart';
-import 'package:hai_portfolio/ui/screens/home/widgets/viewer_counter_widget.dart';
 import 'package:hai_portfolio/ui/theme/app_colors.dart';
 import 'package:hai_portfolio/utils/gradient_text.dart';
 import 'package:hai_portfolio/utils/locale_controller.dart';
@@ -338,6 +337,7 @@ class _HomePhoneState extends State<HomePhone> {
             ),
             // Floating Navigation
             FloatingNavMobile(
+              onAppsPressed: () => Get.toNamed('/apps'),
               sections: [
                 SectionItemMobile(label: 'Home', icon: Icons.home_rounded, key: _homeKey),
                 SectionItemMobile(label: 'Skills', icon: Icons.code_rounded, key: _skillsKey),

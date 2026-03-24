@@ -427,6 +427,7 @@ class _HomeWebState extends State<HomeWeb> {
             ),
             // Floating Navigation
             FloatingNav(
+              onAppsPressed: () => Get.toNamed('/apps'),
               sections: [
                 SectionItem(label: 'Home', icon: Icons.home_rounded, key: _homeKey),
                 SectionItem(label: 'Skills', icon: Icons.code_rounded, key: _skillsKey),

@@ -13,8 +13,9 @@ class SectionItemMobile {
 
 class FloatingNavMobile extends StatefulWidget {
   final List<SectionItemMobile> sections;
+  final VoidCallback? onAppsPressed;
 
-  const FloatingNavMobile({super.key, required this.sections});
+  const FloatingNavMobile({super.key, required this.sections, this.onAppsPressed});
 
   @override
   State<FloatingNavMobile> createState() => _FloatingNavMobileState();
@@ -124,6 +125,38 @@ class _FloatingNavMobileState extends State<FloatingNavMobile> with SingleTicker
                       ),
                     );
                   }),
+                  // Apps button
+                  if (widget.onAppsPressed != null) ...[
+                    const SizedBox(height: 4),
+                    Container(height: 1, width: 24, color: AppColors.lightPeriwinkle.withValues(alpha: 0.2)),
+                    const SizedBox(height: 4),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 4),
+                      child: Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap: () {
+                            _toggle();
+                            widget.onAppsPressed?.call();
+                          },
+                          borderRadius: BorderRadius.circular(20),
+                          child: Container(
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              gradient: const LinearGradient(
+                                colors: [Color(0xff7F7FD5), Color(0xff86A8E7)],
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                              ),
+                            ),
+                            child: const Icon(Icons.apps_rounded, size: 20, color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                   const SizedBox(height: 4),
                   Container(height: 1, width: 24, color: AppColors.lightPeriwinkle.withValues(alpha: 0.2)),
                   const SizedBox(height: 4),

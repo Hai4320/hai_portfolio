@@ -4,7 +4,7 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 3
-/// Strings: 102 (34 per locale)
+/// Strings: 195 (65 per locale)
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -169,6 +169,7 @@ class _StringsStringsEn {
 	late final _StringsStringsContactEn contact = _StringsStringsContactEn._(_root);
 	late final _StringsStringsFooterEn footer = _StringsStringsFooterEn._(_root);
 	late final _StringsStringsLinksEn links = _StringsStringsLinksEn._(_root);
+	late final _StringsStringsAppsEn apps = _StringsStringsAppsEn._(_root);
 }
 
 // Path: strings.app
@@ -235,6 +236,33 @@ class _StringsStringsLinksEn {
 	String get email => 'mailto:duchai4320@gmail.com';
 	String get github => 'https://github.com/Hai4320';
 	String get linkedin => 'https://www.linkedin.com/in/hai4320';
+}
+
+// Path: strings.apps
+class _StringsStringsAppsEn {
+	_StringsStringsAppsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'My Apps';
+	String get subtitle => 'Explore the applications I\'ve built and published on major app stores.';
+	String get allApps => 'All Apps';
+	String get featuredApps => 'Featured Apps';
+	String get seeMore => 'See All Apps';
+	String get downloadButton => 'Download';
+	String get termsOfUse => 'Terms of Use';
+	String get features => 'Features';
+	String get screenshots => 'Screenshots';
+	late final _StringsStringsAppsAppMetadataEn appMetadata = _StringsStringsAppsAppMetadataEn._(_root);
+	late final _StringsStringsAppsFiltersEn filters = _StringsStringsAppsFiltersEn._(_root);
+	late final _StringsStringsAppsPlatformsEn platforms = _StringsStringsAppsPlatformsEn._(_root);
+	late final _StringsStringsAppsHealthTrackerEn healthTracker = _StringsStringsAppsHealthTrackerEn._(_root);
+	late final _StringsStringsAppsFoodDeliveryEn foodDelivery = _StringsStringsAppsFoodDeliveryEn._(_root);
+	late final _StringsStringsAppsDramaStreamEn dramaStream = _StringsStringsAppsDramaStreamEn._(_root);
+	late final _StringsStringsAppsSleepAnalyticsEn sleepAnalytics = _StringsStringsAppsSleepAnalyticsEn._(_root);
+	late final _StringsStringsAppsPachinkoMasterEn pachinkoMaster = _StringsStringsAppsPachinkoMasterEn._(_root);
+	late final _StringsStringsAppsRetailNavigatorEn retailNavigator = _StringsStringsAppsRetailNavigatorEn._(_root);
 }
 
 // Path: strings.home.mobile
@@ -316,6 +344,109 @@ class _StringsStringsHomeThankYouEn {
 	String get title => 'Thank for your watching!';
 }
 
+// Path: strings.apps.appMetadata
+class _StringsStringsAppsAppMetadataEn {
+	_StringsStringsAppsAppMetadataEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get version => 'Version';
+	String get size => 'Size';
+	String get rating => 'Rating';
+	String get downloads => 'Downloads';
+	String get releaseDate => 'Released';
+}
+
+// Path: strings.apps.filters
+class _StringsStringsAppsFiltersEn {
+	_StringsStringsAppsFiltersEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get all => 'All';
+	String get featured => 'Featured';
+}
+
+// Path: strings.apps.platforms
+class _StringsStringsAppsPlatformsEn {
+	_StringsStringsAppsPlatformsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get playstore => 'Play Store';
+	String get appstore => 'App Store';
+	String get web => 'Web Version';
+}
+
+// Path: strings.apps.healthTracker
+class _StringsStringsAppsHealthTrackerEn {
+	_StringsStringsAppsHealthTrackerEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get name => 'Health Tracker';
+	String get termsOfUse => 'Health Tracker Terms of Use and Privacy Policy\n\n1. Health Data\nThis app collects health data for tracking purposes. Your data is stored locally on your device unless you choose to sync with cloud services.\n\n2. User Agreement\nBy using this app, you agree to use it only for personal health tracking purposes.\n\n3. Liability\nThe app provides health insights for informational purposes only and should not be considered as medical advice.';
+}
+
+// Path: strings.apps.foodDelivery
+class _StringsStringsAppsFoodDeliveryEn {
+	_StringsStringsAppsFoodDeliveryEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get name => 'Food Delivery Pro';
+	String get termsOfUse => 'Food Delivery Pro Terms of Service\n\n1. Service Description\nFood Delivery Pro connects customers with local food stores for delivery services.\n\n2. User Responsibilities\nUsers agree to provide accurate information and use the service legally and responsibly.\n\n3. Limitation of Liability\nWe are not responsible for food quality or delivery delays caused by third parties.';
+}
+
+// Path: strings.apps.dramaStream
+class _StringsStringsAppsDramaStreamEn {
+	_StringsStringsAppsDramaStreamEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get name => 'Drama Stream';
+	String get termsOfUse => 'Drama Stream Terms of Use\n\n1. Content License\nAll content in Drama Stream is licensed for personal, non-commercial use only.\n\n2. Restrictions\nYou may not reproduce, distribute, or transmit any content without permission.\n\n3. Account Termination\nWe reserve the right to terminate accounts violating these terms.';
+}
+
+// Path: strings.apps.sleepAnalytics
+class _StringsStringsAppsSleepAnalyticsEn {
+	_StringsStringsAppsSleepAnalyticsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get name => 'Sleep Analytics';
+	String get termsOfUse => 'Sleep Analytics Privacy Policy and Terms\n\n1. Data Privacy\nSleep data is stored securely and never shared with third parties without your consent.\n\n2. Health Information\nThis app is not a medical device and should not replace professional medical advice.\n\n3. User Consent\nBy using this app, you consent to data collection for improving the service.';
+}
+
+// Path: strings.apps.pachinkoMaster
+class _StringsStringsAppsPachinkoMasterEn {
+	_StringsStringsAppsPachinkoMasterEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get name => 'Pachinko Master';
+	String get termsOfUse => 'Pachinko Master Terms of Service\n\n1. Game License\nThis game is provided for entertainment purposes only.\n\n2. In-App Purchases\nAll purchases are final and non-refundable except as required by law.\n\n3. Fair Play\nMultiplayer features must be used fairly. Cheating or exploiting bugs is prohibited.';
+}
+
+// Path: strings.apps.retailNavigator
+class _StringsStringsAppsRetailNavigatorEn {
+	_StringsStringsAppsRetailNavigatorEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get name => 'Retail Navigator';
+	String get termsOfUse => 'Retail Navigator Terms and Privacy Policy\n\n1. Location Data\nThis app uses Bluetooth beacon technology to determine your location within stores. Location data is processed locally and not stored permanently.\n\n2. Store Partnership\nRetail Navigator works with partner stores. Terms vary by store.\n\n3. Accuracy Disclaimer\nLocation accuracy depends on beacon availability and environmental factors.';
+}
+
 // Path: <root>
 class _StringsJa extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
@@ -365,6 +496,7 @@ class _StringsStringsJa extends _StringsStringsEn {
 	@override late final _StringsStringsContactJa contact = _StringsStringsContactJa._(_root);
 	@override late final _StringsStringsFooterJa footer = _StringsStringsFooterJa._(_root);
 	@override late final _StringsStringsLinksJa links = _StringsStringsLinksJa._(_root);
+	@override late final _StringsStringsAppsJa apps = _StringsStringsAppsJa._(_root);
 }
 
 // Path: strings.app
@@ -431,6 +563,33 @@ class _StringsStringsLinksJa extends _StringsStringsLinksEn {
 	@override String get email => 'mailto:duchai4320@gmail.com';
 	@override String get github => 'https://github.com/Hai4320';
 	@override String get linkedin => 'https://www.linkedin.com/in/hai4320';
+}
+
+// Path: strings.apps
+class _StringsStringsAppsJa extends _StringsStringsAppsEn {
+	_StringsStringsAppsJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '私のアプリ';
+	@override String get subtitle => '私が開発し、主要なアプリストアに公開したアプリケーションを探索してください。';
+	@override String get allApps => 'すべてのアプリ';
+	@override String get featuredApps => '注目のアプリ';
+	@override String get seeMore => 'すべてのアプリを見る';
+	@override String get downloadButton => 'ダウンロード';
+	@override String get termsOfUse => '利用規約';
+	@override String get features => '機能';
+	@override String get screenshots => 'スクリーンショット';
+	@override late final _StringsStringsAppsAppMetadataJa appMetadata = _StringsStringsAppsAppMetadataJa._(_root);
+	@override late final _StringsStringsAppsFiltersJa filters = _StringsStringsAppsFiltersJa._(_root);
+	@override late final _StringsStringsAppsPlatformsJa platforms = _StringsStringsAppsPlatformsJa._(_root);
+	@override late final _StringsStringsAppsHealthTrackerJa healthTracker = _StringsStringsAppsHealthTrackerJa._(_root);
+	@override late final _StringsStringsAppsFoodDeliveryJa foodDelivery = _StringsStringsAppsFoodDeliveryJa._(_root);
+	@override late final _StringsStringsAppsDramaStreamJa dramaStream = _StringsStringsAppsDramaStreamJa._(_root);
+	@override late final _StringsStringsAppsSleepAnalyticsJa sleepAnalytics = _StringsStringsAppsSleepAnalyticsJa._(_root);
+	@override late final _StringsStringsAppsPachinkoMasterJa pachinkoMaster = _StringsStringsAppsPachinkoMasterJa._(_root);
+	@override late final _StringsStringsAppsRetailNavigatorJa retailNavigator = _StringsStringsAppsRetailNavigatorJa._(_root);
 }
 
 // Path: strings.home.mobile
@@ -512,6 +671,109 @@ class _StringsStringsHomeThankYouJa extends _StringsStringsHomeThankYouEn {
 	@override String get title => 'ご覧いただきありがとうございます！';
 }
 
+// Path: strings.apps.appMetadata
+class _StringsStringsAppsAppMetadataJa extends _StringsStringsAppsAppMetadataEn {
+	_StringsStringsAppsAppMetadataJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get version => 'バージョン';
+	@override String get size => 'サイズ';
+	@override String get rating => '評価';
+	@override String get downloads => 'ダウンロード数';
+	@override String get releaseDate => 'リリース日';
+}
+
+// Path: strings.apps.filters
+class _StringsStringsAppsFiltersJa extends _StringsStringsAppsFiltersEn {
+	_StringsStringsAppsFiltersJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get all => 'すべて';
+	@override String get featured => '注目';
+}
+
+// Path: strings.apps.platforms
+class _StringsStringsAppsPlatformsJa extends _StringsStringsAppsPlatformsEn {
+	_StringsStringsAppsPlatformsJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get playstore => 'Play ストア';
+	@override String get appstore => 'App Store';
+	@override String get web => 'Web版';
+}
+
+// Path: strings.apps.healthTracker
+class _StringsStringsAppsHealthTrackerJa extends _StringsStringsAppsHealthTrackerEn {
+	_StringsStringsAppsHealthTrackerJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get name => 'ヘルスケア トラッカー';
+	@override String get termsOfUse => 'ヘルスケア トラッカー利用規約およびプライバシーポリシー\n\n1. ヘルスデータ\nこのアプリはトラッキング目的のためにヘルスデータを収集します。データはクラウド同期を選択しない限り、デバイスにローカルに保存されます。\n\n2. ユーザー契約\nこのアプリを使用することで、個人のヘルスケアトラッキング目的でのみ使用することに同意します。\n\n3. 責任制限\nこのアプリが提供するヘルスインサイトは情報提供目的であり、医学的アドバイスとして見なされるべきではありません。';
+}
+
+// Path: strings.apps.foodDelivery
+class _StringsStringsAppsFoodDeliveryJa extends _StringsStringsAppsFoodDeliveryEn {
+	_StringsStringsAppsFoodDeliveryJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get name => 'フードデリバリー プロ';
+	@override String get termsOfUse => 'フードデリバリー プロ利用規約\n\n1. サービス説明\nフードデリバリー プロは顧客と地元の飲食店をデリバリーサービスで繋ぎます。\n\n2. ユーザー責任\nユーザーは正確な情報を提供し、合法的かつ責任を持ってサービスを使用することに同意します。\n\n3. 責任制限\n第三者が原因による食品品質やデリバリー遅延については責任を負いません。';
+}
+
+// Path: strings.apps.dramaStream
+class _StringsStringsAppsDramaStreamJa extends _StringsStringsAppsDramaStreamEn {
+	_StringsStringsAppsDramaStreamJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get name => 'ドラマ ストリーム';
+	@override String get termsOfUse => 'ドラマ ストリーム利用規約\n\n1. コンテンツライセンス\nドラマ ストリーム内のすべてのコンテンツは、個人の非商業的使用のためにのみライセンスされています。\n\n2. 制限事項\n許可なくコンテンツを複製、配布、送信することはできません。\n\n3. アカウント終了\nこれらの規約に違反するアカウントを終了する権利を予約します。';
+}
+
+// Path: strings.apps.sleepAnalytics
+class _StringsStringsAppsSleepAnalyticsJa extends _StringsStringsAppsSleepAnalyticsEn {
+	_StringsStringsAppsSleepAnalyticsJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get name => 'スリープ アナリティクス';
+	@override String get termsOfUse => 'スリープ アナリティクス プライバシーポリシーと利用規約\n\n1. データプライバシー\n睡眠データは安全に保存され、同意なしに第三者と共有されることはありません。\n\n2. ヘルス情報\nこのアプリは医療機器ではなく、専門的な医学的アドバイスに代わるものではありません。\n\n3. ユーザー同意\nこのアプリを使用することで、サービスの改善のためのデータ収集に同意します。';
+}
+
+// Path: strings.apps.pachinkoMaster
+class _StringsStringsAppsPachinkoMasterJa extends _StringsStringsAppsPachinkoMasterEn {
+	_StringsStringsAppsPachinkoMasterJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get name => 'パチンコ マスター';
+	@override String get termsOfUse => 'パチンコ マスター利用規約\n\n1. ゲームライセンス\nこのゲームはエンターテインメント目的でのみ提供されます。\n\n2. アプリ内購入\nすべての購入は最終的であり、法律で必要な場合を除き返金不可です。\n\n3. フェアプレイ\nマルチプレイヤー機能はフェアプレイで使用する必要があります。チーティングやバグ悪用は禁止されています。';
+}
+
+// Path: strings.apps.retailNavigator
+class _StringsStringsAppsRetailNavigatorJa extends _StringsStringsAppsRetailNavigatorEn {
+	_StringsStringsAppsRetailNavigatorJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get name => 'リテール ナビゲーター';
+	@override String get termsOfUse => 'リテール ナビゲーター利用規約とプライバシーポリシー\n\n1. ロケーションデータ\nこのアプリはBluetoothビーコン技術を使用して店舗内での位置を特定します。位置データはローカルで処理され、永続的に保存されません。\n\n2. ストアパートナーシップ\nリテール ナビゲーターはパートナー店舗と連携しています。規約は店舗によって異なります。\n\n3. 精度免責事項\n位置精度はビーコンの利用可能性と環境要因に依存します。';
+}
+
 // Path: <root>
 class _StringsVi extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
@@ -561,6 +823,7 @@ class _StringsStringsVi extends _StringsStringsEn {
 	@override late final _StringsStringsContactVi contact = _StringsStringsContactVi._(_root);
 	@override late final _StringsStringsFooterVi footer = _StringsStringsFooterVi._(_root);
 	@override late final _StringsStringsLinksVi links = _StringsStringsLinksVi._(_root);
+	@override late final _StringsStringsAppsVi apps = _StringsStringsAppsVi._(_root);
 }
 
 // Path: strings.app
@@ -627,6 +890,33 @@ class _StringsStringsLinksVi extends _StringsStringsLinksEn {
 	@override String get email => 'mailto:duchai4320@gmail.com';
 	@override String get github => 'https://github.com/Hai4320';
 	@override String get linkedin => 'https://www.linkedin.com/in/hai4320';
+}
+
+// Path: strings.apps
+class _StringsStringsAppsVi extends _StringsStringsAppsEn {
+	_StringsStringsAppsVi._(_StringsVi root) : this._root = root, super._(root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Ứng Dụng Của Tôi';
+	@override String get subtitle => 'Khám phá các ứng dụng mà tôi đã phát triển và xuất bản trên các cửa hàng ứng dụng chính.';
+	@override String get allApps => 'Tất cả ứng dụng';
+	@override String get featuredApps => 'Ứng dụng nổi bật';
+	@override String get seeMore => 'Xem tất cả ứng dụng';
+	@override String get downloadButton => 'Tải xuống';
+	@override String get termsOfUse => 'Điều khoản sử dụng';
+	@override String get features => 'Tính năng';
+	@override String get screenshots => 'Ảnh chụp màn hình';
+	@override late final _StringsStringsAppsAppMetadataVi appMetadata = _StringsStringsAppsAppMetadataVi._(_root);
+	@override late final _StringsStringsAppsFiltersVi filters = _StringsStringsAppsFiltersVi._(_root);
+	@override late final _StringsStringsAppsPlatformsVi platforms = _StringsStringsAppsPlatformsVi._(_root);
+	@override late final _StringsStringsAppsHealthTrackerVi healthTracker = _StringsStringsAppsHealthTrackerVi._(_root);
+	@override late final _StringsStringsAppsFoodDeliveryVi foodDelivery = _StringsStringsAppsFoodDeliveryVi._(_root);
+	@override late final _StringsStringsAppsDramaStreamVi dramaStream = _StringsStringsAppsDramaStreamVi._(_root);
+	@override late final _StringsStringsAppsSleepAnalyticsVi sleepAnalytics = _StringsStringsAppsSleepAnalyticsVi._(_root);
+	@override late final _StringsStringsAppsPachinkoMasterVi pachinkoMaster = _StringsStringsAppsPachinkoMasterVi._(_root);
+	@override late final _StringsStringsAppsRetailNavigatorVi retailNavigator = _StringsStringsAppsRetailNavigatorVi._(_root);
 }
 
 // Path: strings.home.mobile
@@ -706,4 +996,107 @@ class _StringsStringsHomeThankYouVi extends _StringsStringsHomeThankYouEn {
 	// Translations
 	@override String get message => 'Tạo ra các giải pháp Mobile không chỉ đáp ứng mà còn vượt xa kỳ vọng của bạn.';
 	@override String get title => 'Cảm ơn bạn đã xem!';
+}
+
+// Path: strings.apps.appMetadata
+class _StringsStringsAppsAppMetadataVi extends _StringsStringsAppsAppMetadataEn {
+	_StringsStringsAppsAppMetadataVi._(_StringsVi root) : this._root = root, super._(root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get version => 'Phiên bản';
+	@override String get size => 'Kích thước';
+	@override String get rating => 'Đánh giá';
+	@override String get downloads => 'Lượt tải';
+	@override String get releaseDate => 'Ngày phát hành';
+}
+
+// Path: strings.apps.filters
+class _StringsStringsAppsFiltersVi extends _StringsStringsAppsFiltersEn {
+	_StringsStringsAppsFiltersVi._(_StringsVi root) : this._root = root, super._(root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get all => 'Tất cả';
+	@override String get featured => 'Nổi bật';
+}
+
+// Path: strings.apps.platforms
+class _StringsStringsAppsPlatformsVi extends _StringsStringsAppsPlatformsEn {
+	_StringsStringsAppsPlatformsVi._(_StringsVi root) : this._root = root, super._(root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get playstore => 'Play Store';
+	@override String get appstore => 'App Store';
+	@override String get web => 'Phiên bản web';
+}
+
+// Path: strings.apps.healthTracker
+class _StringsStringsAppsHealthTrackerVi extends _StringsStringsAppsHealthTrackerEn {
+	_StringsStringsAppsHealthTrackerVi._(_StringsVi root) : this._root = root, super._(root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get name => 'Trình theo dõi sức khỏe';
+	@override String get termsOfUse => 'Điều khoản sử dụng và chính sách bảo mật của Trình theo dõi sức khỏe\n\n1. Dữ liệu sức khỏe\nỨng dụng này thu thập dữ liệu sức khỏe cho mục đích theo dõi. Dữ liệu của bạn được lưu trữ cục bộ trên thiết bị của bạn trừ khi bạn chọn đồng bộ hóa với các dịch vụ đám mây.\n\n2. Thỏa thuận người dùng\nBằng cách sử dụng ứng dụng này, bạn đồng ý sử dụng nó chỉ cho mục đích theo dõi sức khỏe cá nhân.\n\n3. Giới hạn trách nhiệm\nỨng dụng cung cấp thông tin sức khỏe chỉ cho mục đích thông tin và không nên được coi là lời khuyên y tế.';
+}
+
+// Path: strings.apps.foodDelivery
+class _StringsStringsAppsFoodDeliveryVi extends _StringsStringsAppsFoodDeliveryEn {
+	_StringsStringsAppsFoodDeliveryVi._(_StringsVi root) : this._root = root, super._(root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get name => 'Giao thức ăn Pro';
+	@override String get termsOfUse => 'Điều khoản dịch vụ của Giao thức ăn Pro\n\n1. Mô tả dịch vụ\nGiao thức ăn Pro kết nối khách hàng với các nhà hàng địa phương để giao dịch vụ giao hàng.\n\n2. Trách nhiệm người dùng\nNguời dùng đồng ý cung cấp thông tin chính xác và sử dụng dịch vụ một cách hợp pháp và có trách nhiệm.\n\n3. Giới hạn trách nhiệm\nChúng tôi không chịu trách nhiệm về chất lượng thực phẩm hoặc sự chậm trễ giao hàng do bên thứ ba gây ra.';
+}
+
+// Path: strings.apps.dramaStream
+class _StringsStringsAppsDramaStreamVi extends _StringsStringsAppsDramaStreamEn {
+	_StringsStringsAppsDramaStreamVi._(_StringsVi root) : this._root = root, super._(root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get name => 'Phát trực tiếp Phim ngắn';
+	@override String get termsOfUse => 'Điều khoản sử dụng Phát trực tiếp Phim ngắn\n\n1. Giấy phép nội dung\nTất cả nội dung trong Phát trực tiếp Phim ngắn được cấp phép chỉ cho mục đích sử dụng cá nhân, không thương mại.\n\n2. Hạn chế\nBạn không được phép sao chép, phân phối hoặc truyền tải bất kỳ nội dung nào mà không có sự cho phép.\n\n3. Chấm dứt tài khoản\nChúng tôi bảo lưu quyền chấm dứt các tài khoản vi phạm các điều khoản này.';
+}
+
+// Path: strings.apps.sleepAnalytics
+class _StringsStringsAppsSleepAnalyticsVi extends _StringsStringsAppsSleepAnalyticsEn {
+	_StringsStringsAppsSleepAnalyticsVi._(_StringsVi root) : this._root = root, super._(root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get name => 'Phân tích giấc ngủ';
+	@override String get termsOfUse => 'Chính sách bảo mật và điều khoản của Phân tích giấc ngủ\n\n1. Bảo mật dữ liệu\nDữ liệu giấc ngủ được lưu trữ an toàn và không bao giờ được chia sẻ với các bên thứ ba mà không có sự đồng ý của bạn.\n\n2. Thông tin sức khỏe\nỨng dụng này không phải là một thiết bị y tế và không nên thay thế lời khuyên y tế chuyên nghiệp.\n\n3. Sự đồng ý của người dùng\nBằng cách sử dụng ứng dụng này, bạn đồng ý với việc thu thập dữ liệu để cải thiện dịch vụ.';
+}
+
+// Path: strings.apps.pachinkoMaster
+class _StringsStringsAppsPachinkoMasterVi extends _StringsStringsAppsPachinkoMasterEn {
+	_StringsStringsAppsPachinkoMasterVi._(_StringsVi root) : this._root = root, super._(root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get name => 'Pachinko Thạo thủ';
+	@override String get termsOfUse => 'Điều khoản dịch vụ của Pachinko Thạo thủ\n\n1. Giấy phép trò chơi\nTrò chơi này được cung cấp chỉ cho mục đích giải trí.\n\n2. Mua hàng trong ứng dụng\nTất cả các giao dịch mua hàng là cuối cùng và không được hoàn lại ngoài trường hợp luật yêu cầu.\n\n3. Chơi công bằng\nCác tính năng multiplayer phải được sử dụng một cách công bằng. Gian lận hoặc khai thác lỗi bị cấm.';
+}
+
+// Path: strings.apps.retailNavigator
+class _StringsStringsAppsRetailNavigatorVi extends _StringsStringsAppsRetailNavigatorEn {
+	_StringsStringsAppsRetailNavigatorVi._(_StringsVi root) : this._root = root, super._(root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get name => 'Điều hướng bán lẻ';
+	@override String get termsOfUse => 'Điều khoản và chính sách bảo mật của Điều hướng bán lẻ\n\n1. Dữ liệu vị trí\nỨng dụng này sử dụng công nghệ Bluetooth beacon để xác định vị trí của bạn trong các cửa hàng. Dữ liệu vị trí được xử lý cục bộ và không được lưu trữ vĩnh viễn.\n\n2. Quan hệ đối tác cửa hàng\nĐiều hướng bán lẻ hoạt động với các cửa hàng đối tác. Các điều khoản khác nhau tùy theo cửa hàng.\n\n3. Tuyên bố từ chối trách nhiệm về độ chính xác\nĐộ chính xác của vị trí phụ thuộc vào tính khả dụng của beacon và các yếu tố môi trường.';
 }
