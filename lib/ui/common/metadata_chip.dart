@@ -13,10 +13,7 @@ class MetadataChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: compact ? 10.w : 12.w,
-        vertical: compact ? 5.h : 6.h,
-      ),
+      padding: EdgeInsets.symmetric(horizontal: compact ? 10.w : 12.w, vertical: compact ? 5.h : 6.h),
       decoration: BoxDecoration(
         color: AppColors.black1,
         borderRadius: BorderRadius.circular(compact ? 6.r : 8.r),

@@ -85,10 +85,7 @@ class AppDetailWeb extends StatelessWidget {
                               style: const TextStyle(fontSize: 36, fontWeight: FontWeight.w900),
                             ).gradient(),
                           ),
-                          if (app.isFeatured) ...[
-                            SizedBox(width: 16.w),
-                            const FeaturedBadge(),
-                          ],
+                          if (app.isFeatured) ...[SizedBox(width: 16.w), const FeaturedBadge()],
                         ],
                       ),
                       SizedBox(height: 20.h),
@@ -185,8 +182,7 @@ class AppDetailWeb extends StatelessWidget {
             SizedBox(height: 48.h),
           ],
           // Terms of use section — collapsible
-          if (app.termsOfUse.isNotEmpty)
-            _CollapsibleTermsOfUse(termsOfUse: app.termsOfUse),
+          if (app.termsOfUse.isNotEmpty) _CollapsibleTermsOfUse(termsOfUse: app.termsOfUse),
           SizedBox(height: 60.h),
         ],
       ),

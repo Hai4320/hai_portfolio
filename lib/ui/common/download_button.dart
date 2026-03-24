@@ -69,7 +69,7 @@ class _DownloadButtonState extends State<DownloadButton> {
 
     analyticsService.openLink(
       url: widget.link.url,
-      linkType:  LinkType.other,
+      linkType: LinkType.other,
       linkText: '${widget.appName} - ${_getLabelForPlatform()}',
     );
   }

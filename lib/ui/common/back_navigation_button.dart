@@ -22,17 +22,17 @@ class _BackNavigationButtonState extends State<BackNavigationButton> {
       return GestureDetector(
         onTap: widget.onTap,
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           decoration: BoxDecoration(
             color: AppColors.richBlack,
-            borderRadius: BorderRadius.circular(8.r),
+            borderRadius: BorderRadius.circular(8),
             border: Border.all(color: AppColors.lightPeriwinkle.withAlpha(51)),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(Icons.arrow_back_rounded, color: AppColors.lightPeriwinkle, size: 16.r),
-              SizedBox(width: 6.w),
+              const Icon(Icons.arrow_back_rounded, color: AppColors.lightPeriwinkle, size: 16),
+              const SizedBox(width: 6),
               Text(
                 widget.label,
                 style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: AppColors.lightPeriwinkle),
@@ -50,10 +50,10 @@ class _BackNavigationButtonState extends State<BackNavigationButton> {
         onTap: widget.onTap,
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
           decoration: BoxDecoration(
             color: _isHovering ? AppColors.richBlack : Colors.transparent,
-            borderRadius: BorderRadius.circular(8.r),
+            borderRadius: BorderRadius.circular(8),
             border: Border.all(color: _isHovering ? AppColors.lightPeriwinkle.withAlpha(77) : Colors.transparent),
           ),
           child: Row(
@@ -64,7 +64,7 @@ class _BackNavigationButtonState extends State<BackNavigationButton> {
                 offset: _isHovering ? const Offset(-0.2, 0) : Offset.zero,
                 child: Icon(Icons.arrow_back_rounded, color: AppColors.lightPeriwinkle, size: 18.r),
               ),
-              SizedBox(width: 8.w),
+              const SizedBox(width: 8),
               Text(
                 widget.label,
                 style: TextStyle(
@@ -80,4 +80,3 @@ class _BackNavigationButtonState extends State<BackNavigationButton> {
     );
   }
 }
-

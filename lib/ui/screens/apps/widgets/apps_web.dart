@@ -23,44 +23,18 @@ class AppsWeb extends StatelessWidget {
           BackNavigationButton(label: 'Home', onTap: () => Get.offAllNamed('/')),
           SizedBox(height: 40.h),
           // Header with gradient title and stats
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      t.strings.apps.title,
-                      style: const TextStyle(fontSize: 56, fontWeight: FontWeight.w900, height: 1.2),
-                    ).gradient(),
-                    SizedBox(height: 16.h),
-                    Text(
-                      t.strings.apps.subtitle,
-                      style: TextStyle(fontSize: 18, color: AppColors.lightPeriwinkle.withAlpha(179), height: 1.6),
-                      maxLines: 2,
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(width: 40.w),
-              // Stats badges
-              Obx(
-                () => Row(
-                  children: [
-                    _StatBadge(
-                      icon: Icons.apps_rounded,
-                      label: '${controller.getTotalApps()}',
-                      subtitle: t.strings.apps.filters.all,
-                    ),
-                    SizedBox(width: 16.w),
-                    _StatBadge(
-                      icon: Icons.star_rounded,
-                      label: '${controller.getFeaturedAppsCount()}',
-                      subtitle: t.strings.apps.filters.featured,
-                    ),
-                  ],
-                ),
+              Text(
+                t.strings.apps.title,
+                style: const TextStyle(fontSize: 56, fontWeight: FontWeight.w900, height: 1.2),
+              ).gradient(),
+              SizedBox(height: 16.h),
+              Text(
+                t.strings.apps.subtitle,
+                style: TextStyle(fontSize: 18, color: AppColors.lightPeriwinkle.withAlpha(179), height: 1.6),
+                maxLines: 2,
               ),
             ],
           ),
@@ -114,49 +88,14 @@ class AppsWeb extends StatelessWidget {
               itemCount: controller.filteredApps.length,
               itemBuilder: (context, index) {
                 final app = controller.filteredApps[index];
-                return AppCard(app: app, onTap: () => Get.toNamed('/apps/${app.id}'));
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: AppCard(app: app, onTap: () => Get.toNamed('/apps/${app.id}')),
+                );
               },
             ),
           ),
           SizedBox(height: 60.h),
-        ],
-      ),
-    );
-  }
-}
-
-
-class _StatBadge extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final String subtitle;
-
-  const _StatBadge({required this.icon, required this.label, required this.subtitle});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 14.h),
-      decoration: BoxDecoration(
-        color: AppColors.richBlack,
-        borderRadius: BorderRadius.circular(12.r),
-        border: Border.all(color: AppColors.lightPeriwinkle.withAlpha(26)),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, color: AppColors.lightPeriwinkle, size: 20.r),
-          SizedBox(width: 10.w),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                label,
-                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Colors.white),
-              ),
-              Text(subtitle, style: TextStyle(fontSize: 12, color: AppColors.lightPeriwinkle.withAlpha(128))),
-            ],
-          ),
         ],
       ),
     );

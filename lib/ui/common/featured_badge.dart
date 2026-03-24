@@ -9,10 +9,7 @@ class FeaturedBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: compact ? 10.w : 12.w,
-        vertical: compact ? 5.h : 6.h,
-      ),
+      padding: EdgeInsets.symmetric(horizontal: compact ? 10.w : 12.w, vertical: compact ? 5.h : 6.h),
       decoration: BoxDecoration(
         gradient: const LinearGradient(colors: [Color(0xff7F7FD5), Color(0xff86A8E7)]),
         borderRadius: BorderRadius.circular(6.r),
@@ -24,11 +21,7 @@ class FeaturedBadge extends StatelessWidget {
           SizedBox(width: 4.w),
           Text(
             'Featured',
-            style: TextStyle(
-              fontSize: compact ? 11 : 12,
-              fontWeight: FontWeight.w600,
-              color: Colors.white,
-            ),
+            style: TextStyle(fontSize: compact ? 11 : 12, fontWeight: FontWeight.w600, color: Colors.white),
           ),
         ],
       ),

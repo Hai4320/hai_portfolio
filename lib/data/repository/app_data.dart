@@ -22,7 +22,10 @@ class AppData {
         'Personalized Recommendations',
       ],
       links: [
-        const AppLink(platform: AppPlatform.playstore, url: 'https://play.google.com/store/apps/details?id=com.hai.health'),
+        const AppLink(
+          platform: AppPlatform.playstore,
+          url: 'https://play.google.com/store/apps/details?id=com.hai.health',
+        ),
         const AppLink(platform: AppPlatform.web, url: 'https://health-tracker.example.com'),
       ],
       metadata: AppMetadata(
