@@ -1,8 +1,6 @@
+import 'package:intl/intl.dart';
+
 String formatDownloads(int count) {
-  if (count >= 1000000) {
-    return '${(count / 1000000).toStringAsFixed(1)}M';
-  } else if (count >= 1000) {
-    return '${(count / 1000).toStringAsFixed(1)}K';
-  }
-  return count.toString();
+  // This provides localized, compact number formatting (e.g., 1K, 1.1M).
+  return NumberFormat.compact().format(count);
 }
