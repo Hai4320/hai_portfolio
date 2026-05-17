@@ -62,7 +62,8 @@ class Experience {
     required this.techStack,
     this.logoAsset,
     this.companyUrl,
-  });
+  }) : assert(endDate == null || endDate.isAfter(startDate),
+            'endDate must be after startDate');
 }
 ```
 
@@ -113,6 +114,7 @@ class AboutInfo {
   /// function — dễ unit test và mock. Callsite thực tế chỉ truyền
   /// `DateTime.now()` vào: `about.yearsOfExperience(DateTime.now())`.
   int yearsOfExperience(DateTime now) {
+    if (now.isBefore(careerStartDate)) return 0;
     var years = now.year - careerStartDate.year;
     final hasNotReachedAnniversary = now.month < careerStartDate.month ||
         (now.month == careerStartDate.month && now.day < careerStartDate.day);
@@ -292,7 +294,6 @@ Mobile (`home_phone.dart`): stack dọc — About trên, timeline dưới.
 ```html
 <title>Hai Ho — Mobile Developer | Flutter Engineer</title>
 <meta name="description" content="Hai Ho — Mobile engineer crafting Flutter & native apps for Japanese and Vietnamese clients. Currently on the growth team @ Sun*.">
-<meta name="keywords" content="Hai Ho, Hai4320, Flutter developer, Mobile engineer Vietnam, Dart, iOS, Android, portfolio">
 <meta name="author" content="Ho Duc Hai">
 <meta name="theme-color" content="#111111">
 <link rel="canonical" href="https://YOUR_DOMAIN/">
