@@ -1,6 +1,6 @@
 # Portfolio Improvement Plan
 
-> **Phạm vi**: Nâng cấp portfolio Flutter web tại `/Users/ho.duc.haib/Documents/Do/hai_portfolio`
+> **Phạm vi**: Nâng cấp portfolio Flutter web (repo `hai_portfolio`)
 > **Trọng tâm**: Nội dung & ấn tượng đầu tiên
 > **Ngày tạo**: 2026-05-17
 > **Người thực hiện**: Ho Duc Hai
@@ -72,10 +72,15 @@ class AboutInfo {
   final String bio;            // 2-3 câu giới thiệu
   final String location;
   final List<String> languages; // VD: ["Vietnamese (native)", "English (B2)", "Japanese (N3)"]
-  final int yearsOfExperience;
+  final DateTime careerStartDate; // VD: DateTime(2022, 3) — dùng để tính years of exp dynamic
   final String currentRole;
 }
 ```
+
+> **Note**: `yearsOfExperience` được tính dynamic trong widget bằng
+> `DateTime.now().difference(careerStartDate).inDays ~/ 365` (hoặc tốt hơn là so
+> sánh `year`/`month` để chính xác hơn). Không hardcode `int` để khỏi phải sửa
+> hàng năm.
 
 ### 1.4. Hardcoded data files
 
@@ -107,7 +112,7 @@ class ExperienceData {
     bio: 'TODO',
     location: 'Hanoi, Vietnam',
     languages: ['Vietnamese (native)', 'English', 'Japanese'],
-    yearsOfExperience: 3,
+    careerStartDate: DateTime(2022, 3), // TODO: điền start date thực
     currentRole: 'Mobile Engineer at Sun*',
   );
 }
@@ -160,7 +165,18 @@ Mobile (`home_phone.dart`): stack dọc — About trên, timeline dưới.
 
 ### 1.7. i18n bổ sung
 
-Thêm vào `lib/i18n/strings.i18n.json`, `strings_ja.i18n.json`, `strings_vi.i18n.json`:
+> ⚠️ **Breaking change cần chú ý**: `home.experience` hiện tại đã có 3 keys
+> (`title`, `emoji`, `description`) được dùng ở
+> [home_web.dart:282](lib/ui/screens/home/widgets/home_web.dart#L282) và
+> [home_web.dart:289](lib/ui/screens/home/widgets/home_web.dart#L289). Khi
+> refactor sang timeline mới, **toàn bộ block đó được thay thế** → 2 keys
+> `emoji` và `description` không còn ai dùng. Khi sửa code phải:
+> 1. Xóa reference cũ tới `t.strings.home.experience.emoji` và `.description` trong `home_web.dart` & `home_phone.dart`.
+> 2. Xóa keys đó khỏi cả 3 file `strings*.i18n.json`.
+> 3. Regenerate `strings.g.dart` bằng `dart run slang`.
+> Nếu không, build sẽ pass (key bị thừa không gây lỗi) nhưng plan sẽ không sạch.
+
+**Merge vào** `lib/i18n/strings.i18n.json`, `strings_ja.i18n.json`, `strings_vi.i18n.json` (thay block `home.experience` cũ, **thêm mới** block `home.about`):
 
 ```json
 {
