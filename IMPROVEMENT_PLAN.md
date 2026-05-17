@@ -36,6 +36,30 @@
 
 ### 1.3. Data models mới
 
+#### `lib/utils/tenure.dart` (shared helper)
+
+```dart
+/// Khoảng thời gian theo (năm, tháng) — dùng để hiển thị "X yr Y mo".
+/// Pure value object, không gọi `DateTime.now()` bên trong để dễ test.
+class Tenure {
+  final int years;
+  final int months;
+
+  const Tenure(this.years, this.months)
+      : assert(years >= 0 && months >= 0 && months < 12);
+
+  /// Tính tenure từ `start` đến `end`. Nếu `end` trước `start` → `Tenure(0, 0)`.
+  factory Tenure.between(DateTime start, DateTime end) {
+    if (end.isBefore(start)) return const Tenure(0, 0);
+    var years = end.year - start.year;
+    var months = end.month - start.month;
+    if (end.day < start.day) months--;
+    if (months < 0) { years--; months += 12; }
+    return Tenure(years, months);
+  }
+}
+```
+
 #### `lib/data/model/experience.dart`
 
 ```dart
@@ -64,11 +88,16 @@ class Experience {
     this.companyUrl,
   }) : assert(endDate == null || !endDate.isBefore(startDate),
             'endDate must not be before startDate');
+
+  /// Duration của vị trí này tính tới `now` nếu chưa kết thúc.
+  /// Reusable — widget chỉ cần format `Tenure` thành string theo locale.
+  Tenure tenure(DateTime now) => Tenure.between(startDate, endDate ?? now);
 }
 ```
 
-> Dùng `DateTime` (không phải `String`) để dễ sort theo thời gian và compute
-> duration hiển thị (vd: "1 yr 2 mos") trong widget.
+> Dùng `DateTime` (không phải `String`) để dễ sort theo thời gian. Logic
+> compute duration nằm trong `Tenure` (shared) → không duplicate giữa
+> widget web & mobile.
 
 #### `lib/data/model/education.dart`
 
@@ -76,8 +105,8 @@ class Experience {
 class Education {
   final String school;
   final String degree;
-  final String startYear;
-  final String endYear;
+  final int startYear;      // VD: 2018
+  final int endYear;        // VD: 2022
   final String? description;
 
   const Education({
@@ -86,9 +115,13 @@ class Education {
     required this.startYear,
     required this.endYear,
     this.description,
-  });
+  }) : assert(endYear >= startYear, 'endYear must not be before startYear');
 }
 ```
+
+> Dùng `int` cho năm (đủ granularity cho học vấn) — type-safe hơn `String`,
+> đồng nhất với mindset của `Experience` ở chỗ dùng kiểu thời gian thực thay
+> vì chuỗi tự do.
 
 #### `lib/data/model/about_info.dart`
 
@@ -108,25 +141,20 @@ class AboutInfo {
     required this.currentRole,
   });
 
-  /// Số năm kinh nghiệm tính tới một mốc thời gian cho trước.
+  /// Tenure đầy đủ (năm + tháng) tính tới `now`.
   ///
-  /// Nhận `now` qua param thay vì gọi `DateTime.now()` trực tiếp để giữ pure
-  /// function — dễ unit test và mock. Callsite thực tế chỉ truyền
-  /// `DateTime.now()` vào: `about.yearsOfExperience(DateTime.now())`.
-  int yearsOfExperience(DateTime now) {
-    if (now.isBefore(careerStartDate)) return 0;
-    var years = now.year - careerStartDate.year;
-    final hasNotReachedAnniversary = now.month < careerStartDate.month ||
-        (now.month == careerStartDate.month && now.day < careerStartDate.day);
-    if (hasNotReachedAnniversary) years--;
-    return years;
-  }
+  /// Nhận `now` qua param để giữ pure function — dễ unit test và mock.
+  /// Callsite thực tế chỉ truyền `DateTime.now()` vào.
+  Tenure tenure(DateTime now) => Tenure.between(careerStartDate, now);
+
+  /// Shortcut khi UI chỉ cần số năm tròn (vd: "3+ years of experience").
+  int yearsOfExperience(DateTime now) => tenure(now).years;
 }
 ```
 
-> Logic so sánh `year`/`month`/`day` chính xác hơn `inDays ~/ 365` (tránh sai
-> số do leap year). Vì là pure function, có thể test bằng cách inject `now`
-> tuỳ ý — không cần fake clock.
+> Cả `Experience.tenure(now)` và `AboutInfo.tenure(now)` đều trả về `Tenure`
+> chung → widget tự quyết định hiển thị "3 yrs", "3 yrs 4 mos", hay "3+ years"
+> theo context. Logic time math chỉ tồn tại 1 chỗ trong `Tenure.between`.
 
 ### 1.4. Hardcoded data files
 
@@ -441,7 +469,7 @@ Sitemap: https://YOUR_DOMAIN/sitemap.xml
 
 | # | Tasks | Files chính | Ước lượng |
 |---|-------|-------------|-----------|
-| 1 | Tạo data models (Experience, Education, AboutInfo) | `lib/data/model/experience.dart`, `education.dart`, `about_info.dart` | 15' |
+| 1 | Tạo `Tenure` helper + data models (Experience, Education, AboutInfo) | `lib/utils/tenure.dart`, `lib/data/model/experience.dart`, `education.dart`, `about_info.dart` | 20' |
 | 2 | Tạo `experience_data.dart` với placeholder | `lib/data/repository/experience_data.dart` | 10' |
 | 3 | Tạo widget `experience_timeline_item.dart` | `lib/ui/common/experience_timeline_item.dart` | 25' |
 | 4 | Tạo widget `about_card.dart` + `education_item.dart` | `lib/ui/common/about_card.dart`, `education_item.dart` | 20' |
