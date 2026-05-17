@@ -107,10 +107,12 @@ class AboutInfo {
     required this.currentRole,
   });
 
-  /// Số năm kinh nghiệm — tính dynamic theo ngày hiện tại,
-  /// chính xác đến tháng/ngày (không dùng `inDays ~/ 365` để tránh sai số leap year).
-  int get yearsOfExperience {
-    final now = DateTime.now();
+  /// Số năm kinh nghiệm tính tới một mốc thời gian cho trước.
+  ///
+  /// Nhận `now` qua param thay vì gọi `DateTime.now()` trực tiếp để giữ pure
+  /// function — dễ unit test và mock. Callsite thực tế chỉ truyền
+  /// `DateTime.now()` vào: `about.yearsOfExperience(DateTime.now())`.
+  int yearsOfExperience(DateTime now) {
     var years = now.year - careerStartDate.year;
     final hasNotReachedAnniversary = now.month < careerStartDate.month ||
         (now.month == careerStartDate.month && now.day < careerStartDate.day);
@@ -120,8 +122,9 @@ class AboutInfo {
 }
 ```
 
-> `yearsOfExperience` là computed property → không cần update tay mỗi năm.
-> Logic so sánh `year`/`month`/`day` để chính xác hơn `inDays ~/ 365`.
+> Logic so sánh `year`/`month`/`day` chính xác hơn `inDays ~/ 365` (tránh sai
+> số do leap year). Vì là pure function, có thể test bằng cách inject `now`
+> tuỳ ý — không cần fake clock.
 
 ### 1.4. Hardcoded data files
 
@@ -136,7 +139,7 @@ class ExperienceData {
       company: 'Sun*',
       role: 'Mobile Engineer — Growth Team',
       location: 'Hanoi, Vietnam',
-      startDate: '2023-XX',
+      startDate: DateTime(2023, 1), // TODO: điền month chính xác
       endDate: null,
       description: '...',
       achievements: ['...', '...'],
@@ -225,8 +228,9 @@ Mobile (`home_phone.dart`): stack dọc — About trên, timeline dưới.
 > `engineering`, `skills`, `build`, `support`, `thankYou`) — chỉ thay block
 > `experience` cũ và thêm block `about`.
 
-```jsonc
-// === Thêm mới — chèn vào trong "home": { ... } ===
+**Block 1 — thêm mới** (chèn vào bên trong object `"home": { ... }`):
+
+```json
 "about": {
   "title": "About me",
   "bioLabel": "Bio",
@@ -236,9 +240,12 @@ Mobile (`home_phone.dart`): stack dọc — About trên, timeline dưới.
     "languages": "Languages",
     "currentRole": "Current role"
   }
-},
+}
+```
 
-// === Thay thế block "experience" hiện có ===
+**Block 2 — thay thế block `experience` hiện có** trong `"home": { ... }`:
+
+```json
 "experience": {
   "title": "Experience",
   "timelineTitle": "Career timeline",
@@ -248,6 +255,9 @@ Mobile (`home_phone.dart`): stack dọc — About trên, timeline dưới.
   "techStackLabel": "Tech stack"
 }
 ```
+
+> Đừng copy-paste cả 2 block kèm comment vào file thật — `*.i18n.json` là JSON
+> chuẩn, không hỗ trợ `//` comment, sẽ làm `slang` parse fail.
 
 > Metadata công ty/trường giữ trong data file (tiếng Anh). Nếu sau này muốn dịch metadata, có thể nâng cấp model dùng `Map<String, String>` cho từng field.
 
@@ -358,7 +368,7 @@ Bên trong `<body>` thêm `<noscript>` nhỏ cho bot không chạy JS:
 ```html
 <noscript>
   <h1>Hai Ho — Mobile Developer</h1>
-  <p>Portfolio of Hai Ho, mobile engineer with 3+ years building Flutter and native apps.
+  <p>Portfolio of Hai Ho, mobile engineer crafting Flutter and native apps.
      Currently working at Sun* on the growth team.</p>
   <p>Find me on <a href="https://github.com/Hai4320">GitHub</a> and
      <a href="https://www.linkedin.com/in/hai4320">LinkedIn</a>.</p>
