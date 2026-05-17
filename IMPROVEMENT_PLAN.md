@@ -62,8 +62,8 @@ class Experience {
     required this.techStack,
     this.logoAsset,
     this.companyUrl,
-  }) : assert(endDate == null || endDate.isAfter(startDate),
-            'endDate must be after startDate');
+  }) : assert(endDate == null || !endDate.isBefore(startDate),
+            'endDate must not be before startDate');
 }
 ```
 
