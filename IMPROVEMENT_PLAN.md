@@ -43,15 +43,31 @@ class Experience {
   final String company;
   final String role;
   final String location;        // VD: "Hanoi, Vietnam"
-  final String startDate;        // VD: "2023-03"
-  final String? endDate;          // null = present
+  final DateTime startDate;
+  final DateTime? endDate;       // null = present
   final String description;
   final List<String> achievements;
   final List<String> techStack;
-  final String? logoAsset;        // optional company logo
+  final String? logoAsset;       // optional company logo
   final String? companyUrl;
+
+  const Experience({
+    required this.company,
+    required this.role,
+    required this.location,
+    required this.startDate,
+    this.endDate,
+    required this.description,
+    required this.achievements,
+    required this.techStack,
+    this.logoAsset,
+    this.companyUrl,
+  });
 }
 ```
+
+> Dùng `DateTime` (không phải `String`) để dễ sort theo thời gian và compute
+> duration hiển thị (vd: "1 yr 2 mos") trong widget.
 
 #### `lib/data/model/education.dart`
 
@@ -62,6 +78,14 @@ class Education {
   final String startYear;
   final String endYear;
   final String? description;
+
+  const Education({
+    required this.school,
+    required this.degree,
+    required this.startYear,
+    required this.endYear,
+    this.description,
+  });
 }
 ```
 
@@ -69,18 +93,35 @@ class Education {
 
 ```dart
 class AboutInfo {
-  final String bio;            // 2-3 câu giới thiệu
+  final String bio;             // 2-3 câu giới thiệu
   final String location;
   final List<String> languages; // VD: ["Vietnamese (native)", "English (B2)", "Japanese (N3)"]
-  final DateTime careerStartDate; // VD: DateTime(2022, 3) — dùng để tính years of exp dynamic
+  final DateTime careerStartDate;
   final String currentRole;
+
+  const AboutInfo({
+    required this.bio,
+    required this.location,
+    required this.languages,
+    required this.careerStartDate,
+    required this.currentRole,
+  });
+
+  /// Số năm kinh nghiệm — tính dynamic theo ngày hiện tại,
+  /// chính xác đến tháng/ngày (không dùng `inDays ~/ 365` để tránh sai số leap year).
+  int get yearsOfExperience {
+    final now = DateTime.now();
+    var years = now.year - careerStartDate.year;
+    final hasNotReachedAnniversary = now.month < careerStartDate.month ||
+        (now.month == careerStartDate.month && now.day < careerStartDate.day);
+    if (hasNotReachedAnniversary) years--;
+    return years;
+  }
 }
 ```
 
-> **Note**: `yearsOfExperience` được tính dynamic trong widget bằng
-> `DateTime.now().difference(careerStartDate).inDays ~/ 365` (hoặc tốt hơn là so
-> sánh `year`/`month` để chính xác hơn). Không hardcode `int` để khỏi phải sửa
-> hàng năm.
+> `yearsOfExperience` là computed property → không cần update tay mỗi năm.
+> Logic so sánh `year`/`month`/`day` để chính xác hơn `inDays ~/ 365`.
 
 ### 1.4. Hardcoded data files
 
@@ -176,30 +217,35 @@ Mobile (`home_phone.dart`): stack dọc — About trên, timeline dưới.
 > 3. Regenerate `strings.g.dart` bằng `dart run slang`.
 > Nếu không, build sẽ pass (key bị thừa không gây lỗi) nhưng plan sẽ không sạch.
 
-**Merge vào** `lib/i18n/strings.i18n.json`, `strings_ja.i18n.json`, `strings_vi.i18n.json` (thay block `home.experience` cũ, **thêm mới** block `home.about`):
+**Merge vào** `lib/i18n/strings.i18n.json`, `strings_ja.i18n.json`, `strings_vi.i18n.json`.
 
-```json
-{
-  "home": {
-    "about": {
-      "title": "About me",
-      "bioLabel": "Bio",
-      "facts": {
-        "location": "Location",
-        "yearsExp": "Years of experience",
-        "languages": "Languages",
-        "currentRole": "Current role"
-      }
-    },
-    "experience": {
-      "title": "Experience",
-      "timelineTitle": "Career timeline",
-      "educationTitle": "Education",
-      "present": "Present",
-      "achievementsLabel": "Highlights",
-      "techStackLabel": "Tech stack"
-    }
+> ⚠️ Snippet bên dưới **chỉ liệt kê 2 block cần thêm/thay** (`home.about` mới
+> và `home.experience` mới). Khi sửa file thật, **giữ nguyên** các keys hiện
+> có ở cấp `home` (`title`, `subtitle`, `skill1`, `skill2`, `mobile`,
+> `engineering`, `skills`, `build`, `support`, `thankYou`) — chỉ thay block
+> `experience` cũ và thêm block `about`.
+
+```jsonc
+// === Thêm mới — chèn vào trong "home": { ... } ===
+"about": {
+  "title": "About me",
+  "bioLabel": "Bio",
+  "facts": {
+    "location": "Location",
+    "yearsExp": "Years of experience",
+    "languages": "Languages",
+    "currentRole": "Current role"
   }
+},
+
+// === Thay thế block "experience" hiện có ===
+"experience": {
+  "title": "Experience",
+  "timelineTitle": "Career timeline",
+  "educationTitle": "Education",
+  "present": "Present",
+  "achievementsLabel": "Highlights",
+  "techStackLabel": "Tech stack"
 }
 ```
 
@@ -235,7 +281,7 @@ Mobile (`home_phone.dart`): stack dọc — About trên, timeline dưới.
 
 ```html
 <title>Hai Ho — Mobile Developer | Flutter Engineer</title>
-<meta name="description" content="Hai Ho — Mobile engineer with 3+ years building Flutter & native apps for Japanese and Vietnamese clients. Currently growth team @ Sun*.">
+<meta name="description" content="Hai Ho — Mobile engineer crafting Flutter & native apps for Japanese and Vietnamese clients. Currently on the growth team @ Sun*.">
 <meta name="keywords" content="Hai Ho, Hai4320, Flutter developer, Mobile engineer Vietnam, Dart, iOS, Android, portfolio">
 <meta name="author" content="Ho Duc Hai">
 <meta name="theme-color" content="#111111">
@@ -243,6 +289,11 @@ Mobile (`home_phone.dart`): stack dọc — About trên, timeline dưới.
 ```
 
 > **TODO**: thay `YOUR_DOMAIN` bằng domain thật (sẽ check `vercel.json` & `firebase.json` để xác định domain hiện tại).
+>
+> **Lưu ý**: `index.html` là file static — không có giá trị nào tự cập nhật
+> theo thời gian. Tránh dùng cụm như "X+ years" trong description; ưu tiên
+> wording evergreen (vd: "crafting Flutter & native apps") để khỏi phải sửa
+> tay mỗi năm.
 
 #### b) Open Graph
 
