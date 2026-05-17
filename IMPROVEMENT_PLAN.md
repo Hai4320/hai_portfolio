@@ -49,11 +49,17 @@ class Tenure {
       : assert(years >= 0 && months >= 0 && months < 12);
 
   /// Tính tenure từ `start` đến `end`. Nếu `end` trước `start` → `Tenure(0, 0)`.
+  ///
+  /// Xử lý đúng cho end-of-month edge: vd start = Jan 31, end = Feb 28 (cuối
+  /// tháng) vẫn được tính là đủ 1 tháng. Logic: nếu `end.day < start.day`
+  /// nhưng `end` đã là ngày cuối tháng đó → coi như đã đủ tháng.
   factory Tenure.between(DateTime start, DateTime end) {
     if (end.isBefore(start)) return const Tenure(0, 0);
     var years = end.year - start.year;
     var months = end.month - start.month;
-    if (end.day < start.day) months--;
+    final lastDayOfEndMonth = DateTime(end.year, end.month + 1, 0).day;
+    final endIsLastDayOfMonth = end.day == lastDayOfEndMonth;
+    if (end.day < start.day && !endIsLastDayOfMonth) months--;
     if (months < 0) { years--; months += 12; }
     return Tenure(years, months);
   }
@@ -106,16 +112,17 @@ class Education {
   final String school;
   final String degree;
   final int startYear;      // VD: 2018
-  final int endYear;        // VD: 2022
+  final int? endYear;       // null = đang theo học ("Present")
   final String? description;
 
   const Education({
     required this.school,
     required this.degree,
     required this.startYear,
-    required this.endYear,
+    this.endYear,
     this.description,
-  }) : assert(endYear >= startYear, 'endYear must not be before startYear');
+  }) : assert(endYear == null || endYear >= startYear,
+            'endYear must not be before startYear');
 }
 ```
 
@@ -368,6 +375,23 @@ Mobile (`home_phone.dart`): stack dọc — About trên, timeline dưới.
 <link rel="alternate" hreflang="x-default" href="https://YOUR_DOMAIN/">
 ```
 
+> ⚠️ **Flutter web URL strategy**: mặc định Flutter web dùng hash routing
+> (`/#/`), khiến URL kiểu `https://domain/?lang=en` không hoạt động và crawler
+> sẽ thấy URL bẩn `/#/?lang=en`. Trước khi dựa vào hreflang/canonical phải
+> bật `usePathUrlStrategy()` trong `main.dart`:
+>
+> ```dart
+> import 'package:flutter_web_plugins/url_strategy.dart';
+>
+> void main() {
+>   usePathUrlStrategy(); // gọi trước runApp()
+>   runApp(const MyApp());
+> }
+> ```
+>
+> Đồng thời `vercel.json` & `firebase.json` cần rewrite mọi path về
+> `/index.html` (SPA fallback) — check trước khi deploy.
+
 #### e) JSON-LD structured data (Person schema)
 
 ```html
@@ -469,21 +493,23 @@ Sitemap: https://YOUR_DOMAIN/sitemap.xml
 
 | # | Tasks | Files chính | Ước lượng |
 |---|-------|-------------|-----------|
-| 1 | Tạo `Tenure` helper + data models (Experience, Education, AboutInfo) | `lib/utils/tenure.dart`, `lib/data/model/experience.dart`, `education.dart`, `about_info.dart` | 20' |
-| 2 | Tạo `experience_data.dart` với placeholder | `lib/data/repository/experience_data.dart` | 10' |
-| 3 | Tạo widget `experience_timeline_item.dart` | `lib/ui/common/experience_timeline_item.dart` | 25' |
-| 4 | Tạo widget `about_card.dart` + `education_item.dart` | `lib/ui/common/about_card.dart`, `education_item.dart` | 20' |
-| 5 | Refactor experience section trong `home_web.dart` | `lib/ui/screens/home/widgets/home_web.dart` | 20' |
-| 6 | Refactor experience section trong `home_phone.dart` | `lib/ui/screens/home/widgets/home_phone.dart` | 15' |
-| 7 | Bổ sung i18n EN/JA/VI + regenerate strings.g.dart | `lib/i18n/*.i18n.json` | 20' |
-| 8 | Cập nhật `web/index.html` (title, meta, OG, Twitter, JSON-LD, hreflang) | `web/index.html` | 20' |
-| 9 | Tạo `web/robots.txt` + `web/sitemap.xml` | new files | 5' |
-| 10 | Cập nhật `web/manifest.json` | `web/manifest.json` | 5' |
-| 11 | Tạo `web/og-image.png` (1200×630) | new file | 15-30' (tùy design) |
-| 12 | Verify `vercel.json` & `firebase.json` route đúng cho file mới | configs | 10' |
-| 13 | Build web + test responsive + verify share preview | — | 20' |
+| 1 | Add `visibility_detector` dependency + run `flutter pub get` | `pubspec.yaml` | 5' |
+| 2 | Tạo `Tenure` helper + data models (Experience, Education, AboutInfo) | `lib/utils/tenure.dart`, `lib/data/model/experience.dart`, `education.dart`, `about_info.dart` | 20' |
+| 3 | Tạo `experience_data.dart` với placeholder | `lib/data/repository/experience_data.dart` | 10' |
+| 4 | Tạo widget `experience_timeline_item.dart` | `lib/ui/common/experience_timeline_item.dart` | 25' |
+| 5 | Tạo widget `about_card.dart` + `education_item.dart` | `lib/ui/common/about_card.dart`, `education_item.dart` | 20' |
+| 6 | Refactor experience section trong `home_web.dart` | `lib/ui/screens/home/widgets/home_web.dart` | 20' |
+| 7 | Refactor experience section trong `home_phone.dart` | `lib/ui/screens/home/widgets/home_phone.dart` | 15' |
+| 8 | Bổ sung i18n EN/JA/VI + regenerate strings.g.dart | `lib/i18n/*.i18n.json` | 20' |
+| 9 | Bật `usePathUrlStrategy()` trong `main.dart` (cần cho hreflang/canonical) | `lib/main.dart` | 5' |
+| 10 | Cập nhật `web/index.html` (title, meta, OG, Twitter, JSON-LD, hreflang) | `web/index.html` | 20' |
+| 11 | Tạo `web/robots.txt` + `web/sitemap.xml` | new files | 5' |
+| 12 | Cập nhật `web/manifest.json` | `web/manifest.json` | 5' |
+| 13 | Tạo `web/og-image.png` (1200×630) | new file | 15-30' (tùy design) |
+| 14 | Verify `vercel.json` & `firebase.json` route + SPA fallback đúng | configs | 10' |
+| 15 | Build web + test responsive + verify share preview | — | 20' |
 
-**Tổng**: ~3-3.5 giờ làm việc.
+**Tổng**: ~3.5-4 giờ làm việc.
 
 ---
 
