@@ -29,9 +29,15 @@
       "button": "Đọc bài viết của tôi"
     },
     "experience": {
-      "title": "Qua nhiều năm,",
-      "emoji": "\n(~_^)\n",
-      "description": "Tôi xây dựng ứng dụng cho cả công ty và dự án cá nhân, từ ứng dụng du lịch và ẩm thực tập trung vào giao diện người dùng đến các ứng dụng AI cho fitness và sức khỏe với các hiệu ứng và logic phức tạp, phục vụ người dùng khắp Nhật Bản. Hiện tại, tôi làm việc tại Sun* với vai trò mobile engineer trong growth team."
+      "title": "Kinh nghiệm",
+      "present": "Hiện tại",
+      "workLabel": "Công việc",
+      "educationLabel": "Học vấn",
+      "achievementsLabel": "Điểm nổi bật",
+      "projectsLabel": "Dự án",
+      "techStackLabel": "Công nghệ",
+      "skillsLabel": "Kỹ năng",
+      "gradeLabel": "Điểm TB"
     },
     "thankYou": {
       "message": "Tạo ra các giải pháp Mobile không chỉ đáp ứng mà còn vượt xa kỳ vọng của bạn.",
@@ -54,4 +60,3 @@
     "linkedin": "https://www.linkedin.com/in/hai4320"
   }
 }
-

@@ -4,7 +4,7 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 3
-/// Strings: 102 (34 per locale)
+/// Strings: 120 (40 per locale)
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -300,9 +300,15 @@ class _StringsStringsHomeExperienceEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'Over the years,';
-	String get emoji => '\n(~_^)\n';
-	String get description => 'I build applications for both companies and personal projects, ranging from travel and food apps with a focus on user interface to AI applications for fitness and health with complex effects and logic, serving people all over Japan. Currently, I work at Sun* as a mobile engineer in the growth team.';
+	String get title => 'Experience';
+	String get present => 'Present';
+	String get workLabel => 'Work';
+	String get educationLabel => 'Education';
+	String get achievementsLabel => 'Highlights';
+	String get projectsLabel => 'Projects';
+	String get techStackLabel => 'Tech stack';
+	String get skillsLabel => 'Skills';
+	String get gradeLabel => 'GPA';
 }
 
 // Path: strings.home.thankYou
@@ -496,9 +502,15 @@ class _StringsStringsHomeExperienceJa extends _StringsStringsHomeExperienceEn {
 	@override final _StringsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'これまでの年月、';
-	@override String get emoji => '\n(~_^)\n';
-	@override String get description => '私は企業向けと個人プロジェクトの両方でアプリケーションを構築してきました。ユーザーインターフェースに焦点を当てた旅行や食べ物のアプリから、複雑なエフェクトとロジックを持つフィットネスや健康向けのAIアプリケーションまで、日本全国の人々にサービスを提供しています。現在、Sun*でグロースチームのモバイルエンジニアとして働いています。';
+	@override String get title => '経験';
+	@override String get present => '現在';
+	@override String get workLabel => '職歴';
+	@override String get educationLabel => '学歴';
+	@override String get achievementsLabel => '主な実績';
+	@override String get projectsLabel => 'プロジェクト';
+	@override String get techStackLabel => '技術スタック';
+	@override String get skillsLabel => 'スキル';
+	@override String get gradeLabel => 'GPA';
 }
 
 // Path: strings.home.thankYou
@@ -692,9 +704,15 @@ class _StringsStringsHomeExperienceVi extends _StringsStringsHomeExperienceEn {
 	@override final _StringsVi _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Qua nhiều năm,';
-	@override String get emoji => '\n(~_^)\n';
-	@override String get description => 'Tôi xây dựng ứng dụng cho cả công ty và dự án cá nhân, từ ứng dụng du lịch và ẩm thực tập trung vào giao diện người dùng đến các ứng dụng AI cho fitness và sức khỏe với các hiệu ứng và logic phức tạp, phục vụ người dùng khắp Nhật Bản. Hiện tại, tôi làm việc tại Sun* với vai trò mobile engineer trong growth team.';
+	@override String get title => 'Kinh nghiệm';
+	@override String get present => 'Hiện tại';
+	@override String get workLabel => 'Công việc';
+	@override String get educationLabel => 'Học vấn';
+	@override String get achievementsLabel => 'Điểm nổi bật';
+	@override String get projectsLabel => 'Dự án';
+	@override String get techStackLabel => 'Công nghệ';
+	@override String get skillsLabel => 'Kỹ năng';
+	@override String get gradeLabel => 'Điểm TB';
 }
 
 // Path: strings.home.thankYou

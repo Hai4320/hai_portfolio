@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hai_portfolio/data/repository/experience_data.dart';
 import 'package:hai_portfolio/data/repository/link_analytics_repository.dart';
 import 'package:hai_portfolio/data/repository/project_data.dart';
 import 'package:hai_portfolio/i18n/strings.g.dart';
+import 'package:hai_portfolio/ui/common/experience_timeline_item.dart';
 import 'package:hai_portfolio/ui/common/floating_nav_mobile.dart';
 import 'package:hai_portfolio/ui/common/image_link.dart';
 import 'package:hai_portfolio/ui/common/language_switcher.dart';
@@ -10,7 +12,6 @@ import 'package:hai_portfolio/ui/common/primary_button.dart';
 import 'package:hai_portfolio/ui/common/project_bloc.dart';
 import 'package:hai_portfolio/ui/common/skill_badge.dart';
 import 'package:hai_portfolio/ui/common/text_link.dart';
-import 'package:hai_portfolio/ui/screens/home/widgets/viewer_counter_widget.dart';
 import 'package:hai_portfolio/ui/theme/app_colors.dart';
 import 'package:hai_portfolio/utils/gradient_text.dart';
 import 'package:hai_portfolio/utils/locale_controller.dart';
@@ -205,28 +206,32 @@ class _HomePhoneState extends State<HomePhone> {
                     ),
                   ),
                   const SizedBox(height: sectionSpace),
-                  // Over the years section
+                  // Experience section
                   Container(
                     key: _experienceKey,
                     width: double.infinity,
                     decoration: const BoxDecoration(color: AppColors.richBlack),
-                    padding: const EdgeInsets.symmetric(vertical: 60, horizontal: contentPadding),
+                    padding: const EdgeInsets.symmetric(vertical: 50, horizontal: contentPadding),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          t.strings.home.experience.title,
-                          style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w900),
-                        ).gradient(),
-                        Text(
-                          t.strings.home.experience.emoji,
-                          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500, height: 1.8),
-                          textAlign: TextAlign.center,
+                        Center(
+                          child: Text(
+                            t.strings.home.experience.title,
+                            style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w900),
+                          ).gradient(),
                         ),
-                        Text(
-                          t.strings.home.experience.description,
-                          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500, height: 1.8),
-                          textAlign: TextAlign.center,
-                        ),
+                        const SizedBox(height: 24),
+                        ...() {
+                          final entries = ExperienceData.timeline;
+                          return entries.asMap().entries.map(
+                            (e) => ExperienceTimelineItem(
+                              entry: e.value,
+                              isLast: e.key == entries.length - 1,
+                              isCompact: true,
+                            ),
+                          );
+                        }(),
                       ],
                     ),
                   ),

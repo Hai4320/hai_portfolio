@@ -29,9 +29,15 @@
       "button": "Read My Article"
     },
     "experience": {
-      "title": "Over the years,",
-      "emoji": "\n(~_^)\n",
-      "description": "I build applications for both companies and personal projects, ranging from travel and food apps with a focus on user interface to AI applications for fitness and health with complex effects and logic, serving people all over Japan. Currently, I work at Sun* as a mobile engineer in the growth team."
+      "title": "Experience",
+      "present": "Present",
+      "workLabel": "Work",
+      "educationLabel": "Education",
+      "achievementsLabel": "Highlights",
+      "projectsLabel": "Projects",
+      "techStackLabel": "Tech stack",
+      "skillsLabel": "Skills",
+      "gradeLabel": "GPA"
     },
     "thankYou": {
       "message": "Creating Mobile Solutions That Not Only Meet But Exceed Your Expectations.",
@@ -54,4 +60,3 @@
     "linkedin": "https://www.linkedin.com/in/hai4320"
   }
 }
-

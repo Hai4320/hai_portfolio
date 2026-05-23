@@ -29,9 +29,15 @@
       "button": "私の記事を読む"
     },
     "experience": {
-      "title": "これまでの年月、",
-      "emoji": "\n(~_^)\n",
-      "description": "私は企業向けと個人プロジェクトの両方でアプリケーションを構築してきました。ユーザーインターフェースに焦点を当てた旅行や食べ物のアプリから、複雑なエフェクトとロジックを持つフィットネスや健康向けのAIアプリケーションまで、日本全国の人々にサービスを提供しています。現在、Sun*でグロースチームのモバイルエンジニアとして働いています。"
+      "title": "経験",
+      "present": "現在",
+      "workLabel": "職歴",
+      "educationLabel": "学歴",
+      "achievementsLabel": "主な実績",
+      "projectsLabel": "プロジェクト",
+      "techStackLabel": "技術スタック",
+      "skillsLabel": "スキル",
+      "gradeLabel": "GPA"
     },
     "thankYou": {
       "message": "期待を満たすだけでなく、それを超えるモバイルソリューションを作成します。",
@@ -54,4 +60,3 @@
     "linkedin": "https://www.linkedin.com/in/hai4320"
   }
 }
-
