@@ -2,6 +2,11 @@
 
 Re-run after editing copy:
     python3.12 scripts/generate_og_image.py
+
+NOTE: Developer utility — not used in CI or app runtime. Font lookup
+tries macOS (Arial), then common Linux distros (DejaVu, Liberation),
+then Windows; falls back to Pillow's bitmap default if nothing matches
+(low-quality output but the script still completes).
 """
 
 from PIL import Image, ImageDraw, ImageFont
@@ -40,16 +45,35 @@ for cx, cy, rad, color, op in [
 ]:
     draw.ellipse([cx - rad, cy - rad, cx + rad, cy + rad], fill=color + (op,))
 
-# Fonts
-def load(path, size):
-    try:
-        return ImageFont.truetype(path, size)
-    except Exception:
-        return ImageFont.load_default()
+# Fonts — try platform-specific candidates, fall back to Pillow default.
+_FONT_CANDIDATES = {
+    "regular": [
+        "/System/Library/Fonts/Supplemental/Arial.ttf",  # macOS
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",  # Debian/Ubuntu
+        "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",  # RHEL/Fedora
+        "C:/Windows/Fonts/arial.ttf",  # Windows
+    ],
+    "bold": [
+        "/System/Library/Fonts/Supplemental/Arial Black.ttf",  # macOS
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",  # Debian/Ubuntu
+        "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",  # RHEL/Fedora
+        "C:/Windows/Fonts/arialbd.ttf",  # Windows
+    ],
+}
 
-font_kicker = load("/System/Library/Fonts/Supplemental/Arial.ttf", 26)
-font_title = load("/System/Library/Fonts/Supplemental/Arial Black.ttf", 140)
-font_sub = load("/System/Library/Fonts/Supplemental/Arial.ttf", 22)
+
+def load_font(style: str, size: int):
+    for path in _FONT_CANDIDATES[style]:
+        try:
+            return ImageFont.truetype(path, size)
+        except OSError:
+            continue
+    return ImageFont.load_default()
+
+
+font_kicker = load_font("regular", 26)
+font_title = load_font("bold", 140)
+font_sub = load_font("regular", 22)
 
 # Kicker
 draw.text((100, 130), "HAI HO PORTFOLIO", fill=(203, 201, 226), font=font_kicker)

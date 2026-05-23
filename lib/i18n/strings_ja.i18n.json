@@ -2,6 +2,17 @@
   "app": {
     "name": "Hai."
   },
+  "month": {
+    "jan": "1月", "feb": "2月", "mar": "3月", "apr": "4月", "may": "5月", "jun": "6月",
+    "jul": "7月", "aug": "8月", "sep": "9月", "oct": "10月", "nov": "11月", "dec": "12月"
+  },
+  "tenure": {
+    "year": "年",
+    "years": "年",
+    "month": "ヶ月",
+    "months": "ヶ月",
+    "lessThanMonth": "1ヶ月未満"
+  },
   "home": {
     "title": "モバイル\n開発者",
     "subtitle": "優れたユーザー体験を持つ革新的でスケーラブルなモバイル製品を作ることが好きです。",

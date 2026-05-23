@@ -4,7 +4,7 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 3
-/// Strings: 120 (40 per locale)
+/// Strings: 171 (57 per locale)
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -165,6 +165,8 @@ class _StringsStringsEn {
 
 	// Translations
 	late final _StringsStringsAppEn app = _StringsStringsAppEn._(_root);
+	late final _StringsStringsMonthEn month = _StringsStringsMonthEn._(_root);
+	late final _StringsStringsTenureEn tenure = _StringsStringsTenureEn._(_root);
 	late final _StringsStringsHomeEn home = _StringsStringsHomeEn._(_root);
 	late final _StringsStringsContactEn contact = _StringsStringsContactEn._(_root);
 	late final _StringsStringsFooterEn footer = _StringsStringsFooterEn._(_root);
@@ -179,6 +181,41 @@ class _StringsStringsAppEn {
 
 	// Translations
 	String get name => 'Hai.';
+}
+
+// Path: strings.month
+class _StringsStringsMonthEn {
+	_StringsStringsMonthEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get jan => 'Jan';
+	String get feb => 'Feb';
+	String get mar => 'Mar';
+	String get apr => 'Apr';
+	String get may => 'May';
+	String get jun => 'Jun';
+	String get jul => 'Jul';
+	String get aug => 'Aug';
+	String get sep => 'Sep';
+	String get oct => 'Oct';
+	String get nov => 'Nov';
+	String get dec => 'Dec';
+}
+
+// Path: strings.tenure
+class _StringsStringsTenureEn {
+	_StringsStringsTenureEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get year => 'yr';
+	String get years => 'yrs';
+	String get month => 'mo';
+	String get months => 'mos';
+	String get lessThanMonth => '< 1 mo';
 }
 
 // Path: strings.home
@@ -367,6 +404,8 @@ class _StringsStringsJa extends _StringsStringsEn {
 
 	// Translations
 	@override late final _StringsStringsAppJa app = _StringsStringsAppJa._(_root);
+	@override late final _StringsStringsMonthJa month = _StringsStringsMonthJa._(_root);
+	@override late final _StringsStringsTenureJa tenure = _StringsStringsTenureJa._(_root);
 	@override late final _StringsStringsHomeJa home = _StringsStringsHomeJa._(_root);
 	@override late final _StringsStringsContactJa contact = _StringsStringsContactJa._(_root);
 	@override late final _StringsStringsFooterJa footer = _StringsStringsFooterJa._(_root);
@@ -381,6 +420,41 @@ class _StringsStringsAppJa extends _StringsStringsAppEn {
 
 	// Translations
 	@override String get name => 'Hai.';
+}
+
+// Path: strings.month
+class _StringsStringsMonthJa extends _StringsStringsMonthEn {
+	_StringsStringsMonthJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get jan => '1月';
+	@override String get feb => '2月';
+	@override String get mar => '3月';
+	@override String get apr => '4月';
+	@override String get may => '5月';
+	@override String get jun => '6月';
+	@override String get jul => '7月';
+	@override String get aug => '8月';
+	@override String get sep => '9月';
+	@override String get oct => '10月';
+	@override String get nov => '11月';
+	@override String get dec => '12月';
+}
+
+// Path: strings.tenure
+class _StringsStringsTenureJa extends _StringsStringsTenureEn {
+	_StringsStringsTenureJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get year => '年';
+	@override String get years => '年';
+	@override String get month => 'ヶ月';
+	@override String get months => 'ヶ月';
+	@override String get lessThanMonth => '1ヶ月未満';
 }
 
 // Path: strings.home
@@ -569,6 +643,8 @@ class _StringsStringsVi extends _StringsStringsEn {
 
 	// Translations
 	@override late final _StringsStringsAppVi app = _StringsStringsAppVi._(_root);
+	@override late final _StringsStringsMonthVi month = _StringsStringsMonthVi._(_root);
+	@override late final _StringsStringsTenureVi tenure = _StringsStringsTenureVi._(_root);
 	@override late final _StringsStringsHomeVi home = _StringsStringsHomeVi._(_root);
 	@override late final _StringsStringsContactVi contact = _StringsStringsContactVi._(_root);
 	@override late final _StringsStringsFooterVi footer = _StringsStringsFooterVi._(_root);
@@ -583,6 +659,41 @@ class _StringsStringsAppVi extends _StringsStringsAppEn {
 
 	// Translations
 	@override String get name => 'Hai.';
+}
+
+// Path: strings.month
+class _StringsStringsMonthVi extends _StringsStringsMonthEn {
+	_StringsStringsMonthVi._(_StringsVi root) : this._root = root, super._(root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get jan => 'Th1';
+	@override String get feb => 'Th2';
+	@override String get mar => 'Th3';
+	@override String get apr => 'Th4';
+	@override String get may => 'Th5';
+	@override String get jun => 'Th6';
+	@override String get jul => 'Th7';
+	@override String get aug => 'Th8';
+	@override String get sep => 'Th9';
+	@override String get oct => 'Th10';
+	@override String get nov => 'Th11';
+	@override String get dec => 'Th12';
+}
+
+// Path: strings.tenure
+class _StringsStringsTenureVi extends _StringsStringsTenureEn {
+	_StringsStringsTenureVi._(_StringsVi root) : this._root = root, super._(root);
+
+	@override final _StringsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get year => 'năm';
+	@override String get years => 'năm';
+	@override String get month => 'tháng';
+	@override String get months => 'tháng';
+	@override String get lessThanMonth => '< 1 tháng';
 }
 
 // Path: strings.home

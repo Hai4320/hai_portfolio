@@ -117,25 +117,57 @@ class _ExperienceTimelineItemState extends State<ExperienceTimelineItem> {
     );
   }
 
-  static const _monthShort = [
-    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
-  ];
-
   String _formatPeriod(TimelineEntry entry) {
     final present = t.strings.home.experience.present;
     final start = entry.startDate;
     final end = entry.endDate;
-    final startStr = '${_monthShort[start.month - 1]} ${start.year}';
-    final endStr = end == null ? present : '${_monthShort[end.month - 1]} ${end.year}';
+    final startStr = '${_monthAbbr(start.month)} ${start.year}';
+    final endStr = end == null ? present : '${_monthAbbr(end.month)} ${end.year}';
     return '$startStr — $endStr';
   }
 
+  String _monthAbbr(int month) {
+    final m = t.strings.month;
+    switch (month) {
+      case 1:
+        return m.jan;
+      case 2:
+        return m.feb;
+      case 3:
+        return m.mar;
+      case 4:
+        return m.apr;
+      case 5:
+        return m.may;
+      case 6:
+        return m.jun;
+      case 7:
+        return m.jul;
+      case 8:
+        return m.aug;
+      case 9:
+        return m.sep;
+      case 10:
+        return m.oct;
+      case 11:
+        return m.nov;
+      case 12:
+        return m.dec;
+      default:
+        return '';
+    }
+  }
+
   String _formatTenure(Tenure tenure) {
-    if (tenure.years == 0 && tenure.months == 0) return '< 1 mo';
+    final labels = t.strings.tenure;
+    if (tenure.years == 0 && tenure.months == 0) return labels.lessThanMonth;
     final parts = <String>[];
-    if (tenure.years > 0) parts.add('${tenure.years} ${tenure.years == 1 ? 'yr' : 'yrs'}');
-    if (tenure.months > 0) parts.add('${tenure.months} ${tenure.months == 1 ? 'mo' : 'mos'}');
+    if (tenure.years > 0) {
+      parts.add('${tenure.years} ${tenure.years == 1 ? labels.year : labels.years}');
+    }
+    if (tenure.months > 0) {
+      parts.add('${tenure.months} ${tenure.months == 1 ? labels.month : labels.months}');
+    }
     return parts.join(' ');
   }
 }

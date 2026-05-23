@@ -2,6 +2,17 @@
   "app": {
     "name": "Hai."
   },
+  "month": {
+    "jan": "Jan", "feb": "Feb", "mar": "Mar", "apr": "Apr", "may": "May", "jun": "Jun",
+    "jul": "Jul", "aug": "Aug", "sep": "Sep", "oct": "Oct", "nov": "Nov", "dec": "Dec"
+  },
+  "tenure": {
+    "year": "yr",
+    "years": "yrs",
+    "month": "mo",
+    "months": "mos",
+    "lessThanMonth": "< 1 mo"
+  },
   "home": {
     "title": "Mobile\nDeveloper",
     "subtitle": "I like to craft innovative and scalable mobile products with great user experiences.",

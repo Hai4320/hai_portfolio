@@ -116,12 +116,9 @@ class ExperienceData {
   ];
 
   /// Unified, time-sorted (newest first) view of work + education entries.
-  static List<TimelineEntry> get timeline {
-    final entries = <TimelineEntry>[
-      ...experiences.map(TimelineEntry.fromExperience),
-      ...educations.map(TimelineEntry.fromEducation),
-    ];
-    entries.sort((a, b) => b.startDate.compareTo(a.startDate));
-    return entries;
-  }
+  /// Computed once at static-init; data is immutable so no per-build cost.
+  static final List<TimelineEntry> timeline = [
+    ...experiences.map(TimelineEntry.fromExperience),
+    ...educations.map(TimelineEntry.fromEducation),
+  ]..sort((a, b) => b.startDate.compareTo(a.startDate));
 }

@@ -2,6 +2,17 @@
   "app": {
     "name": "Hai."
   },
+  "month": {
+    "jan": "Th1", "feb": "Th2", "mar": "Th3", "apr": "Th4", "may": "Th5", "jun": "Th6",
+    "jul": "Th7", "aug": "Th8", "sep": "Th9", "oct": "Th10", "nov": "Th11", "dec": "Th12"
+  },
+  "tenure": {
+    "year": "năm",
+    "years": "năm",
+    "month": "tháng",
+    "months": "tháng",
+    "lessThanMonth": "< 1 tháng"
+  },
   "home": {
     "title": "Lập Trình Viên\nMobile",
     "subtitle": "Tôi thích tạo ra các sản phẩm mobile sáng tạo, có khả năng mở rộng với trải nghiệm người dùng tuyệt vời.",
