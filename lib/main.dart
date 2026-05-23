@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:get/get.dart';
 import 'package:hai_portfolio/app.dart';
 import 'package:hai_portfolio/data/service/link_analytics_service.dart';
@@ -16,6 +17,8 @@ import 'package:web/web.dart' as web;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  usePathUrlStrategy();
 
   // Initialize Firebase
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);

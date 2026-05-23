@@ -16,94 +16,108 @@ class ProjectBloc extends StatefulWidget {
 }
 
 class _ProjectBlocState extends State<ProjectBloc> {
-  bool hovering = false;
+  bool _hovering = false;
+
+  void _open() {
+    Get.find<LinkAnalyticsService>().openLink(
+      url: widget.project.link,
+      linkType: LinkType.project,
+      linkText: widget.project.name,
+      additionalInfo: widget.project.tech.join(', '),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      child: MouseRegion(
-        onEnter: (event) {
-          setState(() {
-            hovering = true;
-          });
-        },
-        onExit: (event) {
-          setState(() {
-            hovering = false;
-          });
-        },
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      onEnter: (_) => setState(() => _hovering = true),
+      onExit: (_) => setState(() => _hovering = false),
+      child: GestureDetector(
+        onTap: _open,
         child: SizedBox(
           width: 350,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Container(
-                width: 350,
-                height: 250,
-                padding: const EdgeInsets.all(40),
-                decoration: const BoxDecoration(color: AppColors.richBlack),
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 200),
+                padding: const EdgeInsets.all(28),
+                decoration: BoxDecoration(
+                  color: AppColors.richBlack,
+                  border: Border.all(
+                    color: AppColors.lightPeriwinkle.withValues(alpha: _hovering ? 0.5 : 0.2),
+                  ),
+                  borderRadius: BorderRadius.circular(8),
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
-                      widget.project.name,
-                      style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
-                    ).gradient(),
-                    const SizedBox(height: 15),
-                    Text(
-                      widget.project.tech.join(' + '),
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w300,
-                        color: AppColors.lightPeriwinkle,
-                      ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Text(
+                            widget.project.name,
+                            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600, height: 1.3),
+                          ).gradient(),
+                        ),
+                        const SizedBox(width: 12),
+                        AnimatedSlide(
+                          duration: const Duration(milliseconds: 200),
+                          offset: _hovering ? const Offset(0.2, -0.2) : Offset.zero,
+                          child: const Icon(
+                            Icons.north_east_rounded,
+                            color: AppColors.lightPeriwinkle,
+                            size: 20,
+                          ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 15),
-                    Text(
-                      widget.project.description,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w300,
-                        color: AppColors.lightPeriwinkle,
-                      ),
-                    ),
-                    const Expanded(child: SizedBox()),
-                    InkWell(
-                      onTap: () {
-                        Get.find<LinkAnalyticsService>().openLink(
-                          url: widget.project.link,
-                          linkType: LinkType.project,
-                          linkText: widget.project.name,
-                          additionalInfo: widget.project.tech.join(', '),
-                        );
-                      },
-                      child: AnimatedScale(
-                        scale: hovering ? 1.2 : 1.0,
-                        duration: const Duration(milliseconds: 300),
-                        child: const Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(Icons.call_made, color: AppColors.lightPeriwinkle, size: 12),
-                            SizedBox(width: 8),
-                            Text(
-                              "View",
-                              style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w300,
-                                color: AppColors.lightPeriwinkle,
+                    const SizedBox(height: 16),
+                    Wrap(
+                      spacing: 6,
+                      runSpacing: 6,
+                      children: widget.project.tech
+                          .map(
+                            (tech) => Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                              decoration: BoxDecoration(
+                                border: Border.all(color: AppColors.lightPeriwinkle.withValues(alpha: 0.35)),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Text(
+                                tech,
+                                style: const TextStyle(
+                                  fontSize: 11,
+                                  color: AppColors.lightPeriwinkle,
+                                  height: 1.2,
+                                ),
                               ),
                             ),
-                          ],
-                        ),
+                          )
+                          .toList(),
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      widget.project.description,
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w300,
+                        height: 1.6,
+                        color: AppColors.lightPeriwinkle.withValues(alpha: 0.9),
                       ),
                     ),
                   ],
                 ),
               ),
+              const SizedBox(height: 6),
               Align(
-                alignment: hovering ? Alignment.centerLeft : Alignment.centerRight,
+                alignment: _hovering ? Alignment.centerLeft : Alignment.centerRight,
                 child: AnimatedContainer(
                   height: 2,
-                  width: hovering ? 350 : 0,
+                  width: _hovering ? 350 : 0,
                   decoration: const BoxDecoration(color: AppColors.lightPeriwinkle),
                   duration: const Duration(milliseconds: 300),
                 ),

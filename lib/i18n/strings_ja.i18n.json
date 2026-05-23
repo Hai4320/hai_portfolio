@@ -2,6 +2,17 @@
   "app": {
     "name": "Hai."
   },
+  "month": {
+    "jan": "1月", "feb": "2月", "mar": "3月", "apr": "4月", "may": "5月", "jun": "6月",
+    "jul": "7月", "aug": "8月", "sep": "9月", "oct": "10月", "nov": "11月", "dec": "12月"
+  },
+  "tenure": {
+    "year": "年",
+    "years": "年",
+    "month": "ヶ月",
+    "months": "ヶ月",
+    "lessThanMonth": "1ヶ月未満"
+  },
   "home": {
     "title": "モバイル\n開発者",
     "subtitle": "優れたユーザー体験を持つ革新的でスケーラブルなモバイル製品を作ることが好きです。",
@@ -29,9 +40,15 @@
       "button": "私の記事を読む"
     },
     "experience": {
-      "title": "これまでの年月、",
-      "emoji": "\n(~_^)\n",
-      "description": "私は企業向けと個人プロジェクトの両方でアプリケーションを構築してきました。ユーザーインターフェースに焦点を当てた旅行や食べ物のアプリから、複雑なエフェクトとロジックを持つフィットネスや健康向けのAIアプリケーションまで、日本全国の人々にサービスを提供しています。現在、Sun*でグロースチームのモバイルエンジニアとして働いています。"
+      "title": "経験",
+      "present": "現在",
+      "workLabel": "職歴",
+      "educationLabel": "学歴",
+      "achievementsLabel": "主な実績",
+      "projectsLabel": "プロジェクト",
+      "techStackLabel": "技術スタック",
+      "skillsLabel": "スキル",
+      "gradeLabel": "GPA"
     },
     "thankYou": {
       "message": "期待を満たすだけでなく、それを超えるモバイルソリューションを作成します。",
@@ -54,4 +71,3 @@
     "linkedin": "https://www.linkedin.com/in/hai4320"
   }
 }
-
