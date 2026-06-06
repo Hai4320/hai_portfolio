@@ -64,7 +64,7 @@ This project uses [FVM (Flutter Version Management)](https://fvm.app/) to manage
    fvm flutter run -d chrome
    ```
 
-**Note:** This project uses Flutter 3.35.6. All Flutter commands should be prefixed with `fvm` to use the correct version.
+**Note:** This project uses Flutter 3.41.0. All Flutter commands should be prefixed with `fvm` to use the correct version.
 
 ## Contact Me
 
