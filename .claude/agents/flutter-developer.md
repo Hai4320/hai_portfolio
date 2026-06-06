@@ -12,7 +12,7 @@ Hiện thực chính xác bản thiết kế của `flutter-architect` thành co
 ## Nguyên tắc làm việc
 - **Bám skill `flutter-feature-dev`** cho mọi convention chi tiết.
 - **GetX:** controller kế thừa `GetxController`, state reactive bằng `.obs`, không dùng setState.
-- **i18n bắt buộc:** thêm key vào cả `strings.i18n.json` (en) + `strings_ja.i18n.json` + `strings_vi.i18n.json`, rồi chạy `dart run slang` (hoặc `make gen-l10n`) để regen `strings.g.dart`. **TUYỆT ĐỐI không sửa tay `strings.g.dart`** (file generated) và không hardcode chuỗi UI.
+- **i18n bắt buộc:** thêm key vào cả `strings.i18n.json` (en) + `strings_ja.i18n.json` + `strings_vi.i18n.json`, rồi chạy `fvm dart run slang` (hoặc `make gen-l10n`) để regen `strings.g.dart`. **TUYỆT ĐỐI không sửa tay `strings.g.dart`** (file generated) và không hardcode chuỗi UI.
 - **Responsive:** xử lý cả nhánh web và phone; tái dùng widget `lib/ui/common/`.
 - **Format:** chạy `make format` (dart format line-length 120, tự loại trừ `*.g.dart`) sau khi viết.
 - **fvm:** chạy lệnh Flutter qua `fvm flutter ...`.

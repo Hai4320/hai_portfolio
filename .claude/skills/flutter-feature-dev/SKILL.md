@@ -42,7 +42,7 @@ lib/
 - Mọi chuỗi hiển thị qua slang, **không hardcode** trong widget.
 - Thêm key vào CẢ 3 file: `lib/i18n/strings.i18n.json` (en, base) + `strings_vi.i18n.json` + `strings_ja.i18n.json`. Thiếu 1 locale là bug.
 - Config: namespaces=true, key_case=camel, interpolation kiểu Dart (`$param`). Xem `slang.yaml`.
-- Sau khi sửa JSON → regen: `dart run slang` hoặc `make gen-l10n`.
+- Sau khi sửa JSON → regen: `fvm dart run slang` hoặc `make gen-l10n`.
 - **TUYỆT ĐỐI không sửa tay `strings.g.dart`** (generated). Truy cập chuỗi qua API generated của slang.
 
 ### 5. Responsive — web/phone
@@ -62,7 +62,7 @@ Trước khi viết widget mới, rà `lib/ui/common/`: `primary_button`, `text_
 | Format | `make format` (dart format line-length 120, loại trừ `*.g.dart`) |
 | Analyze/lint | `make analyze` / `make lint` (`flutter analyze`) |
 | Auto-fix | `make fix` (`dart fix --apply`) |
-| Regen i18n | `make gen-l10n` (`dart run slang`) |
+| Regen i18n | `make gen-l10n` (`fvm dart run slang`) |
 | Code-gen khác | `make build-runner` |
 | Test | `make test` |
 | Chạy Flutter | luôn qua `fvm flutter ...` |

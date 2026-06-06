@@ -74,7 +74,7 @@ File JSON namespaced, base = en. Khi thêm key `myFeature.title`:
 ```json
 { "myFeature": { "title": "タイトル", "greeting": "こんにちは $name" } }
 ```
-Rồi: `make gen-l10n` (== `dart run slang`). Truy cập qua API generated của slang (`t.myFeature.title`). KHÔNG sửa `strings.g.dart`.
+Rồi: `make gen-l10n` (== `fvm dart run slang`). Truy cập qua API generated của slang (`t.myFeature.title`). KHÔNG sửa `strings.g.dart`.
 
 Config liên quan (`slang.yaml`): `base_locale: en`, `fallback_strategy: base_locale`, `namespaces: true`, `key_case: camel`, `string_interpolation: dart`.
 

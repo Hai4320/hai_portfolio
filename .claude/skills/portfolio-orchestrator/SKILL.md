@@ -71,7 +71,7 @@ Sau khi QA PASS **và người dùng xác nhận phát hành**, gọi `deploy-en
 - QA FAIL lặp >2 vòng cùng lỗi → dừng, báo người dùng để quyết định thay vì lặp vô hạn.
 
 ## Phase tiến hóa (sau mỗi lần chạy)
-Hỏi người dùng: "Kết quả có gì cần cải thiện? Cấu trúc team/workflow muốn đổi gì không?" Phản hồi → cập nhật agent/skill tương ứng + ghi vào **变更 이력** của `CLAUDE.md` (mục Harness). Không ép buộc, nhưng luôn mở cơ hội.
+Hỏi người dùng: "Kết quả có gì cần cải thiện? Cấu trúc team/workflow muốn đổi gì không?" Phản hồi → cập nhật agent/skill tương ứng + ghi vào **Nhật ký thay đổi** của `CLAUDE.md` (mục Harness). Không ép buộc, nhưng luôn mở cơ hội.
 
 ## Test scenarios
 **Luồng bình thường:** "Triển khai Spotify integration (#5)" → Phase 0 (mới) → Phase 1 research (phát hiện cần OAuth backend → có điều kiện) → Phase 2 team thiết kế giải pháp nhúng widget public + code + QA → Phase 3 xác nhận → deploy. Kết quả: feature chạy + báo cáo `_workspace/`.

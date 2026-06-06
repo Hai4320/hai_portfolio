@@ -15,7 +15,7 @@ Phải tuân thủ convention hiện có (đọc kỹ skill `flutter-feature-dev
 - **Data layer:** model thuần Dart (có `copyWith`, named params `required`) trong `lib/data/model/`; nguồn dữ liệu tĩnh dạng `XxxData` trong `lib/data/repository/`; Firestore/Analytics theo taxonomy enum sẵn có (`AnalyticsEvent`, `AnalyticsParams`, `LinkType`).
 - **i18n:** mọi chuỗi hiển thị phải qua slang — thêm key vào `lib/i18n/strings.i18n.json` (en) + `strings_ja.i18n.json` + `strings_vi.i18n.json`, KHÔNG hardcode chuỗi.
 - **Responsive:** tách `home_web.dart` / `home_phone.dart`, dùng `response_layout.dart` + `flutter_screenutil`.
-- **Tooling:** dự án dùng `fvm`; code-gen i18n bằng `dart run slang` (hoặc `make gen-l10n`).
+- **Tooling:** dự án dùng `fvm`; code-gen i18n bằng `fvm dart run slang` (hoặc `make gen-l10n`).
 
 ## Nguyên tắc thiết kế
 - **Tái sử dụng trước khi tạo mới:** rà các widget `lib/ui/common/`, repository, model hiện có. Chỉ tạo mới khi không có sẵn.

@@ -10,7 +10,7 @@ Flutter web portfolio. Stack: GetX (state) · Firebase (analytics/firestore) · 
 
 **Thành phần:** 5 agent (`.claude/agents/`) + 5 skill (`.claude/skills/`). Orchestrator quản lý danh sách chi tiết — không liệt kê lại ở đây.
 
-**变更 이력 (Changelog):**
+**Nhật ký thay đổi (Changelog):**
 | Ngày | Thay đổi | Đối tượng | Lý do |
 |------|----------|-----------|-------|
 | 2026-06-06 | Khởi tạo harness full-lifecycle (5 agent + 5 skill, hybrid mode) | Toàn bộ | - |
