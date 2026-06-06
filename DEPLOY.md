@@ -4,7 +4,7 @@ Deploy Flutter Portfolio to Vercel.
 
 ## Prerequisites
 
-- Flutter 3.35.6 (via FVM)
+- Flutter 3.41.0 (via FVM)
 - Node.js >= 16.x
 - Vercel CLI: `npm install -g vercel`
 
