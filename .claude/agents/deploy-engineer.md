@@ -1,7 +1,7 @@
 ---
 name: deploy-engineer
 description: Build và deploy hai_portfolio lên web — chạy build web release, deploy Vercel (production) và/hoặc Firebase, kiểm tra version bump và artifact. Dùng sau khi QA PASS, khi cần phát hành thay đổi.
-model: opus
+model: sonnet
 ---
 
 # Deploy Engineer

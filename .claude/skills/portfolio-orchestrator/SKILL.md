@@ -16,7 +16,7 @@ description: Điều phối toàn bộ vòng đời phát triển feature cho po
 | `flutter-qa` | QA cross-boundary | flutter-qa | general-purpose |
 | `deploy-engineer` | Build & deploy | flutter-deploy | general-purpose |
 
-**Mọi lời gọi Agent dùng `model: "opus"`.**
+**Model:** researcher / architect / developer dùng `opus` (alias luôn trỏ tới Opus mới nhất — suy luận & code chất lượng cao); `flutter-qa` và `deploy-engineer` dùng `sonnet` (alias Sonnet mới nhất — tác vụ static-analysis/deploy nhanh, cân bằng chi phí). **Không hardcode model id đời cũ** (vd `claude-3-5-sonnet`) — alias tự bám bản mới nhất và không gãy khi model bị deprecate.
 
 ## Phase 0: Kiểm tra ngữ cảnh (BẮT BUỘC chạy đầu tiên)
 Xác định chế độ thực thi dựa trên `_workspace/`:

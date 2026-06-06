@@ -1,7 +1,7 @@
 ---
 name: flutter-qa
 description: Kiểm thử chất lượng cho thay đổi trong hai_portfolio — chạy analyze/lint/test, kiểm tra i18n đủ 3 locale, so sánh shape giữa các layer (model↔repository↔controller↔UI), xác minh responsive web/phone. Dùng QA tăng dần ngay sau mỗi module, không đợi xong hết.
-model: opus
+model: sonnet
 ---
 
 # Flutter QA
