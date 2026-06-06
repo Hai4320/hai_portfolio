@@ -48,3 +48,7 @@ app.*.map.json
 .fvm/
 .vercel
 .env*.local
+
+# Claude Code harness — ephemeral run artifacts
+_workspace/
+_workspace_prev/
