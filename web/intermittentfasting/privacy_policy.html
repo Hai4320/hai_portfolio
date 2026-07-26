@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Intermittent Fasting Game</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    margin: 0; padding: 2rem 1.25rem 4rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    max-width: 720px; margin-inline: auto;
+    color: #1f2328; background: #fff;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { color: #e6edf3; background: #0d1117; }
+    a { color: #58a6ff; }
+    hr { border-color: #30363d; }
+  }
+  h1 { font-size: 1.6rem; margin-bottom: 0.25rem; }
+  h2 { font-size: 1.15rem; margin-top: 2rem; }
+  h3 { font-size: 1rem; margin-top: 1.25rem; }
+  .updated { opacity: 0.7; font-size: 0.9rem; margin-bottom: 1.5rem; }
+  .app-header { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.5rem; }
+  .app-header img { width: 56px; height: 56px; border-radius: 12px; }
+  .app-header a { font-size: 0.95rem; }
+  ul { padding-left: 1.25rem; }
+  li { margin-bottom: 0.5rem; }
+  a { color: #0969da; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.92rem; }
+  th, td { border: 1px solid #d0d7de; padding: 0.5rem 0.6rem; text-align: left; vertical-align: top; }
+  th { background: #f6f8fa; }
+  @media (prefers-color-scheme: dark) {
+    th, td { border-color: #30363d; }
+    th { background: #161b22; }
+  }
+</style>
+</head>
+<body>
+
+<div class="app-header">
+  <img src="app_icon.png" alt="Intermittent Fasting Game icon">
+  <div>
+    <h1>Privacy Policy — Intermittent Fasting Game</h1>
+    <a href="https://play.google.com/store/apps/details?id=com.lepetit.hari.intermittent_fasting">View on Google Play</a>
+  </div>
+</div>
+<p class="updated">Last updated: July 26, 2026 · Contact: <a href="mailto:lepetithari@gmail.com">lepetithari@gmail.com</a></p>
+
+<p>
+This policy describes what data Intermittent Fasting Game (the "app") collects, how it is used,
+and how it is shared. By using the app, you agree to the practices described below.
+</p>
+
+<h2>1. Data stored on your device</h2>
+<p>
+The following data is stored <strong>locally</strong> on your device (SQLite database and app
+preferences) and is <strong>not</strong> sent to any server unless you enable the leaderboard
+feature (section 3):
+</p>
+<ul>
+  <li>Profile information you enter: birth year, sex, height, weight (current / starting / target),
+    waist, blood glucose (optional), name and email (optional).</li>
+  <li>Self-reported health screening flags: pregnancy/breastfeeding, Type 1 diabetes, eating
+    disorder, chronic medication, other conditions.</li>
+  <li>Fasting session history, quest progress, points, and rank.</li>
+  <li>Optional measurements and notes you record per session: weight, waist, blood glucose,
+    insulin, hunger/difficulty rating, free-text note, break reason.</li>
+  <li>Read status of knowledge articles and app settings.</li>
+</ul>
+<p>
+You can delete all local data by uninstalling the app or clearing the app's data in your operating
+system settings.
+</p>
+
+<h2>2. Sensitive health data</h2>
+<p>
+Health information (weight, blood glucose, medical flags) is used <strong>on-device only</strong>
+to personalize your roadmap and run safety screening. The app does <strong>not</strong> sell or
+share health data with third parties for advertising purposes.
+</p>
+
+<h2>3. Leaderboard (optional — requires sign-in)</h2>
+<p>
+The leaderboard feature is <strong>optional</strong>. You can also continue as a
+<strong>guest</strong> (anonymous sign-in): guest accounts are never synced and never appear on the
+leaderboard.
+</p>
+<p>
+Only when you sign in with Google, and only once you have at least one non-zero metric, is the
+following data written to Google Firebase (Cloud Firestore):
+</p>
+<ul>
+  <li>Your account identifier (UID).</li>
+  <li>An auto-generated nickname (e.g. <code>hero1234</code>).</li>
+  <li>The display name from your profile, or your Google display name if you left the profile name
+    empty (falls back to "Ẩn danh"). This name <strong>is visible to other users</strong> on the
+    leaderboard — leave the profile name blank or use a pseudonym if you prefer not to be
+    identified.</li>
+  <li>Competitive metrics: total points, total cumulative fasting hours, weight lost.</li>
+</ul>
+<p>
+Your email address is handled by Firebase Authentication for sign-in only; it is
+<strong>not</strong> written to the leaderboard and is <strong>never shown to other users</strong>.
+Other users see only your display name, nickname, and competitive metrics — never your health
+information, profile details, or session history.
+</p>
+<p>
+Signing out stops all further syncing; data already on the leaderboard stays until deleted
+(section 7).
+</p>
+
+<h2>4. Third-party services</h2>
+<p>The app uses Google Firebase services:</p>
+<table>
+  <thead>
+    <tr><th>Service</th><th>Purpose</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Firebase Authentication + Google Sign-In</td>
+      <td>Sign-in (Google or anonymous guest) for the leaderboard</td>
+    </tr>
+    <tr>
+      <td>Cloud Firestore</td>
+      <td>Stores the leaderboard data described in section 3</td>
+    </tr>
+    <tr>
+      <td>Firebase Analytics</td>
+      <td>Anonymous usage statistics: screens viewed, and the events start fast / break fast /
+        complete fast (with target hours and points) / quest completed. No profile, health, or
+        measurement data is sent.</td>
+    </tr>
+    <tr>
+      <td>Firebase Crashlytics</td>
+      <td>Crash and error reports to fix bugs</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+Google's processing of this data is governed by Google's Privacy Policy:
+<a href="https://policies.google.com/privacy">policies.google.com/privacy</a>
+</p>
+
+<h2>5. Device permissions</h2>
+<ul>
+  <li><strong>Notifications</strong> — remind you when you reach a fasting goal. Can be turned off
+    in your OS settings.</li>
+  <li><strong>Run at startup</strong> (<code>RECEIVE_BOOT_COMPLETED</code>) — only to re-schedule
+    your pending fasting reminders after the device restarts.</li>
+</ul>
+<p>
+When you share a progress image, the app hands the image to your operating system's share sheet;
+you choose the destination app. Tapping a source link opens it in your browser. Neither action
+sends data to us.
+</p>
+
+<h2>6. Children</h2>
+<p>
+The app is intended for people <strong>18 years and older</strong> and is not directed at children.
+We do not knowingly collect data from children under 13.
+</p>
+
+<h2>7. Data retention and deletion</h2>
+<ul>
+  <li><strong>Local data:</strong> kept until you uninstall the app or clear the app's data.</li>
+  <li><strong>Leaderboard data:</strong> kept on Firestore until you request deletion. Signing out
+    in the app stops further syncing but does not delete the existing entry. To delete your
+    leaderboard entry and account, contact
+    <a href="mailto:lepetithari@gmail.com">lepetithari@gmail.com</a>.</li>
+</ul>
+
+<h2>8. Your rights</h2>
+<p>
+You have the right to access, correct, or request deletion of your personal data. Send requests to
+the contact email below.
+</p>
+
+<h2>9. Changes to this policy</h2>
+<p>
+This policy may be updated. Changes will be posted on this page with a new "Last updated" date.
+</p>
+
+<h2>10. Medical disclaimer</h2>
+<p>
+The app supports intermittent fasting practice and is <strong>not a substitute for medical
+advice</strong>. Consult a healthcare professional before changing your diet.
+</p>
+
+<h2>Contact</h2>
+<p>
+For any privacy questions: <a href="mailto:lepetithari@gmail.com">lepetithari@gmail.com</a>
+— publisher: lepetit.hari.
+</p>
+
+</body>
+</html>
