@@ -46,7 +46,7 @@
     <a href="https://play.google.com/store/apps/details?id=com.lepetit.hari.intermittent_fasting">View on Google Play</a>
   </div>
 </div>
-<p class="updated">Last updated: July 26, 2026 · Contact: <a href="mailto:lepetithari@gmail.com">lepetithari@gmail.com</a></p>
+<p class="updated">Last updated: July 29, 2026 · Contact: <a href="mailto:lepetithari@gmail.com">lepetithari@gmail.com</a></p>
 
 <p>
 This policy describes what data Intermittent Fasting Game (the "app") collects, how it is used,
@@ -55,19 +55,20 @@ and how it is shared. By using the app, you agree to the practices described bel
 
 <h2>1. Data stored on your device</h2>
 <p>
-The following data is stored <strong>locally</strong> on your device (SQLite database and app
-preferences) and is <strong>not</strong> sent to any server unless you enable the leaderboard
-feature (section 3):
+The following data is stored <strong>locally</strong> on your device (SQLite) and is
+<strong>not</strong> sent to any server unless you enable the leaderboard feature (section 3):
 </p>
 <ul>
   <li>Profile information you enter: birth year, sex, height, weight (current / starting / target),
     waist, blood glucose (optional), name and email (optional).</li>
   <li>Self-reported health screening flags: pregnancy/breastfeeding, Type 1 diabetes, eating
     disorder, chronic medication, other conditions.</li>
-  <li>Fasting session history, quest progress, points, and rank.</li>
-  <li>Optional measurements and notes you record per session: weight, waist, blood glucose,
-    insulin, hunger/difficulty rating, free-text note, break reason.</li>
-  <li>Read status of knowledge articles and app settings.</li>
+  <li>Fasting session history: start/end time, target hours, outcome, optional before/after
+    measurements (weight, blood glucose, insulin, waist), optional end-of-fast survey (how you
+    felt, hunger, difficulty), free-text note, and break reason.</li>
+  <li>Quest progress, the points ledger, and your rank.</li>
+  <li>App preferences: chosen language, reading font size, and whether you have seen the
+    onboarding / pre-fast guide.</li>
 </ul>
 <p>
 You can delete all local data by uninstalling the app or clearing the app's data in your operating
@@ -76,39 +77,38 @@ system settings.
 
 <h2>2. Sensitive health data</h2>
 <p>
-Health information (weight, blood glucose, medical flags) is used <strong>on-device only</strong>
-to personalize your roadmap and run safety screening. The app does <strong>not</strong> sell or
-share health data with third parties for advertising purposes.
+Health information (weight, blood glucose, insulin, waist, medical flags) is used
+<strong>on-device only</strong> to personalize your roadmap and run safety screening. The one
+exception: if you turn on the leaderboard, the number of kilograms lost is uploaded as a score
+(section 3) — never the underlying weights, glucose readings, or medical flags. The app does
+<strong>not</strong> sell or share health data with third parties for advertising purposes.
 </p>
 
 <h2>3. Leaderboard (optional — requires sign-in)</h2>
 <p>
-The leaderboard feature is <strong>optional</strong>. You can also continue as a
-<strong>guest</strong> (anonymous sign-in): guest accounts are never synced and never appear on the
-leaderboard.
-</p>
-<p>
-Only when you sign in with Google, and only once you have at least one non-zero metric, is the
-following data written to Google Firebase (Cloud Firestore):
+The leaderboard feature is <strong>optional</strong>. Only when you actively sign in with Google is
+the following data synced to Google Firebase (Cloud Firestore):
 </p>
 <ul>
-  <li>Your account identifier (UID).</li>
-  <li>An auto-generated nickname (e.g. <code>hero1234</code>).</li>
-  <li>The display name from your profile, or your Google display name if you left the profile name
-    empty (falls back to "Ẩn danh"). This name <strong>is visible to other users</strong> on the
-    leaderboard — leave the profile name blank or use a pseudonym if you prefer not to be
-    identified.</li>
-  <li>Competitive metrics: total points, total cumulative fasting hours, weight lost.</li>
+  <li>Account identifier (UID) from Google — your <strong>email address is never uploaded to the
+    leaderboard and never shown publicly</strong>.</li>
+  <li>The display name from your profile (or your Google display name if the profile has none;
+    "Ẩn danh" / Anonymous if both are empty) — this <strong>is visible to other users</strong>, so
+    use a nickname there if you prefer not to show your real name.</li>
+  <li>An auto-generated nickname (e.g. <code>hero4827</code>) shown next to your name. The nickname
+    is also stored in a separate registry mapped to your UID, so no two users get the same one.</li>
+  <li>Competitive metrics: total points, total cumulative fasting hours, weight lost (kg — the
+    difference between your starting and current weight, never the weights themselves).</li>
+  <li>The time of the last sync.</li>
 </ul>
 <p>
-Your email address is handled by Firebase Authentication for sign-in only; it is
-<strong>not</strong> written to the leaderboard and is <strong>never shown to other users</strong>.
-Other users see only your display name, nickname, and competitive metrics — never your health
-information, profile details, or session history.
+Nothing is uploaded until at least one of those metrics is above zero. The leaderboard is readable
+only by signed-in users, and they only see your display name, nickname, and those three metrics —
+never your email, weight, blood glucose, or medical flags.
 </p>
 <p>
-Signing out stops all further syncing; data already on the leaderboard stays until deleted
-(section 7).
+Metrics are self-reported by the app on your device. Signing out stops any further sync; the row
+already on the server stays until deleted (section 8).
 </p>
 
 <h2>4. Third-party services</h2>
@@ -120,7 +120,9 @@ Signing out stops all further syncing; data already on the leaderboard stays unt
   <tbody>
     <tr>
       <td>Firebase Authentication + Google Sign-In</td>
-      <td>Sign-in (Google or anonymous guest) for the leaderboard</td>
+      <td>Sign-in for the leaderboard. When you sign in, Firebase Authentication stores an account
+        record containing your Google email address, display name, and profile photo URL. That
+        record is not part of the leaderboard and is not shown to other users.</td>
     </tr>
     <tr>
       <td>Cloud Firestore</td>
@@ -128,16 +130,24 @@ Signing out stops all further syncing; data already on the leaderboard stays unt
     </tr>
     <tr>
       <td>Firebase Analytics</td>
-      <td>Anonymous usage statistics: screens viewed, and the events start fast / break fast /
-        complete fast (with target hours and points) / quest completed. No profile, health, or
-        measurement data is sent.</td>
+      <td>Usage statistics (e.g. screens opened, start/end fast, quest completion) used to improve
+        the app. These are <strong>pseudonymous, not anonymous</strong>: they are tied to an app
+        instance identifier and include technical data such as device model, OS version, app
+        version, and approximate country. They are not linked to your name, email, or health
+        data.</td>
     </tr>
     <tr>
       <td>Firebase Crashlytics</td>
-      <td>Crash and error reports to fix bugs</td>
+      <td>Crash reports (stack trace, device model, OS version, app state at the time of the crash,
+        and an installation identifier) used to fix bugs</td>
     </tr>
   </tbody>
 </table>
+<p>
+Analytics and Crashlytics run for everyone, including users who never sign in. The app contains
+<strong>no ads</strong>, no advertising SDK, and no push-messaging service — all reminders are
+generated locally on your device. We do <strong>not</strong> sell your data.
+</p>
 <p>
 Google's processing of this data is governed by Google's Privacy Policy:
 <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>
@@ -145,44 +155,52 @@ Google's processing of this data is governed by Google's Privacy Policy:
 
 <h2>5. Device permissions</h2>
 <ul>
-  <li><strong>Notifications</strong> — remind you when you reach a fasting goal. Can be turned off
-    in your OS settings.</li>
-  <li><strong>Run at startup</strong> (<code>RECEIVE_BOOT_COMPLETED</code>) — only to re-schedule
-    your pending fasting reminders after the device restarts.</li>
+  <li><strong>Notifications</strong> (<code>POST_NOTIFICATIONS</code>, Android 13+) — remind you
+    when you reach a fasting goal. Reminders are scheduled locally; nothing is sent to a server.
+    Can be turned off in your OS settings.</li>
+  <li><strong>Run at startup</strong> (<code>RECEIVE_BOOT_COMPLETED</code>) — re-schedules your
+    pending fasting reminders after the device restarts. No data is collected.</li>
+  <li><strong>Internet</strong> — needed only for sign-in, the leaderboard, Analytics, and
+    Crashlytics. The fasting timer, roadmap, and articles all work offline.</li>
 </ul>
+
+<h2>6. Sharing</h2>
 <p>
-When you share a progress image, the app hands the image to your operating system's share sheet;
-you choose the destination app. Tapping a source link opens it in your browser. Neither action
-sends data to us.
+Share buttons (share a rank or streak card) are always started by you. The app renders a PNG image
+on your device and hands it to the app you pick in the system share sheet. What happens next is
+governed by that app's own privacy policy. Nothing is shared automatically.
 </p>
 
-<h2>6. Children</h2>
+<h2>7. Children</h2>
 <p>
 The app is intended for people <strong>18 years and older</strong> and is not directed at children.
 We do not knowingly collect data from children under 13.
 </p>
 
-<h2>7. Data retention and deletion</h2>
+<h2>8. Data retention and deletion</h2>
 <ul>
   <li><strong>Local data:</strong> kept until you uninstall the app or clear the app's data.</li>
   <li><strong>Leaderboard data:</strong> kept on Firestore until you request deletion. Signing out
-    in the app stops further syncing but does not delete the existing entry. To delete your
-    leaderboard entry and account, contact
-    <a href="mailto:lepetithari@gmail.com">lepetithari@gmail.com</a>.</li>
+    (Profile screen) stops further syncing but does not delete the existing row.</li>
+  <li>To delete your leaderboard row, your reserved nickname, and your Firebase Authentication
+    account, email <a href="mailto:lepetithari@gmail.com">lepetithari@gmail.com</a> from the
+    address you signed in with. Requests are handled within 30 days.</li>
+  <li>Analytics and Crashlytics data are retained on Google's servers according to Firebase's own
+    retention settings and are not linked to your identity.</li>
 </ul>
 
-<h2>8. Your rights</h2>
+<h2>9. Your rights</h2>
 <p>
 You have the right to access, correct, or request deletion of your personal data. Send requests to
 the contact email below.
 </p>
 
-<h2>9. Changes to this policy</h2>
+<h2>10. Changes to this policy</h2>
 <p>
 This policy may be updated. Changes will be posted on this page with a new "Last updated" date.
 </p>
 
-<h2>10. Medical disclaimer</h2>
+<h2>11. Medical disclaimer</h2>
 <p>
 The app supports intermittent fasting practice and is <strong>not a substitute for medical
 advice</strong>. Consult a healthcare professional before changing your diet.
